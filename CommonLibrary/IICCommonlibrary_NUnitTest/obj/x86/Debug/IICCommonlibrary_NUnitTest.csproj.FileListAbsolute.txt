@@ -1,0 +1,13 @@
+E:\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\obj\x86\Debug\IICCommonlibrary_NUnitTest.csprojResolveAssemblyReference.cache
+E:\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\bin\Debug\IICCommonlibrary_NUnitTest.exe.config
+E:\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\bin\Debug\IICCommonlibrary_NUnitTest.exe
+E:\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\bin\Debug\IICCommonlibrary_NUnitTest.pdb
+E:\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\bin\Debug\IICCommonLibrary.dll
+E:\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\bin\Debug\nunit.framework.dll
+E:\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\bin\Debug\IICCommonLibrary.pdb
+E:\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\bin\Debug\IICCommonLibrary.xml
+E:\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\obj\x86\Debug\IICCommonlibrary_NUnitTest.exe
+E:\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\obj\x86\Debug\IICCommonlibrary_NUnitTest.pdb
+D:\微云网盘\37884371\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\bin\Debug\IICCommonlibrary_NUnitTest.exe.config
+D:\微云网盘\37884371\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\obj\x86\Debug\IICCommonlibrary_NUnitTest.exe
+D:\微云网盘\37884371\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\obj\x86\Debug\IICCommonlibrary_NUnitTest.pdb

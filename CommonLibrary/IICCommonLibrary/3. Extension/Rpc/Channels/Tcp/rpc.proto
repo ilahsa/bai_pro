@@ -1,0 +1,41 @@
+﻿
+message RpcRequsetHeader {
+	required int32 Sequence = 1;		// 事务序号, 客户端生成, 活动事务唯一，可复用	
+	required int32 BodyLength = 2;		// 0代表传空，1代表全默认，len-1为实际长度
+	optional int32 FromId = 3;			// 交换后使用缩写的from代替service@computer，
+	optional int32 ServiceId = 4;		// 交换后用id代替service.method
+	optional int32 Option = 5;			// 事务请求可选项
+	optional string ContextUri = 6;		// 上下文Uri
+	optional string FromComputer = 7;	// 来源计算机
+	optional string FromService = 8;	// 来源服务
+	optional string Service = 9;		// 服务名
+	optional string Method = 10;		// 方法名
+}
+
+message RpcResponseHeader {
+	enum ResponseCodeValue {
+		OK						= 200;
+		ServiceNotFound			= 404;
+		MethodNotFound			= 405;
+		ConnectionFailed		= 481;
+		ServerError				= 500;
+		ServerBudy				= 503;
+		ServerTimeout			= 504;
+		ServerTransferFailed	= 600;
+		Unknown					= 699;
+	}
+	required int32 Sequence = 1;		// 事务序号
+	required int32 ResponseCode = 2;	// 返回码
+	required int32 BodyLength = 3;		// 0代表传空，1代表全默认，len-1为实际长度
+	optional int32 Option = 4;			// 事务应答可选项
+	optional int32 ServiceId = 5;		// 如果客户端使用service.method，则会分配一个快速访问的id, id > 0
+	optional int32 FromId = 6;			// 如果客户端使用service@computer，则会分配一个用于快速访问的id, id > 0 
+}
+
+message RpcRequestHeaders｛
+	repeated RpcRequestHeader Headers = 1;		// 
+｝
+
+message RpcResponseHeaders {
+	repeated RpcResponseHeader Headers = 1;		//
+}

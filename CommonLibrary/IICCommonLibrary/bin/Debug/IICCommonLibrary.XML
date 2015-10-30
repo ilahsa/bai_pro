@@ -1,0 +1,3595 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>IICCommonLibrary</name>
+    </assembly>
+    <members>
+        <member name="T:Imps.Services.CommonV4.AsyncQueue`1">
+            <summary>
+            用于两个线程间通讯的异步队列
+            线程安全
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Imps.Services.CommonV4.DictionaryList`2">
+            <summary>
+            	Value值为一个list的的K-V结构
+            	内部为线程安全
+            </summary>
+            <typeparam name="K"></typeparam>
+            <typeparam name="V"></typeparam>
+        </member>
+        <member name="M:Imps.Services.CommonV4.DictionaryList`2.CompareAll(Imps.Services.CommonV4.DictionaryList{`0,`1},System.Action{`0,System.Collections.Generic.List{`1},Imps.Services.CommonV4.DictionaryList{`0,`1}.UpdateMode})">
+            <summary>
+            	寻找table与rval中的不同，逐条用新值触发unmatchCallback
+            	New: rval中新增的值，
+            	Update: 变更的值
+            	Delete:	删除的值
+            </summary>
+            <param name="rval"></param>
+            <param name="unmatchCallback"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.DictionaryList`2.ListEqual(System.Collections.Generic.List{`1},System.Collections.Generic.List{`1})">
+            
+            这是一个o(n*n)的算法，但是输入数据量很小，所以可以接受
+            TODO 需要详细测试论证算法正确
+            @param llist
+            @param rlist
+            @return
+        </member>
+        <member name="T:Imps.Services.CommonV4.SimpleHttpRequest">
+            <summary>
+            Request is a static class that holds the http methods
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SimpleHttpRequest.Get(System.String,System.Action{System.String})">
+            <summary>
+            Performs a HTTP get request
+            </summary>
+            <param name="url">Target URL</param>
+            <param name="successCallback">A function that is called on success</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SimpleHttpRequest.Get(System.String,System.Object,System.Action{System.String})">
+            <summary>
+            Performs a HTTP get request with parameters
+            </summary>
+            <param name="url">Target URL</param>
+            <param name="parameters">KVP Array of parameters</param>
+            <param name="successCallback">A function that is called on success</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SimpleHttpRequest.Get(System.String,System.Object,System.Action{System.String},System.Action{System.Net.WebException})">
+            <summary>
+            Performs a HTTP get request with parameters and a function that is called on failure
+            </summary>
+            <param name="url">Target URL</param>
+            <param name="parameters">KVP Array of parameters</param>
+            <param name="successCallback">Function that is called on success</param>
+            <param name="failCallback">Function that is called on failure</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SimpleHttpRequest.Head(System.String,System.Action{System.String})">
+            <summary>
+            Performs a HTTP head operation
+            </summary>
+            <param name="url">Target URL</param>
+            <param name="successCallback">A function that is called on success</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SimpleHttpRequest.Head(System.String,System.Object,System.Action{System.String})">
+            <summary>
+            Performs a HTTP head operation with parameters
+            </summary>
+            <param name="url">Target URL</param>
+            <param name="parameters">KVP Array of parameters</param>
+            <param name="successCallback">A function that is called on success</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SimpleHttpRequest.Head(System.String,System.Object,System.Action{System.String},System.Action{System.Net.WebException})">
+            <summary>
+            Performs a HTTP head operation with parameters and a function that is called on failure
+            </summary>
+            <param name="url">Target URL</param>
+            <param name="parameters">KVP Array of parameters</param>
+            <param name="successCallback">Function that is called on success</param>
+            <param name="failCallback">Function that is called on failure</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SimpleHttpRequest.Post(System.String,System.Object,System.Action{System.String})">
+            <summary>
+            Performs a HTTP post request on a target with parameters
+            </summary>
+            <param name="url">Target URL</param>
+            <param name="parameters">Array of parameters</param>
+            <param name="successCallback">Function that is called on success</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SimpleHttpRequest.Post(System.String,System.Object,System.Action{System.String},System.Action{System.Net.WebException})">
+            <summary>
+            Performs a HTTP post request with parameters and a fail function
+            </summary>
+            <param name="url">Target URL</param>
+            <param name="parameters">Array of parameters</param>
+            <param name="successCallback">Function that is called on success</param>
+            <param name="failCallback">Function that is called on failure</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SimpleHttpRequest.Put(System.String,System.Object,System.Action{System.String})">
+            <summary>
+            Performs a HTTP put request on a target with parameters
+            </summary>
+            <param name="url">Target URL</param>
+            <param name="parameters">Array of parameters</param>
+            <param name="successCallback">Function that is called on success</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SimpleHttpRequest.Put(System.String,System.Object,System.Action{System.String},System.Action{System.Net.WebException})">
+            <summary>
+            Performs a HTTP put request with parameters and a fail function
+            </summary>
+            <param name="url">Target URL</param>
+            <param name="parameters">Array of parameters</param>
+            <param name="successCallback">Function that is called on success</param>
+            <param name="failCallback">Function that is called on failure</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SimpleHttpRequest.Delete(System.String,System.Object,System.Action{System.String})">
+            <summary>
+            Performs a HTTP delete request with parameters and a fail function
+            </summary>
+            <param name="url">Target URL</param>
+            <param name="parameters">Array of parameters</param>
+            <param name="successCallback">Function that is called on success</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SimpleHttpRequest.Delete(System.String,System.Object,System.Action{System.String},System.Action{System.Net.WebException})">
+            <summary>
+            Performs a HTTP delete request with parameters and a fail function
+            </summary>
+            <param name="url">Target URL</param>
+            <param name="parameters">Array of parameters</param>
+            <param name="successCallback">Function that is called on success</param>
+            <param name="failCallback">Function that is called on failure</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SimpleHttpRequest.Upload(System.String,System.Object,Imps.Services.CommonV4.NamedFileStream[],System.Action{System.String})">
+            <summary>
+            Upload an array of files to a remote host using the HTTP post multipart method
+            </summary>
+            <param name="url">Target URL</param>
+            <param name="parameters">Parmaters</param>
+            <param name="files">An array of files</param>
+            <param name="successCallback">funciton that is called on success</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SimpleHttpRequest.Upload(System.String,System.Object,Imps.Services.CommonV4.NamedFileStream[],System.Action{System.String},System.Action{System.Net.WebException})">
+            <summary>
+            Upload an array of files to a remote host using the HTTP post multipart method
+            </summary>
+            <param name="url">Target URL</param>
+            <param name="parameters">Parmaters</param>
+            <param name="files">An array of files</param>
+            <param name="successCallback">Funciton that is called on success</param>
+            <param name="FailCallback">Function that is called on failure</param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.NamedFileStream">
+            <summary>
+            NamedFileStream is a simple data structre that holds a file name, and stream
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.NamedFileStream.#ctor(System.String,System.String,System.String,System.IO.Stream)">
+            <summary>
+            Create a new NamedFileStream
+            </summary>
+            <param name="name">Form name for file</param>
+            <param name="filename">Name of file</param>
+            <param name="contentType">Content type of file</param>
+            <param name="stream">File Stream</param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.HttpUtils">
+            <summary>
+            This abstract class is a container for utility functions used by HttpLib
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.HttpUtils.SerializeQueryString(System.Object)">
+            <summary>
+            Serialize an array of Key-Value pairs into a URL encoded query string
+            </summary>
+            <param name="Parameters">The key-value pair array</param>
+            <returns>The URL encoded query string</returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.TaskDelay">
+            <summary>
+            task ex
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.TaskDelay.Delay(System.Int32,System.Action)">
+            <summary>
+            延迟执行某个动作
+            </summary>
+            <param name="dueTime"></param>
+            <param name="callback"></param>
+            <exception cref="T:System.ArgumentOutOfRangeException">dueTime</exception>
+            <exception cref="T:System.ArgumentNullException">callback is null</exception>
+        </member>
+        <member name="M:Imps.Services.CommonV4.MD5Hashing.HashString(System.String)">
+            <summary>  
+            使用utf8编码将字符串散列  
+            </summary>  
+            <param name="sourceString">要散列的字符串</param>  
+            <returns>散列后的字符串</returns>  
+        </member>
+        <member name="T:Imps.Services.CommonV4.SocketEx">
+            <summary>
+            socket 的扩展方法
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SocketEx.SafeClose(System.Net.Sockets.Socket)">
+            <summary>
+            Close the socket safely.
+            </summary>
+            <param name="socket">The socket.</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SocketEx.SendData(System.Net.Sockets.Socket,System.Byte[])">
+            <summary>
+            Sends the data.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SocketEx.SendData(System.Net.Sockets.Socket,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends the data.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="data">The data.</param>
+            <param name="offset">The offset.</param>
+            <param name="length">The length.</param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Net.IPosList`1">
+            <summary>
+            The generic list interface with position
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Net.IPosList`1.Position">
+            <summary>
+            Gets or sets the position of current item.
+            </summary>
+            <value>
+            The position.
+            </value>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Net.PosList`1">
+            <summary>
+            The generic list with position
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Net.PosList`1.Position">
+            <summary>
+            Gets or sets the position of current item.
+            </summary>
+            <value>
+            The position.
+            </value>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Net.IBatchQueue`1">
+            <summary>
+            A queue interface which can operate in batch
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Net.IBatchQueue`1.Enqueue(`0)">
+            <summary>
+            Enqueues the specified item.
+            </summary>
+            <param name="item">The item.</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Net.IBatchQueue`1.Enqueue(System.Collections.Generic.IList{`0})">
+            <summary>
+            Enqueues the specified items.
+            </summary>
+            <param name="items">The items.</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Net.IBatchQueue`1.TryDequeue(System.Collections.Generic.IList{`0})">
+            <summary>
+            Tries to dequeue all items in the queue into the output list.
+            </summary>
+            <param name="outputItems">The output items.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Net.IBatchQueue`1.IsEmpty">
+            <summary>
+            Gets a value indicating whether this instance is empty.
+            </summary>
+            <value>
+              <c>true</c> if this instance is empty; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Net.IBatchQueue`1.Count">
+            <summary>
+            Gets the count.
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1">
+            <summary>
+            Concurrent BatchQueue
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1"/> class.
+            </summary>
+            <param name="capacity">The capacity of the queue.</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1.#ctor(System.Int32,System.Func{`0,System.Boolean})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1"/> class.
+            </summary>
+            <param name="capacity">The capacity.</param>
+            <param name="nullValidator">The null validator.</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1.#ctor(`0[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1"/> class.
+            </summary>
+            <param name="array">The array.</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1.#ctor(`0[],System.Func{`0,System.Boolean})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1"/> class.
+            </summary>
+            <param name="array">The array.</param>
+            <param name="nullValidator">The null validator.</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1.Enqueue(`0)">
+            <summary>
+            Enqueues the specified item.
+            </summary>
+            <param name="item">The item.</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1.Enqueue(System.Collections.Generic.IList{`0})">
+            <summary>
+            Enqueues the specified items.
+            </summary>
+            <param name="items">The items.</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1.TryDequeue(System.Collections.Generic.IList{`0})">
+            <summary>
+            Tries the dequeue.
+            </summary>
+            <param name="outputItems">The output items.</param>
+            <returns></returns>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1.IsEmpty">
+            <summary>
+            Gets a value indicating whether this instance is empty.
+            </summary>
+            <value>
+              <c>true</c> if this instance is empty; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Net.ConcurrentBatchQueue`1.Count">
+            <summary>
+            Gets the count.
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Net.SslStreamTcpSession.ValidateRemoteCertificate(System.Object,System.Security.Cryptography.X509Certificates.X509Certificate,System.Security.Cryptography.X509Certificates.X509Chain,System.Net.Security.SslPolicyErrors)">
+            <summary>
+            Validates the remote certificate.
+            </summary>
+            <param name="sender">The sender.</param>
+            <param name="certificate">The certificate.</param>
+            <param name="chain">The chain.</param>
+            <param name="sslPolicyErrors">The SSL policy errors.</param>
+            <returns></returns>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.OK">
+            <summary>成功</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.SendFailed">
+            <summary>在客户端发送阶段产生错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.SendPending">
+            <summary>客户端通道过于拥挤，无法发送</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.TransactionTimeout">
+            <summary>Transaction超时, 在规定时间内未收到服务器应答</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.TransactionBusy">
+            <summary>客户端事务忒忙，无法创建</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.ConnectionTimeout">
+            <summary>建立连接超时，在某些连接模式的Channel中会抛出</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.ConnectionBroken">
+            <summary>连接断开失效，在连接模式的Channel中抛出</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.ConnectionPending">
+            <summary>连接堵塞, 当对某一台服务器创建了太多无法使用的连接时抛出</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.ServiceNotFound">
+            <summary>服务未找到, 已到达Server端，由Rpc分发器返回</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.MethodNotFound">
+            <summary>方法未找到, 已到达Server端，由Rpc分发器返回</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.ServerBusy">
+            <summary>服务器忙, 保护性错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.InvaildRequestArgs">
+            <summary>请求格式错误，可能为序列化错误，或内部报文格式错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.InvaildResponseArgs">
+            <summary>应答格式错误，可能为序列化错误，或内部报文格式错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.ConnectionFailed">
+            <summary>连接状态维护失败，由服务器返回错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.ServerTimeout">
+            <summary>服务器转发，或处理超时</summary>
+            <remarks>TransacionTimeout为客户端未收到应答，ServerTimeout由服务器明确给出超时应答，在SGW或转发类服务中出现</remarks>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.ServerTransferFailed">
+            <summary>服务器转发错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.Unknown">
+            <summary>未知错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.ServerError">
+            <summary>内部错误, Server端返回, 可能为应用抛出</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.JsonRpcSyncCaller.BeginInvoke(System.String,System.String,System.String,System.String,System.Action{Imps.Services.CommonV4.JsonRpcResponse})">
+            <summary>
+            异步方法
+            </summary>
+            <typeparam name="TArgs"></typeparam>
+            <param name="url"></param>
+            <param name="method"></param>
+            <param name="args"></param>
+            <param name="callback"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpSimplexConnectionManager.DelayClose(Imps.Services.CommonV4.Rpc.RpcTcpSocketConnection)">
+            <summary>
+            	延时关闭Socket, 保证所有的事务都执行完毕
+            </summary>
+            <param name="sock"></param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcTcpBufferPool`1">
+            <summary>
+            	高效的对象缓冲池
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Imps.Services.CommonV4.DbAccess.IDatabaseOperation.SpBeginExecuteNonQuery(System.String,System.Action{Imps.Services.CommonV4.AsyncDbCallback{System.Int32}},System.String[],System.Object[])">
+            <summary>
+            SpExecuteNonQuery的异步方法。。。
+            </summary>
+            <param name="callback">回调函数</param>
+            <param name="spName"></param>
+            <param name="parameters"></param>
+            <param name="values"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.DbAccess.IDatabaseOperation.SpBeginExecuteReader(System.String,System.Action{Imps.Services.CommonV4.AsyncDbCallback{Imps.Services.CommonV4.DataReader}},System.String[],System.Object[])">
+            <summary>
+            SpExecuteReader的异步方法。。。
+            </summary>
+            <param name="callback"></param>
+            <param name="spName"></param>
+            <param name="paramters"></param>
+            <param name="values"></param>
+        </member>
+        <member name="P:Imps.Services.CommonV4.DbAccess.IDatabaseOperation.CommandTimeout">
+            <summary>Count in Seconds</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.DbAccess.OracleDatabase.BulkInsert(System.String,System.Data.DataTable,System.String[])">
+            <summary>
+            根据指定的字段顺序插入表
+            </summary>
+            <param name="tableName"></param>
+            <param name="table"></param>
+            <param name="colNames">字段顺序列</param>
+            <returns></returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.LoopCounter">
+            <summary>
+            	严格保证线程安全的循环计数器
+            </summary>
+            <remarks>为保证性能，循环计数器的平均率，会有万分之一以下的误差</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.LoopCounter.#ctor(System.Int32)">
+            <summary>
+            	构造函数, 创建一个线程安全，顺序返回0..n-1的循环计数器
+            </summary>
+            <param name="n">上限</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.LoopCounter.Reset">
+            <summary>
+            	重置为零
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.LoopCounter.Next">
+            <summary>
+            	获取下一个值，会在0..n-1之间顺序循环
+            </summary>
+            <returns>0..n-1，顺序循环的值</returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.SyncInvokerBase">
+            <summary>
+            	用于消除异步转同步时冗余代码的辅助类, 基类
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SyncInvokerBase.#ctor">
+            <summary>
+            	创建一个AsyncInvoker调用器
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SyncInvokerBase.Wait(System.Int32)">
+            <summary>
+            	等待
+            </summary>
+            <param name="timeoutMs">等待超时，-1为无限等待</param>
+            <returns>在时限内返回：true</returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.SyncInvoker">
+            <summary>
+            	用于消除异步转同步时冗余代码的辅助类，适用于无参数的异步回调
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.SyncInvoker.Callback">
+            <summary>
+            	提供给异步回调使用的Callback函数
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.SyncInvoker`1">
+            <summary>
+            	用于消除异步转同步时冗余代码的辅助类，适用于一个参数的异步回调
+            </summary>
+            <typeparam name="TContext">异步回调参数类型</typeparam>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SyncInvoker`1.#ctor">
+            <summary>
+            	创建一个AsyncInvoker调用器
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.SyncInvoker`1.Callback">
+            <summary>
+            	提供给异步回调使用的Callback函数
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.SyncInvoker`1.Context">
+            <summary>
+            	异步回调的上下文参数
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.SyncInvoker`2">
+            <summary>
+            	用于消除异步转同步时冗余代码的辅助类，适用于一个参数的异步回调
+            </summary>
+            <typeparam name="C1">异步回调参数1类型</typeparam>
+            <typeparam name="C2">异步回调参数2类型</typeparam>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SyncInvoker`2.#ctor">
+            <summary>
+            	创建一个AsyncInvoker调用器
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.SyncInvoker`2.Callback">
+            <summary>
+            	提供给异步回调使用的Callback函数
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.SyncInvoker`2.Param1">
+            <summary>
+            	异步回调的参数1
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.SyncInvoker`2.Param2">
+            <summary>
+            	异步回调的参数2
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcMessageDirection">
+            <summary>
+            	RpcMessage 方向
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcMessageDirection.Request">
+            <summary>请求</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcMessageDirection.Response">
+            <summary>应答</summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcMessageOptions">
+            <summary>
+            RpcMessage的各种扩展选项，Rpc用于Rpc后面的各种扩展
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcMessageOptions.None">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcMessageOptions.BatchMethod">
+            <summary> 批量方法 </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcMessageOptions.TextError">
+            <summary> 文本错误提示 </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcMessageOptions.ConnectionBinding">
+            <summary> 连接绑定 </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcBatchClientTransaction.#ctor(Imps.Services.CommonV4.ServerUri,Imps.Services.CommonV4.Rpc.RpcBatchRequest,Imps.Services.CommonV4.Rpc.RpcClientBatchManager)">
+            <summary>
+            SGW专用，其他慎用
+            </summary>
+            <param name="uri"></param>
+            <param name="request"></param>
+            <param name="manager"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcBatchClientTransaction.SendRequest(System.Action,System.Int32,System.Int32)">
+            <summary>
+            SGW使用，其他慎用
+            </summary>
+            <param name="callback"></param>
+            <param name="timeout"></param>
+            <param name="requestIndex"></param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcConnectionMode">
+            <summary>
+            	Rpc的连接类型
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcConnectionMode.Unknown">
+            <summary></summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcConnectionMode.Simplex">
+            <summary>单工方式，仅支持客户端到服务器的调用</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcConnectionMode.Duplex">
+            <summary>双工方式，支持双向调用</summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcConnectionDirection">
+            <summary>
+            	Rpc的连接方向
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcConnectionDirection.Client">
+            <summary>客户端</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcConnectionDirection.Server">
+            <summary>服务器</summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcConnection">
+            <summary>
+            	用于Rpc长连接的管理，长连接被可以是双向: Duplex的或单向: Simplex的
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcConnection.OnTransactionCreated(Imps.Services.CommonV4.Rpc.RpcServerTransaction)">
+            <summary>触发Transaction创建事件</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcConnection.OnDisconnected">
+            <summary>触发断开连接事件</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcConnection.Disconnect">
+            <summary>主动断开连接</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcConnection.BeginConnect(System.Action{System.Exception})">
+            <summary>主动创建连接，Client</summary>
+            <param name="callback">如果callback无异常，表示连接上</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcConnection.CreateTransaction(Imps.Services.CommonV4.Rpc.RpcRequest)">
+            <summary>创建一个RpcTransaction</summary>
+            <param name="request">请求实体类</param>
+            <returns>Trans</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcConnection.#ctor(Imps.Services.CommonV4.Rpc.RpcConnectionMode,Imps.Services.CommonV4.Rpc.RpcConnectionDirection)">
+            <summary>
+            	创建一个RpcConnection
+            </summary>
+            <param name="mode">模式</param>
+            <param name="direction">方向</param>
+            <remarks>被动连接(Server)在连接创建时建立，主动连接(Client)在BeginConnect后连接</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcConnection.Connect(System.Int32)">
+            <summary>
+            	同步创建连接
+            </summary>
+            <param name="timeout"></param>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.Mode">
+            <summary>连接类型</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.Connected">
+            <summary>是否连接上</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.Direction">
+            <summary>连接方向</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.RemoteUri">
+            <summary>对端Uri</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.RemoteService">
+            <summary>远程服务角色名</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.Contexts">
+            <summary>自定义连接上下文，用于保存状态</summary>
+        </member>
+        <member name="E:Imps.Services.CommonV4.Rpc.RpcConnection.Disconnected">
+            <summary>连接断开时触发，主动连接不会触发</summary>
+        </member>
+        <member name="E:Imps.Services.CommonV4.Rpc.RpcConnection.TransactionCreated">
+            <summary>收到请求, Transaction创建时触发此事件, 服务端</summary>
+            <remarks>一般情况, 触发此事件后, 会继续触发Channel.OnTransactionCreated, 所以本事件不要用于业务处理</remarks>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcChannelSupportModes">
+            <summary>
+            	Rpc通道支持模式
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcChannelSupportModes.None">
+            <summary>空</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcChannelSupportModes.Connection">
+            <summary>长连接模式</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcChannelSupportModes.DuplexConnection">
+            <summary>双工长连接</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcChannelSupportModes.TextError">
+            <summary>文本错误</summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcChannelSettings">
+            <summary>
+            	Rpc的通道配置
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcChannelSettings.Version">
+            <summary>版本号,一般不看</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcChannelSettings.SupportModes">
+            <summary>通道支持的特性</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcChannelSettings.MaxBodySize">
+            <summary>最大的包体长度</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcChannelSettings.Timeout">
+            <summary>默认的超时时间</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcChannelSettings.ConnectionKeepaliveSeconds">
+            <summary>连接模式的保持连接事件</summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcDuplexCallbackChannel">
+            <summary>
+            	当使用RpcDuplexClient时, 被callback的Transaction.Connection.Channel引用
+            </summary>
+            <remarks>实质上将一个ClientChannel封装成ServerChannel</remarks>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcServerChannel">
+            <summary>
+            	Rpc Server通道的抽象基类: 要实现一个Server通道的话，请继承此类
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_syncRoot">
+            <summary>内部同步对象</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_started">
+            <summary>通道是否启动（监听）</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_protocol">
+            <summary>协议</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_serverUri">
+            <summary>服务监听的Uri</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_channelSettings">
+            <summary>默认通道的配置</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.Start">
+            <summary>启动监听</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.Stop">
+            <summary>中止监听</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.DoStart">
+            <summary>
+            	开始监听的具体实现
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.DoStop">
+            <summary>
+            	关闭监听的具体实现
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.#ctor(System.String,System.String)">
+            <summary>
+            基础构造函数
+            </summary>
+            <param name="protocol">协议: 如"http"."tcp"</param>
+            <param name="serverUri">监听的url，如tcp://192.168.1.100:8000/</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.OnTransactionCreated(Imps.Services.CommonV4.Rpc.RpcServerTransaction)">
+            <summary>
+            	安全触发Transaction创建事件
+            </summary>
+            <param name="trans"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.OnConnectionCreated(Imps.Services.CommonV4.Rpc.RpcConnection)">
+            <summary>
+            	安全触发Connection创建事件
+            </summary>
+            <param name="conn"></param>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerChannel.ServerUrl">
+            <summary>服务器端Url</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerChannel.Protocol">
+            <summary>协议</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerChannel.Started">
+            <summary>是否启动监听</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerChannel.ChannelSettings">
+            <summary>通道配置</summary>
+        </member>
+        <member name="E:Imps.Services.CommonV4.Rpc.RpcServerChannel.TransactionCreated">
+            <summary>Server事务创建时触发</summary>
+        </member>
+        <member name="E:Imps.Services.CommonV4.Rpc.RpcServerChannel.ConnectionCreated">
+            <summary>连接创建时触发</summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.RpcServiceBase">
+            <summary>
+            	所有Rpc服务的基类
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcRequest">
+            <summary>
+            	Rpc请求实体类, 直接使用Transaction模式进行处理时可以直接使用
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcRequest.FromComputer">
+            <summary>发起方机器名</summary>
+            <remarks>1~32字节</remarks>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcRequest.FromService">
+            <summary>发起方服务名</summary>
+            <remarks>1~32字节</remarks>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcRequest.Service">
+            <summary>Rpc访问目标服务</summary>
+            <remarks>1~32字节</remarks>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcRequest.Method">
+            <summary>Rpc访问目标方法</summary>
+            <remarks>1~32字节</remarks>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcRequest.ContextUri">
+            <summary>Rpc上下文Uri</summary>
+            <remarks>0~256字节, 可以为空</remarks>
+            <see cref="T:Imps.Services.CommonV4.ResolvableUri"/>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcRequest.Options">
+            <summary>Rpc消息选项</summary>
+            <remarks>4字节整形</remarks>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcRequest.BodyBuffer">
+            <summary>请求数据</summary>
+            <remarks>没有为空</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcRequest.#ctor">
+            <summary>
+            	默认构造函数
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcRequest.#ctor(System.String,System.String,Imps.Services.CommonV4.ResolvableUri)">
+            <summary>
+            	构造函数
+            </summary>
+            <param name="service"></param>
+            <param name="method"></param>
+            <param name="contextUri"></param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcResponse">
+            <summary>
+            	Rpc的应答实体类, 直接使用Transaction模式的时候, 可以直接使用
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcDuplexClient">
+            <summary>
+            	Rpc的双工客户端程序,允许保持长连接,并允许从服务器端进行反向调用
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcDuplexClient.BeginConnect(System.Action{System.Exception})">
+            <summary>
+            	异步尝试Connect到服务器端, 并在连接后直接注册
+            </summary>
+            <param name="callback">完成后的回调</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcDuplexClient.Connect">
+            <summary>
+            	同步连接，默认超时时间
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcDuplexClient.Connect(System.Int32)">
+            <summary>
+            	连接，使用参数专递的超时时间
+            </summary>
+            <param name="connectionTimeout">超时时间</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcDuplexClient.GetProxy``1">
+            <summary>
+            	获取一个客户端代理
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcDuplexClient.GetProxy``1(Imps.Services.CommonV4.ResolvableUri)">
+            <summary>
+            	获取一个客户端代理, 带ContextUri
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcDuplexClient.RegisterService``1(``0)">
+            <summary>
+            	注册回调Service
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="rpcService"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcDuplexClient.RegisterRawService(Imps.Services.CommonV4.RpcServiceBase)">
+            <summary>
+            	注册回调Service
+            </summary>
+            <param name="service"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcDuplexClient.CreateTransaction(Imps.Services.CommonV4.Rpc.RpcRequest)">
+            <summary>
+            	接口支持服务: 创建Transaction
+            </summary>
+            <param name="request"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.Connected">
+            <summary>是否连接上</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.ServerUri">
+            <summary>目标的服务Uri</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.TargetService">
+            <summary>Nexus</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.TargetComputer">
+            <summary>Nexus</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.Timeout">
+            <summary>超时</summary>
+        </member>
+        <member name="E:Imps.Services.CommonV4.Rpc.RpcDuplexClient.Disconnected">
+            <summary>
+            	断开连接时触发, 连接失败不会触发
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.AsyncDbContext`1">
+            <summary>
+            	数据库方法的异步回调
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcClientChannel">
+            <summary>
+            	Rpc客户端通道的抽象基类
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcClientChannel.p_protocol">
+            <summary>协议: 如"http"</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcClientChannel.p_channelSettings">
+            <summary>通道设置</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcClientChannel.#ctor(System.String)">
+            <summary>构造函数</summary>
+            <param name="protocol">协议</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcClientChannel.CreateConnection(Imps.Services.CommonV4.ServerUri,Imps.Services.CommonV4.Rpc.RpcConnectionMode)">
+            <summary>创建连接，单工连接或者双工连接，适用于高级的Channel</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcClientChannel.Protocol">
+            <summary>协议</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcClientChannel.Timeout">
+            <summary>通道超时: ms毫秒</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcClientChannel.DefaultSettings">
+            <summary>ChannelSettings 的默认配置，在没有检查到DetectorService时使用该配置</summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcServerTransaction">
+            <summary>
+            	服务器端事务的封装
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerTransaction.Request">
+            <summary>
+            	RPC请求
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerTransaction.Bypassed">
+            <summary>
+            	允许其他事件优先处理RpcServerTransaction, 
+            	并在RpcServiceManager的TransactionCreated事件中跳过请求的处理
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerTransaction.Connection">
+            <summary>
+            	连接对象
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.AsyncCallHelper`1">
+            <summary>
+            	异步调用的Helper class
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Google.ProtoBuf.IExtensible">
+            <summary>
+            Indicates that the implementing type has support for protocol-buffer
+            <see cref="T:Google.ProtoBuf.IExtension">extensions</see>.
+            </summary>
+            <remarks>Can be implemented by deriving from <see cref="T:Google.ProtoBuf.Extensible"/>.</remarks>
+        </member>
+        <member name="M:Google.ProtoBuf.IExtensible.GetExtensionObject(System.Boolean)">
+            <summary>
+            Retrieves the <see cref="T:Google.ProtoBuf.IExtension">extension</see> object for the current
+            instance, optionally creating it if it does not already exist.
+            </summary>
+            <param name="createIfMissing">Should a new extension object be
+            created if it does not already exist?</param>
+            <returns>The extension object if it exists (or was created), or null
+            if the extension object does not exist or is not available.</returns>
+            <remarks>The <c>createIfMissing</c> argument is false during serialization,
+            and true during deserialization upon encountering unexpected fields.</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpPacket.#ctor(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            	创建一个数据包, 首次调用的buffer长度应当小于等于IdentityLength
+            </summary>
+            <param name="buffer"></param>
+            <param name="offset"></param>
+            <param name="count">小于等于IdentityLength</param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcTcpClientChannel">
+            <summary>
+            	Rpc的Tcp客户端通道
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpClientChannel.#ctor">
+            <summary>
+            	构造函数, 不需要参数
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpClientChannel.CreateTransaction(Imps.Services.CommonV4.ServerUri,Imps.Services.CommonV4.Rpc.RpcRequest)">
+            <summary>
+            	创建一个Transaction
+            </summary>
+            <param name="uri"></param>
+            <param name="request"></param>
+            <returns></returns>
+            <remarks>这个事务会建立在单工的Tcp连接上</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpClientChannel.CreateConnection(Imps.Services.CommonV4.ServerUri,Imps.Services.CommonV4.Rpc.RpcConnectionMode)">
+            <summary>
+            	创建连接
+            </summary>
+            <param name="serverUri"></param>
+            <param name="mode">单工或是双工连接</param>
+            <returns></returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcTcpServerChannel">
+            <summary>
+            	Rpc的Tcp服务器通道，只支持IPv4
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpServerChannel.#ctor(System.Int32)">
+            <summary>
+            	构造函数
+            </summary>
+            <param name="port">tcp的监听端口</param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcTcpSimplexConnection">
+            <summary>
+            	处理Rpc客户端的Simplex连接
+            </summary>
+            <remarks>
+            1. 自动创建conncurrentConnection条连接
+            2. 每条连接创建时如果出错则自动重试
+            3. 被动断线后不自动重连, 由业务触发
+            4. 所有连接实行最大回收时间内重连的机制, 确保负载均衡下对新启动机器的连通率
+            </remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpSimplexConnection.OnSubDisconnected">
+            <summary>
+            	被动关闭连接, 所有的子连接都断开
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpSimplexConnection.OnSubConnected">
+            <summary>
+            	子连接创建成功
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcTcpSocketConnection">
+            <summary>
+            RpcOverTcp的实际连接对象
+            1. 发送接收Request, Response, 完成序列化
+            2. 管理不超过MaxSendPendings的发送缓冲
+            
+            状态变化:
+            	被创建后连接, 连接上以后, 如果被关闭, 则只能释放后重建连接		
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpSocketConnection.Send(Imps.Services.CommonV4.Rpc.IRpcTcpSendingPacket)">
+            <summary>
+            	发送一个请求
+            </summary>
+            <param name="tx"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpSocketConnection.Disconnect(System.Net.Sockets.SocketError)">
+            <summary>
+            	断开连接，这个方法不会抛出异常
+            </summary>
+            <param name="err"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpSocketConnection.Disconnect(System.Exception,System.String)">
+            <summary>
+            	断开连接，这个方法不会抛出异常
+            </summary>
+            <param name="ex"></param>
+            <param name ="action"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpSocketConnection.Disconnect">
+            <summary>
+            	断开连接，这个方法不会抛出异常
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpSocketConnection.Close(System.Exception)">
+            <summary>
+            	断开连接，这个方法不会抛出异常
+            </summary>
+            <param name="err"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpSocketConnection.SendPackets(Imps.Services.CommonV4.Rpc.IRpcTcpSendingPacket)">
+            <summary>
+            	发送报文
+            	如果sendFirst == null, 则优先从queue中dequeue
+            	否则, 先取出sendFirst, 然后再从queue中取
+            	这是一个回调链，完全靠回调组织起来的，当_sending = 1时，存在一个回调链
+            </summary>
+            <param name="sendFirst"></param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.AssemblyUtil">
+            <summary>
+            Assembly Util Class
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.AssemblyUtil.CreateInstance``1(System.String)">
+            <summary>
+            Creates the instance from type name.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type">The type.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.AssemblyUtil.CreateInstance``1(System.String,System.Object[])">
+            <summary>
+            Creates the instance from type name and parameters.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="type">The type.</param>
+            <param name="parameters">The parameters.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.AssemblyUtil.GetType(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Gets the type by the full name, also return matched generic type without checking generic type parameters in the name.
+            </summary>
+            <param name="fullTypeName">Full name of the type.</param>
+            <param name="throwOnError">if set to <c>true</c> [throw on error].</param>
+            <param name="ignoreCase">if set to <c>true</c> [ignore case].</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.AssemblyUtil.GetImplementTypes``1(System.Reflection.Assembly)">
+            <summary>
+            Gets the implement types from assembly.
+            </summary>
+            <typeparam name="TBaseType">The type of the base type.</typeparam>
+            <param name="assembly">The assembly.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.AssemblyUtil.GetImplementedObjectsByInterface``1(System.Reflection.Assembly)">
+            <summary>
+            Gets the implemented objects by interface.
+            </summary>
+            <typeparam name="TBaseInterface">The type of the base interface.</typeparam>
+            <param name="assembly">The assembly.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.AssemblyUtil.GetImplementedObjectsByInterface``1(System.Reflection.Assembly,System.Type)">
+            <summary>
+            Gets the implemented objects by interface.
+            </summary>
+            <typeparam name="TBaseInterface">The type of the base interface.</typeparam>
+            <param name="assembly">The assembly.</param>
+            <param name="targetType">Type of the target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.AssemblyUtil.BinaryClone``1(``0)">
+            <summary>
+            Clone object in binary format.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="target">The target.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.AssemblyUtil.CopyPropertiesTo``1(``0,``0)">
+            <summary>
+            Copies the properties of one object to another object.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="target">The target.</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.AssemblyUtil.GetAssembliesFromString(System.String)">
+            <summary>
+            Gets the assemblies from string.
+            </summary>
+            <param name="assemblyDef">The assembly def.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.AssemblyUtil.GetAssembliesFromStrings(System.String[])">
+            <summary>
+            Gets the assemblies from strings.
+            </summary>
+            <param name="assemblies">The assemblies.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Async">
+            <summary>
+            Async extension class
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Async.Run(System.Action)">
+            <summary>
+            Runs the specified task.
+            </summary>
+            <param name="task">The task.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Async.Run(System.Action,System.Threading.Tasks.TaskCreationOptions)">
+            <summary>
+            Runs the specified task.
+            </summary>
+            <param name="task">The task.</param>
+            <param name="taskOption">The task option.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Async.Run(System.Action,System.Action{System.Exception})">
+            <summary>
+            Runs the specified task.
+            </summary>
+            <param name="task">The task.</param>
+            <param name="exceptionHandler">The exception handler.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Async.Run(System.Action,System.Threading.Tasks.TaskCreationOptions,System.Action{System.Exception})">
+            <summary>
+            Runs the specified task.
+            </summary>
+            <param name="task">The task.</param>
+            <param name="taskOption">The task option.</param>
+            <param name="exceptionHandler">The exception handler.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Async.Run(System.Action{System.Object},System.Object)">
+            <summary>
+            Runs the specified task.
+            </summary>
+            <param name="task">The task.</param>
+            <param name="state">The state.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Async.Run(System.Action{System.Object},System.Object,System.Threading.Tasks.TaskCreationOptions)">
+            <summary>
+            Runs the specified task.
+            </summary>
+            <param name="task">The task.</param>
+            <param name="state">The state.</param>
+            <param name="taskOption">The task option.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Async.Run(System.Action{System.Object},System.Object,System.Action{System.Exception})">
+            <summary>
+            Runs the specified task.
+            </summary>
+            <param name="task">The task.</param>
+            <param name="state">The state.</param>
+            <param name="exceptionHandler">The exception handler.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Async.Run(System.Action{System.Object},System.Object,System.Threading.Tasks.TaskCreationOptions,System.Action{System.Exception})">
+            <summary>
+            Runs the specified task.
+            </summary>
+            <param name="task">The task.</param>
+            <param name="state">The state.</param>
+            <param name="taskOption">The task option.</param>
+            <param name="exceptionHandler">The exception handler.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.CodeTimer">
+            <summary>
+            来自于老赵的CodeTimer
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.DateTimeExtension.GetTimestamp(System.DateTime)">
+            <summary>
+            获取 dt 的时间戳
+            </summary>
+            <param name="dt"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.StringExtension">
+            <summary>
+            String extension
+            </summary>
+            <summary>
+            String extension class
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StringExtension.TryParseEnum``1(System.String,System.Boolean,``0@)">
+            <summary>
+            Tries parse string to enum.
+            </summary>
+            <typeparam name="T">the enum type</typeparam>
+            <param name="value">The value.</param>
+            <param name="ignoreCase">if set to <c>true</c> [ignore case].</param>
+            <param name="enumValue">The enum value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StringExtension.ToInt32(System.String)">
+            <summary>
+            Convert string to int32.
+            </summary>
+            <param name="source">The source.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StringExtension.ToInt32(System.String,System.Int32)">
+            <summary>
+            Convert string to int32.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StringExtension.ToLong(System.String)">
+            <summary>
+            Convert string to long.
+            </summary>
+            <param name="source">The source.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StringExtension.ToLong(System.String,System.Int64)">
+            <summary>
+            Convert string to long.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StringExtension.ToShort(System.String)">
+            <summary>
+            Convert string to short.
+            </summary>
+            <param name="source">The source.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StringExtension.ToShort(System.String,System.Int16)">
+            <summary>
+            Convert string to short.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StringExtension.ToDecimal(System.String)">
+            <summary>
+            Convert string to decimal.
+            </summary>
+            <param name="source">The source.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StringExtension.ToDecimal(System.String,System.Decimal)">
+            <summary>
+            Convert string to decimal.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StringExtension.ToDateTime(System.String)">
+            <summary>
+            Convert string to date time.
+            </summary>
+            <param name="source">The source.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StringExtension.ToDateTime(System.String,System.DateTime)">
+            <summary>
+            Convert string to date time.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StringExtension.ToBoolean(System.String)">
+            <summary>
+            Convert string to boolean.
+            </summary>
+            <param name="source">The source.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StringExtension.ToBoolean(System.String,System.Boolean)">
+            <summary>
+            Convert string tp boolean.
+            </summary>
+            <param name="source">The source.</param>
+            <param name="defaultValue">if set to <c>true</c> [default value].</param>
+            <returns></returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.DictionaryExtension">
+            <summary>
+            Extension class for IDictionary
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.DictionaryExtension.GetValue``1(System.Collections.Generic.IDictionary{System.Object,System.Object},System.Object)">
+            <summary>
+            Gets the value by key.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dictionary">The dictionary.</param>
+            <param name="key">The key.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.DictionaryExtension.GetValue``1(System.Collections.Generic.IDictionary{System.Object,System.Object},System.Object,``0)">
+            <summary>
+            Gets the value by key and default value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="dictionary">The dictionary.</param>
+            <param name="key">The key.</param>
+            <param name="defaultValue">The default value.</param>
+            <returns></returns>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcRequest.FromComputer">
+            <summary>发起方机器名</summary>
+            <remarks>1~32字节</remarks>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcRequest.FromService">
+            <summary>发起方服务名</summary>
+            <remarks>1~32字节</remarks>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcRequest.ServiceUri">
+            <summary>Rpc访问目标服务</summary>
+            <remarks>1~32字节</remarks>
+        </member>
+        <member name="F:Imps.Services.CommonV4.JsonRpcRequest.ReqBody">
+            <summary>请求数据</summary>
+            <remarks>没有为空</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.JsonRpcRequest.#ctor">
+            <summary>
+            	默认构造函数
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.JsonRpcRequest.#ctor(System.String,System.String)">
+            <summary>
+            	构造函数
+            </summary>
+            <param name="service"></param>
+            <param name="method"></param>
+            <param name="contextUri"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Dtc.TccDatabasePersister.LoadFailedTransaction">
+            <summary>
+            查询出所有没有Confirmed的Transaction
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.LazyQueue`1.Dispose">
+            <summary>
+            提供使用者一个显式释放资源的方法。
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.LazyQueue`1.Dispose(System.Boolean)">
+            <summary>
+            真正的释放资源函数。
+            </summary>
+            <param name="disposing"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ParallelQueue`2.FlushCacheByKey(`0)">
+            <summary>
+            flush 特定key 的 queue
+            </summary>
+            <param name="key"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ObjectHelper.CompatibleGetHashCode(System.String)">
+            <summary>
+            	为了X32和X64的兼容, 和32bit的实现一样
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.ServiceEnvironment">
+            <summary>
+            	扩展的服务环境
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceEnvironment.WorkPath">
+            <summary>进程运行路径</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceEnvironment.ProcessId">
+            <summary>进程Id</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceEnvironment.ProcessInfo">
+            <summary>进程消息</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceEnvironment.ServiceName">
+            <summary>服务名称</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceEnvironment.ComputerName">
+            <summary>计算机名称</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceEnvironment.ComputerNameForConfiguration">
+            <summary>用于获取配置的计算机名称</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceEnvironment.ComputerAddress">
+            <summary>本机服务器地址, 自动获取</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceEnvironment.Debug">
+            <summary>是否允许Debug信息</summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Configuration.ConfiguratorImp">
+            <summary>
+            	实现类, 获取更新, 并且执行OnUpdate方法
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigField``1(System.String,System.Action{``0})">
+            <summary>
+            	Local:		<AppSettings/>
+            	Server:		HaConfigTable: Key->Value
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigItem``1(System.String,System.String,System.Action{``0})">
+            <summary>
+            	Local:		Section->Item
+            	Server:		HaConfigTable: Key->Value
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigItems``2(System.String,System.Action{Imps.Services.CommonV4.IICConfigItemCollection{``0,``1}})">
+            <summary>
+            	Local:		Section->Items/Item
+            	Server:		HaConfigTable: Section->Items
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigSecion``1(System.String,System.Action{``0})">
+            <summary>
+            	Local:		<ConfigSections/>
+            	Server:		HaConfigTable: Section
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigText(System.String,System.Action{System.String})">
+            <summary>
+            	获取一段配置文本 
+            </summary>
+            <param name="path"></param>
+            <param name="onUpdate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.IConfigurator.GetCodeTable``2(System.String,System.Action{Imps.Services.CommonV4.IICCodeTable{``0,``1}})">
+            <summary>
+                GetConfiguration
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.IICConfigSectionAttribute">
+            <summary>
+            	ConfigSection：
+            		Local：	对应XML的配置
+            		HA：	对应HADB中的集中配置
+            		Section中会包含Item，或Field，但是Item不可以再包含Item
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.IICConfigFieldAttribute">
+            <summary>
+            	ConfigField:
+            		可以包含很多的Field，
+            			Local	XML Attribute
+            			HA:		DB中的Item
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.IICConfigItemAttribute">
+            <summary>
+            	ConfigItem:
+            		可以包含很多的Field，
+            			Local	XML Attribute
+            			HA:		DB中的Item
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.IICConfigItemCollectionAttribute">
+            <summary>
+            	ItemCollection
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.ServiceSettings">
+            <summary>
+            	服务配置
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ServiceSettings.InitService(System.String)">
+            <summary>本地初始化服务, 默认初始化为本地配置, HA会覆盖这个配置</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ServiceSettings.InitServiceHa(System.String,System.String)">
+            <summary>
+            	使用HA方式初始化服务
+            </summary>
+            <param name="serviceName">服务名</param>
+            <param name="centerUrl">HACenter的Url</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ServiceSettings.InitServiceHa(System.String,System.String,System.String)">
+            <summary>
+            	使用HA方式初始化服务
+            </summary>
+            <param name="serviceName">服务名</param>
+            <param name="computerName">获取配置使用的计算机名</param>
+            <param name="centerUrl">HACenter的Url</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ServiceSettings.InitWeb">
+            <summary>
+            	初始化Web
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettings.ComputerName">
+            <summary>服务器名</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettings.ServiceName">
+            <summary>服务名</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettings.RunMode">
+            <summary>运行模式</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettings.Current">
+            <summary>当前配置实体对象</summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.ServiceRunMode">
+            <summary>
+            	服务运行模式
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.ServiceRunMode.Unknown">
+            <summary>默认, 未赋值</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.ServiceRunMode.LocalService">
+            <summary>Windows Service, 使用LocalConfigurator, 本地app.config</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.ServiceRunMode.LocalWeb">
+            <summary>IIS Web App, 用LocalConfigurator, 本机app.config</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.ServiceRunMode.HAService">
+            <summary>Windows Service, 使用HAConfigurator, 全局配置, 集中管理</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.ServiceRunMode.HAWeb">
+            <summary>IIS Web Application, 使用web.config, 使用appSettings["CenterUrl"], 访问HACente</summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.ServiceSettingsConfigProxy">
+            <summary>
+            	服务配置代理类
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.RunMode">
+            <summary>运行方式</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.ComputerName">
+            <summary>服务器机器名</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.ServiceName">
+            <summary>服务名称</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.ServiceRoleName">
+            <summary>服务角色信息</summary>
+            <remarks>如果服务的部署名可以喝服务本身角色名不一样比如: 部署名:IBSV4, 角色名, IBS</remarks>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.Domain">
+            <summary>服务所在域, 现在没用</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.PoolID">
+            <summary>服务所在PoolId, 针对分Pool服务</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.SiteName">
+            <summary>服务所在Site</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.Debug">
+            <summary>是否Debug模式</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.SipcServerPort">
+            <summary>Sipc服务开放的端口</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.HttpServerPort">
+            <summary>Http服务开放的端口</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.HttpServicePrefix">
+            <summary>Http服务的前缀, 一般会用HttpListener</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.RpcServerPort">
+            <summary>Rpc服务开放的端口</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.RemotingServerPort">
+            <summary>Remoting服务开放端口</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.RpcOverTcpServerPort">
+            <summary>RpcOverTcp服务开放的端口</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.MaxWorkerThread">
+            <summary>最大工作线程数</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.MinWorkerThread">
+            <summary>最小工作线程数</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.WorkerThreadTimeout">
+            <summary>工作线程超期时间</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.ServerAddress">
+            <summary>服务器实际地址</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettingsConfigProxy.Pools">
+            <summary>服务管理的Pool列表</summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.SqlUtils">
+            <summary>
+            用于Sql访问的应用类
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SqlUtils.ConvertToCsv(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            	将一个list转换为逗号分割的值, 形如(1, 2, 3)
+            </summary>
+            <param name="list">列表, 可以为数组, 泛性list等</param>
+            <param name="bracketed">是否被()包围</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SqlUtils.ConvertToQuotedCsv(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            	将一个list转换为逗号分割的值, 对象被单引号包围, 形如('a', 'b', 'c')
+            </summary>
+            <param name="list">列表, 可以为数组, 泛性list等</param>
+            <param name="bracketed">是否被()包围</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SqlUtils.ConvertToCsv(System.Collections.IEnumerable,System.String,System.Boolean)">
+            <summary>
+            	将一个list转换为逗号分割的值, 形如(1, 2, 3)
+            </summary>
+            <param name="list">列表, 可以为数组, 泛性list等</param>
+            <param name="quotation">引号, 如果不需要请赋值string.Empty</param>
+            <param name="bracketed">是否被()包围</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SqlUtils.ConvertItemsToXml(System.Collections.IEnumerable)">
+            <summary>
+            	转换为xml字段，用于传给SQLSERVER，形如"<root><i v="1"/><i v="2"/></root>"
+            </summary>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SqlUtils.WrapNullString(System.String)">
+            <summary>
+            	封装字符串，将null转化为string.Empty""
+            </summary>
+            <param name="s"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SqlUtils.Get``1(System.Object)">
+            <summary>
+            	自动进行可能是DbNull类型的类型转换
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Imps.Services.HA.HAConfigurationLoader">
+            <summary>
+            	通过HA方式获取Configuration的Loader
+            </summary>
+        </member>
+        <member name="M:Imps.Services.HA.HAConfigurationLoader.#ctor(System.String,System.String,System.String)">
+            <summary>
+            	构造函数
+            </summary>
+            <param name="serviceName">服务名称</param>
+            <param name="computerName">计算机名</param>
+            <param name="centerUrl"></param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.RpcClientProxy">
+            <summary>
+            	调用Rpc接口的客户端代理，不允许重用s，每次从RpcProxyFactory.GetProxy中创建
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcClientProxy.BeginInvoke(System.String,System.Action{Imps.Services.CommonV4.RpcClientContext})">
+            <summary>
+            	无参数的异步的调用
+            </summary>
+            <param name="methodName">方法名</param>
+            <param name="callback">接受回调的delegate</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcClientProxy.BeginInvoke``1(System.String,``0,System.Action{Imps.Services.CommonV4.RpcClientContext})">
+            <summary>
+            	带参数的异步的调用
+            </summary>
+            <param name="methodName">方法名</param>
+            <typeparam name="TArgs">调用的参数类型</typeparam>
+            <param name="args">调用的参数</param>
+            <param name="callback">接受回调的delegate</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcClientProxy.InvokeOneway``1(System.String,``0)">
+            <summary>
+            	不关心返回结果的调用, 但错误会被Trace系统记录
+            </summary>
+            <param name="methodName">方法名</param>
+            <typeparam name="TArgs">调用的参数类型</typeparam>
+            <param name="args">调用的参数</param>
+            <remarks></remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcClientProxy.Invoke``2(System.String,``0)">
+            <summary>
+            	同步调用Rpc接口, 仅用于希望同步操作的场合
+            </summary>
+            <param name="methodName">方法名</param>
+            <typeparam name="TArgs">调用的参数类型</typeparam>
+            <param name="args">调用的参数</param>
+            <typeparam name="TResults">返回参数类型</typeparam>
+            <returns>Rpc调用返回值</returns>
+            <remarks>一般来说同步Rpc的允许的场合包括:
+            	1. 读取配置
+            	2. 在固定线程中的, 从队列中取出数据的并通过Rpc处理, 避免对服务的压力并保持顺序的一致性
+            	3. 单元测试
+            </remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcClientProxy.Invoke``2(System.String,``0,System.Int32)">
+            <summary>
+            	同步调用Rpc接口, 仅用于希望同步操作的场合
+            </summary>
+            <param name="methodName">方法名</param>
+            <typeparam name="TArgs">调用的参数类型</typeparam>
+            <param name="args">调用的参数</param>
+            <typeparam name="TResults">返回参数类型</typeparam>
+            <param name="timeoutMs">超时时间, 毫秒ms</param>
+            <returns>Rpc调用返回值</returns>
+            <remarks>一般来说同步Rpc的允许的场合包括:
+            	1. 读取配置
+            	2. 在固定线程中的, 从队列中取出数据的并通过Rpc处理, 避免对服务的压力并保持顺序的一致性
+            	3. 单元测试
+            </remarks>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcClientProxy.ServiceName">
+            <summary>
+            	服务名称
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcClientProxy.Timeout">
+            <summary>
+            	调用超时, 毫秒
+            </summary>
+            <remarks>不设置的话，会采用Channel上的默认值</remarks>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcPipeServerChannel">
+            <summary>
+            	Rpc服务器通道: NamedPipe
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcPipeServerChannel.Close">
+            <summary>
+            关闭当前流
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcPipeServerChannel.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.StrUtils">
+            <summary>
+            Summary description for StrUtils.
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StrUtils.Substring(System.String@,System.String,System.Int32)">
+            <summary>
+            截取0-len长度的string返回,out 剩下的。
+            </summary>
+            <param name="left"></param>
+            <param name="str"></param>
+            <param name="len"></param>
+            <returns>截取0-len长度的string返回,out 剩下的</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StrUtils.Int2str(System.Int32,System.Int32,System.String)">
+            <summary>
+            i.tostring().length>length return i.tostring(
+            </summary>
+            <param name="i"></param>
+            <param name="length"></param>
+            <param name="fillwith"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StrUtils.IsAllDBC(System.String,System.Int32)">
+            <summary>
+            检查前len位是不是全半角
+            </summary>
+            <param name="str"></param>
+            <param name="len"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StrUtils.IsAllDBC(System.String)">
+            <summary>
+            是否全半角字串。
+            </summary>
+            <param name="str"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StrUtils.ToDBC(System.Char)">
+            <summary>
+            一个字符转半角
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StrUtils.ToDBC(System.String)">
+             <summary>一个字串转半角</summary>
+             <param name="input">任意字符串</param>
+             <returns>半角字符串</returns>
+            <remarks>
+            全角空格为12288，半角空格为32
+            其他字符半角(33-126)与全角(65281-65374)的对应关系是：均相差65248
+            </remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StrUtils.ToSBC(System.Char)">
+            <summary>
+            一个字符转全角
+            </summary>
+            <param name="a"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StrUtils.ToSBC(System.String)">
+             <summary>
+             一个字串转全角
+             </summary>
+             <param name="input">任意字符串</param>
+             <returns>全角字符串</returns>
+            <remarks>
+            全角空格为12288，半角空格为32
+            其他字符半角(33-126)与全角(65281-65374)的对应关系是：均相差65248
+            </remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StrUtils.TruncateStringWithDBC(System.String,System.Int32)">
+            <summary>
+            截取字符串，全角长度算2个
+            </summary>
+            <param name="source"></param>
+            <param name="length"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.StrUtils.getStrBySplitWord(System.String,System.Int32)">
+            <summary>
+            用分隔符区分，返回第几个参数。
+            </summary>
+            <param name="str"></param>
+            <param name="index">从1开始。</param>
+            <returns></returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Database">
+            <summary>
+            	用于访问数据库的代理类
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.IICDbType">
+            <summary>
+            	DbAccess支持的数据库类型
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.IICDbType.SqlServer2005">
+            <summary>SqlServer2005</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.IICDbType.Mysql">
+            <summary>Mysql: 其中BulkInsert方法不支持binary数据</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.IICDbType.MysqlBatchInsert">
+            <summary>Mysql：仅用于binary数据的BulkInsert方法</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.IICDbType.Oracle">
+            <summary>Oracle</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.DbAccess.MysqlDatabase.BulkInsert(System.String,System.Data.DataTable,System.String[])">
+            <summary>
+            根据指定的字段顺序插入表
+            </summary>
+            <param name="tableName"></param>
+            <param name="table"></param>
+            <param name="colNames">字段顺序列</param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SafeDictionary`2.#ctor">
+            <summary>
+            	Create a theard safety Dictionary
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SafeDictionary`2.#ctor(System.Object)">
+            <summary>
+            	Create a thread safety Dictionary with a owner secret.
+            </summary>
+            <param name="ownerSecret">only who has the ownerSecret can modify this dictionary</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SafeDictionary`2.#ctor(System.Object,System.Collections.Generic.Dictionary{`0,`1})">
+            <summary>
+            	Create a thread safety Dictionary with a owner secret and a initial Inner Dictionary;
+            </summary>
+            <param name="ownerSecret">only who has the ownerSecret can modify this dictionary</param>
+            <param name="innerDic">initial Inner Dictionary</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SafeList`1.#ctor">
+            <summary>
+            	Create a Thread Safety List of T
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SafeList`1.#ctor(System.Object)">
+            <summary>
+            	Create a Thread Safety List of T with a owner secret
+            </summary>
+            <param name="ownerSecret">only who has the ownerSecret can modify this list</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SafeList`1.#ctor(System.Object,System.Collections.Generic.List{`0})">
+            <summary>
+            	Create a Thread Safety List of T with a owner secret and initial innet List
+            </summary>
+            <param name="ownerSecret">only who has the ownerSecret can modify this list</param>
+            <param name="innerList">initial innet List</param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.XmlHelper">
+            <summary>
+                Xml Encode
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.XmlHelper.HtmlToText(System.String)">
+            <summary>
+            将html格式文本转换成纯文本格式
+            </summary>
+            <param name="htmlText">html格式文本</param>
+            <returns>转换后的纯文本</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.XmlHelper.Read(System.String,System.String,System.String)">
+            <summary>
+            读取节点中某一个属性的值。如果attribute为空，则返回整个节点的InnerText，否则返回具体attribute的值
+            </summary>
+            <param name="path">xml文件路径</param>
+            <param name="node">节点</param>
+            <param name="attribute">节点中的属性</param>
+            <returns>如果attribute为空，则返回整个节点的InnerText，否则返回具体attribute的值</returns>
+            使用实例: XMLHelper.Read(path, "PersonF/person[@Name='Person2']", "");
+             XMLHelper.Read(path, "PersonF/person[@Name='Person2']", "Name");
+        </member>
+        <member name="M:Imps.Services.CommonV4.XmlHelper.Insert(System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            向节点中增加节点元素，属性
+            </summary>
+            <param name="path">路径</param>
+            <param name="node">要操作的节点</param>
+            <param name="element">要增加的节点元素，可空可不空。非空时插入新的元素，否则插入该元素的属性</param>
+            <param name="attribute">要增加的节点属性，可空可不空。非空时插入元素值，否则插入元素值</param>
+            <param name="value">要增加的节点值</param>
+            使用实例：XMLHelper.Insert(path, "PersonF/person[@Name='Person2']","Num", "ID", "88");
+            XMLHelper.Insert(path, "PersonF/person[@Name='Person2']","Num", "", "88");
+            XMLHelper.Insert(path, "PersonF/person[@Name='Person2']", "", "ID", "88");
+        </member>
+        <member name="M:Imps.Services.CommonV4.XmlHelper.Update(System.String,System.String,System.String,System.String)">
+            <summary>
+            修改节点值
+            </summary>
+            <param name="path">路径</param>
+            <param name="node">要修改的节点</param>
+            <param name="attribute">属性名，非空时修改节点的属性值，否则修改节点值</param>
+            <param name="value">属性值</param>
+            实例 XMLHelper.Update(path, "PersonF/person[@Name='Person3']/ID", "", "888");
+            XMLHelper.Update(path, "PersonF/person[@Name='Person3']/ID", "Num", "999"); 
+        </member>
+        <member name="M:Imps.Services.CommonV4.XmlHelper.Delete(System.String,System.String,System.String)">
+            <summary>
+            删除数据
+            </summary>
+            <param name="path">路径</param>
+            <param name="node">要删除的节点</param>
+            <param name="attribute">属性，为空则删除整个节点，不为空则删除节点中的属性</param>
+            实例：XMLHelper.Delete(path, "PersonF/person[@Name='Person3']/ID", "");
+            XMLHelper.Delete(path, "PersonF/person[@Name='Person3']/ID", "Num");
+        </member>
+        <member name="M:Google.ProtoBuf.AsyncUtility.RunAsync``1(Google.ProtoBuf.AsyncBegin{``0},Google.ProtoBuf.AsyncEnd{``0},System.Action{``0},System.Action{System.Exception})">
+            <summary>Simplified calling convention for asynchronous Begin/End operations.</summary>
+            <typeparam name="T">The type of data returned by the async operation.</typeparam>
+            <param name="begin">The start (Begin*) of the async operation.</param>
+            <param name="end">The end (End*) of the async operation.</param>
+            <param name="callback">The operation to perform once the operation has completed and a value received.</param>
+            <param name="exceptionHandler">Callback to invoke when an excetption is thrown during the async operation.</param>
+        </member>
+        <member name="T:Google.ProtoBuf.AsyncBegin`1">
+            <summary>Defines the start of a Begin/End async operation pair.</summary>
+            <typeparam name="T">The type of value returned by the async operation.</typeparam>
+            <param name="operation">The operation to be performed.</param>
+            <param name="state">User-state to be passed to the operation.</param>
+            <returns>A token to the async operation.</returns>
+        </member>
+        <member name="T:Google.ProtoBuf.AsyncEnd`1">
+            <summary>Defines the completion callback of a Begin/End async operation pair.</summary>
+            <typeparam name="T">The type of value returned by the async operation.</typeparam>
+            <param name="operation">The async operation token.</param>
+            <returns>The final value of the async operation.</returns>
+        </member>
+        <member name="T:Google.ProtoBuf.ProtoContractAttribute">
+            <summary>
+            Indicates that a type is defined for protocol-buffer serialization.
+            </summary>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoContractAttribute.Name">
+            <summary>
+            Gets or sets the defined name of the type.
+            </summary>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoContractAttribute.ImplicitFirstTag">
+            <summary>
+            Gets or sets the fist offset to use with implicit field tags;
+            only uesd if ImplicitFields is set.
+            </summary>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoContractAttribute.ImplicitFields">
+            <summary>
+            Gets or sets the mechanism used to automatically infer field tags
+            for members. This option should be used in advanced scenarios only.
+            Please review the important notes against the ImplicitFields enumeration.
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.ProtoEnumAttribute">
+            <summary>
+            Used to define protocol-buffer specific behavior for
+            enumerated values.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.ProtoEnumAttribute.HasValue">
+            <summary>
+            Indicates whether this instance has a customised value mapping
+            </summary>
+            <returns>true if a specific value is set</returns>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoEnumAttribute.Value">
+            <summary>
+            Gets or sets the specific value to use for this enum during serialization.
+            </summary>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoEnumAttribute.Name">
+            <summary>
+            Gets or sets the defined name of the enum, as used in .proto
+            (this name is not used during serialization).
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.ProtoIgnoreAttribute">
+            <summary>
+            Indicates that a member should be excluded from serialization; this
+            is only normally used when using implict fields.
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.ProtoPartialIgnoreAttribute">
+            <summary>
+            Indicates that a member should be excluded from serialization; this
+            is only normally used when using implict fields. This allows
+            ProtoIgnoreAttribute usage
+            even for partial classes where the individual members are not
+            under direct control.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.ProtoPartialIgnoreAttribute.#ctor(System.String)">
+            <summary>
+            Creates a new ProtoPartialIgnoreAttribute instance.
+            </summary>
+            <param name="memberName">Specifies the member to be ignored.</param>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoPartialIgnoreAttribute.MemberName">
+            <summary>
+            The name of the member to be ignored.
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.ProtoIncludeAttribute">
+            <summary>
+            Indicates the known-types to support for an individual
+            message. This serializes each level in the hierarchy as
+            a nested message to retain wire-compatibility with
+            other protocol-buffer implementations.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.ProtoIncludeAttribute.#ctor(System.Int32,System.Type)">
+            <summary>
+            Creates a new instance of the ProtoIncludeAttribute.
+            </summary>
+            <param name="tag">The unique index (within the type) that will identify this data.</param>
+            <param name="knownType">The additional type to serialize/deserialize.</param>
+        </member>
+        <member name="M:Google.ProtoBuf.ProtoIncludeAttribute.#ctor(System.Int32,System.String)">
+            <summary>
+            Creates a new instance of the ProtoIncludeAttribute.
+            </summary>
+            <param name="tag">The unique index (within the type) that will identify this data.</param>
+            <param name="knownTypeName">The additional type to serialize/deserialize.</param>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoIncludeAttribute.Tag">
+            <summary>
+            Gets the unique index (within the type) that will identify this data.
+            </summary>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoIncludeAttribute.KnownTypeName">
+            <summary>
+            Gets the additional type to serialize/deserialize.
+            </summary>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoIncludeAttribute.KnownType">
+            <summary>
+            Gets the additional type to serialize/deserialize.
+            </summary>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoIncludeAttribute.DataFormat">
+            <summary>
+            Specifies whether the inherited sype's sub-message should be
+            written with a length-prefix (default), or with group markers.
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.ProtoMemberAttribute">
+            <summary>
+            Declares a member to be used in protocol-buffer serialization, using
+            the given Tag. A DataFormat may be used to optimise the serialization
+            format (for instance, using zigzag encoding for negative numbers, or 
+            fixed-length encoding for large values.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.ProtoMemberAttribute.#ctor(System.Int32)">
+            <summary>
+            Creates a new ProtoMemberAttribute instance.
+            </summary>
+            <param name="tag">Specifies the unique tag used to identify this member within the type.</param>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoMemberAttribute.Name">
+            <summary>
+            Gets or sets the original name defined in the .proto; not used
+            during serialization.
+            </summary>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoMemberAttribute.DataFormat">
+            <summary>
+            Gets or sets the data-format to be used when encoding this value.
+            </summary>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoMemberAttribute.Tag">
+            <summary>
+            Gets the unique tag used to identify this member within the type.
+            </summary>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoMemberAttribute.IsRequired">
+            <summary>
+            Gets or sets a value indicating whether this member is mandatory.
+            </summary>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoMemberAttribute.Options">
+            <summary>
+            Gets or sets a value indicating whether this member is packed (lists/arrays).
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.MemberSerializationOptions">
+            <summary>
+            Additional (optional) settings that control serialization of members
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.MemberSerializationOptions.None">
+            <summary>
+            Default; no additional options
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.MemberSerializationOptions.Packed">
+            <summary>
+            Indicates that repeated elements should use packed (length-prefixed) encoding
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.MemberSerializationOptions.Required">
+            <summary>
+            Indicates that the given item is required
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.ProtoPartialMemberAttribute">
+            <summary>
+            Declares a member to be used in protocol-buffer serialization, using
+            the given Tag and MemberName. This allows ProtoMemberAttribute usage
+            even for partial classes where the individual members are not
+            under direct control.
+            A DataFormat may be used to optimise the serialization
+            format (for instance, using zigzag encoding for negative numbers, or 
+            fixed-length encoding for large values.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.ProtoPartialMemberAttribute.#ctor(System.Int32,System.String)">
+            <summary>
+            Creates a new ProtoMemberAttribute instance.
+            </summary>
+            <param name="tag">Specifies the unique tag used to identify this member within the type.</param>
+            <param name="memberName">Specifies the member to be serialized.</param>
+        </member>
+        <member name="P:Google.ProtoBuf.ProtoPartialMemberAttribute.MemberName">
+            <summary>
+            The name of the member to be serialized.
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.BufferExtension">
+            <summary>
+            Provides a simple buffer-based implementation of an <see cref="T:Google.ProtoBuf.IExtension">extension</see> object.
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.IExtension">
+            <summary>
+            Provides addition capability for supporting unexpected fields during
+            protocol-buffer serialization/deserialization. This allows for loss-less
+            round-trip/merge, even when the data is not fully understood.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.IExtension.BeginAppend">
+            <summary>
+            Requests a stream into which any unexpected fields can be persisted.
+            </summary>
+            <returns>A new stream suitable for storing data.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.IExtension.EndAppend(System.IO.Stream,System.Boolean)">
+            <summary>
+            Indicates that all unexpected fields have now been stored. The
+            implementing class is responsible for closing the stream. If
+            "commit" is not true the data may be discarded.
+            </summary>
+            <param name="stream">The stream originally obtained by BeginAppend.</param>
+            <param name="commit">True if the append operation completed successfully.</param>
+        </member>
+        <member name="M:Google.ProtoBuf.IExtension.BeginQuery">
+            <summary>
+            Requests a stream of the unexpected fields previously stored.
+            </summary>
+            <returns>A prepared stream of the unexpected fields.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.IExtension.EndQuery(System.IO.Stream)">
+            <summary>
+            Indicates that all unexpected fields have now been read. The
+            implementing class is responsible for closing the stream.
+            </summary>
+            <param name="stream">The stream originally obtained by BeginQuery.</param>
+        </member>
+        <member name="M:Google.ProtoBuf.IExtension.GetLength">
+            <summary>
+            Requests the length of the raw binary stream; this is used
+            when serializing sub-entities to indicate the expected size.
+            </summary>
+            <returns>The length of the binary stream representing unexpected data.</returns>
+        </member>
+        <member name="T:Google.ProtoBuf.ProtoBeforeSerializationAttribute">
+            <summary>Specifies a method on the root-contract in an hierarchy to be invoked before serialization.</summary>
+        </member>
+        <member name="T:Google.ProtoBuf.ProtoAfterSerializationAttribute">
+            <summary>Specifies a method on the root-contract in an hierarchy to be invoked after serialization.</summary>
+        </member>
+        <member name="T:Google.ProtoBuf.ProtoBeforeDeserializationAttribute">
+            <summary>Specifies a method on the root-contract in an hierarchy to be invoked before deserialization.</summary>
+        </member>
+        <member name="T:Google.ProtoBuf.ProtoAfterDeserializationAttribute">
+            <summary>Specifies a method on the root-contract in an hierarchy to be invoked after deserialization.</summary>
+        </member>
+        <member name="T:Google.ProtoBuf.DataFormat">
+            <summary>
+            Sub-format to use when serializing/deserializing data
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.DataFormat.Default">
+            <summary>
+            Uses the default encoding for the data-type.
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.DataFormat.ZigZag">
+            <summary>
+            When applied to signed integer-based data (including Decimal), this
+            indicates that zigzag variant encoding will be used. This means that values
+            with small magnitude (regardless of sign) take a small amount
+            of space to encode.
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.DataFormat.TwosComplement">
+            <summary>
+            When applied to signed integer-based data (including Decimal), this
+            indicates that two's-complement variant encoding will be used.
+            This means that any -ve number will take 10 bytes (even for 32-bit),
+            so should only be used for compatibility.
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.DataFormat.FixedSize">
+            <summary>
+            When applied to signed integer-based data (including Decimal), this
+            indicates that a fixed amount of space will be used.
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.DataFormat.Group">
+            <summary>
+            When applied to a sub-message, indicates that the value should be treated
+            as group-delimited.
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.AsyncResult">
+            <summary>
+            Represents the function to obtain the return value from an asynchronouse operation;
+            comparable to Func&lt;object&gt;.
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.Getter`2">
+            <summary>
+            Returns the required value from an instance; comparable to Func&lt;TEntity,TValue&gt;
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.Setter`2">
+            <summary>
+            Assigns the required value to an instance; comparable to Action&lt;TEntity,TValue&gt;.
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.Extensible">
+            <summary>
+            Simple base class for supporting unexpected fields allowing
+            for loss-less round-tips/merge, even if the data is not understod.
+            The additional fields are (by default) stored in-memory in a buffer.
+            </summary>
+            <remarks>As an example of an alternative implementation, you might
+            choose to use the file system (temporary files) as the back-end, tracking
+            only the paths [such an object would ideally be IDisposable and use
+            a finalizer to ensure that the files are removed].</remarks>
+            <seealso cref="T:Google.ProtoBuf.IExtensible"/>
+        </member>
+        <member name="M:Google.ProtoBuf.Extensible.GetExtensionObject(System.Boolean)">
+            <summary>
+            Retrieves the <see cref="T:Google.ProtoBuf.IExtension">extension</see> object for the current
+            instance, optionally creating it if it does not already exist.
+            </summary>
+            <param name="createIfMissing">Should a new extension object be
+            created if it does not already exist?</param>
+            <returns>The extension object if it exists (or was created), or null
+            if the extension object does not exist or is not available.</returns>
+            <remarks>The <c>createIfMissing</c> argument is false during serialization,
+            and true during deserialization upon encountering unexpected fields.</remarks>
+        </member>
+        <member name="M:Google.ProtoBuf.Extensible.GetExtensionObject(Google.ProtoBuf.IExtension@,System.Boolean)">
+            <summary>
+            Provides a simple, default implementation for <see cref="T:Google.ProtoBuf.IExtension">extension</see> support,
+            optionally creating it if it does not already exist. Designed to be called by
+            classes implementing <see cref="T:Google.ProtoBuf.IExtensible"/>.
+            </summary>
+            <param name="createIfMissing">Should a new extension object be
+            created if it does not already exist?</param>
+            <param name="extensionObject">The extension field to check (and possibly update).</param>
+            <returns>The extension object if it exists (or was created), or null
+            if the extension object does not exist or is not available.</returns>
+            <remarks>The <c>createIfMissing</c> argument is false during serialization,
+            and true during deserialization upon encountering unexpected fields.</remarks>
+        </member>
+        <member name="M:Google.ProtoBuf.Extensible.AppendValue``1(Google.ProtoBuf.IExtensible,System.Int32,``0)">
+            <summary>
+            Appends the value as an additional (unexpected) data-field for the instance.
+            Note that for non-repeated sub-objects, this equates to a merge operation;
+            for repeated sub-objects this adds a new instance to the set; for simple
+            values the new value supercedes the old value.
+            </summary>
+            <remarks>Note that appending a value does not remove the old value from
+            the stream; avoid repeatedly appending values for the same field.</remarks>
+            <typeparam name="TValue">The type of the value to append.</typeparam>
+            <param name="instance">The extensible object to append the value to.</param>
+            <param name="tag">The field identifier; the tag should not be defined as a known data-field for the instance.</param>
+            <param name="value">The value to append.</param>
+        </member>
+        <member name="M:Google.ProtoBuf.Extensible.AppendValue``1(Google.ProtoBuf.IExtensible,System.Int32,Google.ProtoBuf.DataFormat,``0)">
+            <summary>
+            Appends the value as an additional (unexpected) data-field for the instance.
+            Note that for non-repeated sub-objects, this equates to a merge operation;
+            for repeated sub-objects this adds a new instance to the set; for simple
+            values the new value supercedes the old value.
+            </summary>
+            <remarks>Note that appending a value does not remove the old value from
+            the stream; avoid repeatedly appending values for the same field.</remarks>
+            <typeparam name="TValue">The data-type of the field.</typeparam>
+            <param name="format">The data-format to use when encoding the value.</param>
+            <param name="instance">The extensible object to append the value to.</param>
+            <param name="tag">The field identifier; the tag should not be defined as a known data-field for the instance.</param>
+            <param name="value">The value to append.</param>
+        </member>
+        <member name="M:Google.ProtoBuf.Extensible.GetValue``1(Google.ProtoBuf.IExtensible,System.Int32)">
+            <summary>
+            Queries an extensible object for an additional (unexpected) data-field for the instance.
+            The value returned is the composed value after merging any duplicated content; if the
+            value is "repeated" (a list), then use GetValues instead.
+            </summary>
+            <typeparam name="TValue">The data-type of the field.</typeparam>
+            <param name="instance">The extensible object to obtain the value from.</param>
+            <param name="tag">The field identifier; the tag should not be defined as a known data-field for the instance.</param>
+            <returns>The effective value of the field, or the default value if not found.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Extensible.GetValue``1(Google.ProtoBuf.IExtensible,System.Int32,Google.ProtoBuf.DataFormat)">
+            <summary>
+            Queries an extensible object for an additional (unexpected) data-field for the instance.
+            The value returned is the composed value after merging any duplicated content; if the
+            value is "repeated" (a list), then use GetValues instead.
+            </summary>
+            <typeparam name="TValue">The data-type of the field.</typeparam>
+            <param name="instance">The extensible object to obtain the value from.</param>
+            <param name="tag">The field identifier; the tag should not be defined as a known data-field for the instance.</param>
+            <param name="format">The data-format to use when decoding the value.</param>
+            <returns>The effective value of the field, or the default value if not found.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Extensible.TryGetValue``1(Google.ProtoBuf.IExtensible,System.Int32,``0@)">
+            <summary>
+            Queries an extensible object for an additional (unexpected) data-field for the instance.
+            The value returned (in "value") is the composed value after merging any duplicated content;
+            if the value is "repeated" (a list), then use GetValues instead.
+            </summary>
+            <typeparam name="TValue">The data-type of the field.</typeparam>
+            <param name="value">The effective value of the field, or the default value if not found.</param>
+            <param name="instance">The extensible object to obtain the value from.</param>
+            <param name="tag">The field identifier; the tag should not be defined as a known data-field for the instance.</param>
+            <returns>True if data for the field was present, false otherwise.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Extensible.TryGetValue``1(Google.ProtoBuf.IExtensible,System.Int32,Google.ProtoBuf.DataFormat,``0@)">
+            <summary>
+            Queries an extensible object for an additional (unexpected) data-field for the instance.
+            The value returned (in "value") is the composed value after merging any duplicated content;
+            if the value is "repeated" (a list), then use GetValues instead.
+            </summary>
+            <typeparam name="TValue">The data-type of the field.</typeparam>
+            <param name="value">The effective value of the field, or the default value if not found.</param>
+            <param name="instance">The extensible object to obtain the value from.</param>
+            <param name="tag">The field identifier; the tag should not be defined as a known data-field for the instance.</param>
+            <param name="format">The data-format to use when decoding the value.</param>
+            <returns>True if data for the field was present, false otherwise.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Extensible.TryGetValue``1(Google.ProtoBuf.IExtensible,System.Int32,Google.ProtoBuf.DataFormat,System.Boolean,``0@)">
+            <summary>
+            Queries an extensible object for an additional (unexpected) data-field for the instance.
+            The value returned (in "value") is the composed value after merging any duplicated content;
+            if the value is "repeated" (a list), then use GetValues instead.
+            </summary>
+            <typeparam name="TValue">The data-type of the field.</typeparam>
+            <param name="value">The effective value of the field, or the default value if not found.</param>
+            <param name="instance">The extensible object to obtain the value from.</param>
+            <param name="tag">The field identifier; the tag should not be defined as a known data-field for the instance.</param>
+            <param name="format">The data-format to use when decoding the value.</param>
+            <param name="allowDefinedTag">Allow tags that are present as part of the definition; for example, to query unknown enum values.</param>
+            <returns>True if data for the field was present, false otherwise.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Extensible.GetValues``1(Google.ProtoBuf.IExtensible,System.Int32)">
+            <summary>
+            Queries an extensible object for an additional (unexpected) data-field for the instance.
+            Each occurrence of the field is yielded separately, making this usage suitable for "repeated"
+            (list) fields.
+            </summary>
+            <remarks>The extended data is processed lazily as the enumerator is iterated.</remarks>
+            <typeparam name="TValue">The data-type of the field.</typeparam>
+            <param name="instance">The extensible object to obtain the value from.</param>
+            <param name="tag">The field identifier; the tag should not be defined as a known data-field for the instance.</param>
+            <returns>An enumerator that yields each occurrence of the field.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Extensible.GetValues``1(Google.ProtoBuf.IExtensible,System.Int32,Google.ProtoBuf.DataFormat)">
+            <summary>
+            Queries an extensible object for an additional (unexpected) data-field for the instance.
+            Each occurrence of the field is yielded separately, making this usage suitable for "repeated"
+            (list) fields.
+            </summary>
+            <remarks>The extended data is processed lazily as the enumerator is iterated.</remarks>
+            <typeparam name="TValue">The data-type of the field.</typeparam>
+            <param name="instance">The extensible object to obtain the value from.</param>
+            <param name="tag">The field identifier; the tag should not be defined as a known data-field for the instance.</param>
+            <param name="format">The data-format to use when decoding the value.</param>
+            <returns>An enumerator that yields each occurrence of the field.</returns>
+        </member>
+        <member name="T:Google.ProtoBuf.ExtensibleUtil">
+            <summary>
+            This class acts as an internal wrapper allowing us to do a dynamic
+            methodinfo invoke; an't put into Serializer as don't want on public
+            API; can't put into Serializer&lt;T&gt; since we need to invoke
+            accross classes, which isn't allowed in Silverlight)
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.ExtensibleUtil.GetExtendedValues``1(Google.ProtoBuf.IExtensible,System.Int32,Google.ProtoBuf.DataFormat,System.Boolean,System.Boolean)">
+            <summary>
+            All this does is call GetExtendedValuesTyped with the correct type for "instance";
+            this ensures that we don't get issues with subclasses declaring conflicting types -
+            the caller must respect the fields defined for the type they pass in.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.ExtensibleUtil.GetExtendedValuesTyped``2(``0,System.Int32,Google.ProtoBuf.DataFormat,System.Boolean,System.Boolean)">
+            <summary>
+            Reads the given value(s) from the instance's stream; the serializer
+            is inferred from TValue and format. For singletons, each occurrence
+            is merged [only applies for sub-objects], and the composed
+            value if yielded once; otherwise ("repeated") each occurrence
+            is yielded separately.
+            </summary>
+            <remarks>Needs to be public to be callable thru reflection in Silverlight</remarks>
+        </member>
+        <member name="M:Google.ProtoBuf.ExtensibleUtil.AppendExtendValue``1(Google.ProtoBuf.IExtensible,System.Int32,Google.ProtoBuf.DataFormat,System.Object)">
+            <summary>
+            All this does is call AppendExtendValueTyped with the correct type for "instance";
+            this ensures that we don't get issues with subclasses declaring conflicting types -
+            the caller must respect the fields defined for the type they pass in.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.ExtensibleUtil.AppendExtendValueTyped``2(``0,System.Int32,Google.ProtoBuf.DataFormat,``1)">
+            <summary>
+            Stores the given value into the instance's stream; the serializer
+            is inferred from TValue and format.
+            </summary>
+            <remarks>Needs to be public to be callable thru reflection in Silverlight</remarks>
+        </member>
+        <member name="T:Google.ProtoBuf.Serializer">
+            <summary>
+            Provides protocol-buffer serialization capability for concrete, attributed types. 
+            </summary>
+            <remarks>
+            Protocol-buffer serialization is a compact binary format, designed to take
+            advantage of sparse data and knowledge of specific data types; it is also
+            extensible, allowing a type to be deserialized / merged even if some data is
+            not recognised.
+            </remarks>
+        </member>
+        <member name="F:Google.ProtoBuf.Serializer.ListItemTag">
+            <summary>
+            The implicit tag used when serializing lists and other enumerable data.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.TryGetTag(System.Reflection.MemberInfo,System.Int32@,System.String@,Google.ProtoBuf.DataFormat@,Google.ProtoBuf.MemberSerializationOptions@)">
+            <summary>
+            Supports various different property metadata patterns:
+            [ProtoMember] is the most specific, allowing the data-format to be set.
+            [DataMember], [XmlElement] are supported for compatibility.
+            In any event, there must be a unique positive Tag/Order.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.Deserialize``1(System.IO.Stream)">
+            <summary>
+            Creates a new instance from a protocol-buffer stream
+            </summary>
+            <typeparam name="T">The type to be created.</typeparam>
+            <param name="source">The binary stream to apply to the new instance (cannot be null).</param>
+            <returns>A new, initialized instance.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.DeserializeWithLengthPrefix``1(System.IO.Stream)">
+            <summary>
+            Creates a new instance from a protocol-buffer stream that has a length-prefix
+            on data (to assist with network IO).
+            </summary>
+            <typeparam name="T">The type to be created.</typeparam>
+            <param name="source">The binary stream to apply to the new instance (cannot be null).</param>
+            <returns>A new, initialized instance.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.DeserializeItems``1(System.IO.Stream,Google.ProtoBuf.PrefixStyle,System.Int32)">
+            <summary>
+            Reads a sequence of consecutive length-prefixed items from a stream, using
+            either base-128 or fixed-length prefixes. Base-128 prefixes with a tag
+            are directly comparable to serializing multiple items in succession
+            (use the <see cref="F:Google.ProtoBuf.Serializer.ListItemTag"/> tag to emulate the implicit behavior
+            when serializing a list/array). When a tag is
+            specified, any records with different tags are silently omitted. The
+            tag is ignored. The tag is ignores for fixed-length prefixes.
+            </summary>
+            <typeparam name="T">The type of object to deserialize.</typeparam>
+            <param name="source">The binary stream containing the serialized records.</param>
+            <param name="style">The prefix style used in the data.</param>
+            <param name="tag">The tag of records to return (if non-positive, then no tag is
+            expected and all records are returned).</param>
+            <returns>The sequence of deserialized objects.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.DeserializeWithLengthPrefix``1(System.IO.Stream,Google.ProtoBuf.PrefixStyle)">
+            <summary>
+            Creates a new instance from a protocol-buffer stream that has a length-prefix
+            on data (to assist with network IO).
+            </summary>
+            <typeparam name="T">The type to be created.</typeparam>
+            <param name="source">The binary stream to apply to the new instance (cannot be null).</param>
+            <param name="style">How to encode the length prefix.</param>
+            <returns>A new, initialized instance.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.DeserializeWithLengthPrefix``1(System.IO.Stream,Google.ProtoBuf.PrefixStyle,System.Int32)">
+            <summary>
+            Creates a new instance from a protocol-buffer stream that has a length-prefix
+            on data (to assist with network IO).
+            </summary>
+            <typeparam name="T">The type to be created.</typeparam>
+            <param name="source">The binary stream to apply to the new instance (cannot be null).</param>
+            <param name="style">How to encode the length prefix.</param>
+            <param name="tag">The expected tag of the item (only used with base-128 prefix style).</param>
+            <returns>A new, initialized instance.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.TryReadLengthPrefix(System.Byte[],System.Int32,System.Int32,Google.ProtoBuf.PrefixStyle,System.Int32@)">
+            <summary>Indicates the number of bytes expected for the next message.</summary>
+            <param name="buffer">The buffer containing the data to investigate for a length.</param>
+            <param name="index">The offset of the first byte to read from the buffer.</param>
+            <param name="count">The number of bytes to read from the buffer.</param>
+            <param name="style">The algorithm used to encode the length.</param>
+            <param name="length">The length of the message, if it could be identified.</param>
+            <returns>True if a length could be obtained, false otherwise.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.Merge``1(System.IO.Stream,``0)">
+            <summary>
+            Applies a protocol-buffer stream to an existing instance.
+            </summary>
+            <typeparam name="T">The type being merged.</typeparam>
+            <param name="instance">The existing instance to be modified (can be null).</param>
+            <param name="source">The binary stream to apply to the instance (cannot be null).</param>
+            <returns>The updated instance; this may be different to the instance argument if
+            either the original instance was null, or the stream defines a known sub-type of the
+            original instance.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.MergeWithLengthPrefix``1(System.IO.Stream,``0)">
+            <summary>
+            Applies a protocol-buffer stream to an existing instance, using length-prefixed
+            data - useful with network IO.
+            </summary>
+            <typeparam name="T">The type being merged.</typeparam>
+            <param name="instance">The existing instance to be modified (can be null).</param>
+            <param name="source">The binary stream to apply to the instance (cannot be null).</param>
+            <returns>The updated instance; this may be different to the instance argument if
+            either the original instance was null, or the stream defines a known sub-type of the
+            original instance.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.MergeWithLengthPrefix``1(System.IO.Stream,``0,Google.ProtoBuf.PrefixStyle)">
+            <summary>
+            Applies a protocol-buffer stream to an existing instance, using length-prefixed
+            data - useful with network IO.
+            </summary>
+            <typeparam name="T">The type being merged.</typeparam>
+            <param name="instance">The existing instance to be modified (can be null).</param>
+            <param name="source">The binary stream to apply to the instance (cannot be null).</param>
+            <param name="style">How to encode the length prefix.</param>
+            <returns>The updated instance; this may be different to the instance argument if
+            either the original instance was null, or the stream defines a known sub-type of the
+            original instance.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.Serialize``1(System.IO.Stream,``0)">
+            <summary>
+            Writes a protocol-buffer representation of the given instance to the supplied stream.
+            </summary>
+            <typeparam name="T">The type being serialized.</typeparam>
+            <param name="instance">The existing instance to be serialized (cannot be null).</param>
+            <param name="destination">The destination stream to write to.</param>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.SerializeWithLengthPrefix``1(System.IO.Stream,``0)">
+            <summary>
+            Writes a protocol-buffer representation of the given instance to the supplied stream,
+            with a length-prefix. This is useful for socket programming,
+            as DeserializeWithLengthPrefix/MergeWithLengthPrefix can be used to read the single object back
+            from an ongoing stream.
+            </summary>
+            <typeparam name="T">The type being serialized.</typeparam>
+            <param name="instance">The existing instance to be serialized (cannot be null).</param>
+            <param name="destination">The destination stream to write to.</param>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.SerializeWithLengthPrefix``1(System.IO.Stream,``0,Google.ProtoBuf.PrefixStyle)">
+            <summary>
+            Writes a protocol-buffer representation of the given instance to the supplied stream,
+            with a length-prefix. This is useful for socket programming,
+            as DeserializeWithLengthPrefix/MergeWithLengthPrefix can be used to read the single object back
+            from an ongoing stream.
+            </summary>
+            <typeparam name="T">The type being serialized.</typeparam>
+            <param name="instance">The existing instance to be serialized (cannot be null).</param>
+            <param name="style">How to encode the length prefix.</param>
+            <param name="destination">The destination stream to write to.</param>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.SerializeWithLengthPrefix``1(System.IO.Stream,``0,Google.ProtoBuf.PrefixStyle,System.Int32)">
+            <summary>
+            Writes a protocol-buffer representation of the given instance to the supplied stream,
+            with a length-prefix. This is useful for socket programming,
+            as DeserializeWithLengthPrefix/MergeWithLengthPrefix can be used to read the single object back
+            from an ongoing stream.
+            </summary>
+            <typeparam name="T">The type being serialized.</typeparam>
+            <param name="instance">The existing instance to be serialized (cannot be null).</param>
+            <param name="style">How to encode the length prefix.</param>
+            <param name="destination">The destination stream to write to.</param>
+            <param name="tag">The tag used as a prefix to each record (only used with base-128 style prefixes).</param>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.Serialize``1(System.Xml.XmlWriter,``0)">
+            <summary>
+            Writes a protocol-buffer representation of the given instance to the supplied XmlWriter.
+            </summary>
+            <typeparam name="T">The type being serialized.</typeparam>
+            <param name="instance">The existing instance to be serialized (cannot be null).</param>
+            <param name="writer">The destination XmlWriter to write to.</param>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.Merge``1(System.Xml.XmlReader,``0)">
+            <summary>
+            Applies a protocol-buffer from an XmlReader to an existing instance.
+            </summary>
+            <typeparam name="T">The type being merged.</typeparam>
+            <param name="instance">The existing instance to be modified (cannot be null).</param>
+            <param name="reader">The XmlReader containing the data to apply to the instance (cannot be null).</param>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.DeepClone``1(``0)">
+            <summary>
+            Create a deep clone of the supplied instance; any sub-items are also cloned.
+            </summary>
+            <typeparam name="T">The type being cloned.</typeparam>
+            <param name="instance">The existing instance to be cloned.</param>
+            <returns>A new copy, cloned from the supplied instance.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.ChangeType``2(``0)">
+            <summary>
+            Serializes a given instance and deserializes it as a different type;
+            this can be used to translate between wire-compatible objects (where
+            two .NET types represent the same data), or to promote/demote a type
+            through an inheritance hierarchy.
+            </summary>
+            <remarks>No assumption of compatibility is made between the types.</remarks>
+            <typeparam name="TOldType">The type of the object being copied.</typeparam>
+            <typeparam name="TNewType">The type of the new object to be created.</typeparam>
+            <param name="instance">The existing instance to use as a template.</param>
+            <returns>A new instane of type TNewType, with the data from TOldType.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.ChangeType``2(``0,Google.ProtoBuf.SerializationContext)">
+            <summary>
+            As per the public ChangeType, but allows for workspace-sharing to reduce buffer overhead.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.GetProto``1">
+            <summary>
+            Suggest a .proto definition for the given type
+            </summary>
+            <typeparam name="T">The type to generate a .proto definition for</typeparam>
+            <returns>The .proto definition as a string</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.PrepareSerializer``1">
+            <summary>
+            Ensures that the serialization algorithm has been prepared for
+            the given type; this can be useful in highly threaded code to
+            ensure that all types are ready ahead of time, avoiding deadlock
+            scenarios.
+            </summary>
+            <typeparam name="T">The object type to prepare.</typeparam>
+        </member>
+        <member name="T:Google.ProtoBuf.Serializer.GlobalOptions">
+            <summary>
+            Global switches that change the behavior of protobuf-net
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.Serializer.NonGeneric">
+            <summary>
+            Provides non-generic, reflection-based access to Serializer functionality
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.SerializeWithLengthPrefix(System.IO.Stream,System.Object,Google.ProtoBuf.PrefixStyle,System.Int32)">
+            <summary>
+            Writes a protocol-buffer representation of the given instance to the supplied stream.
+            </summary>
+            <param name="instance">The existing instance to be serialized (cannot be null).</param>
+            <param name="style">How to encode the length prefix.</param>
+            <param name="destination">The destination stream to write to.</param>
+            <param name="tag">The tag used as a prefix to each record (only used with base-128 style prefixes).</param>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.Serialize(System.IO.Stream,System.Object)">
+            <summary>
+            Writes a protocol-buffer representation of the given instance to the supplied stream.
+            </summary>
+            <param name="instance">The existing instance to be serialized (cannot be null).</param>
+            <param name="destination">The destination stream to write to.</param>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.TryDeserializeWithLengthPrefix(System.IO.Stream,Google.ProtoBuf.PrefixStyle,Google.ProtoBuf.Getter{System.Int32,System.Type},System.Object@)">
+            <summary>
+            Deserialize object of unknown types from in input stream.
+            </summary>
+            <param name="source">The input stream.</param>
+            <param name="style">The prefix style used to encode the lengths.</param>
+            <param name="typeReader">The caller must provide a mechanism to resolve a Type from
+            the tags encountered in the stream. If the delegate returns null, then the instance
+            is skipped - otherwise, the object is deserialized according to type.</param>
+            <param name="item">The deserialized instance, or null if the stream terminated.</param>
+            <returns>True if an object was idenfified; false if the stream terminated. Note
+            that unexpected types are skipped.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.Deserialize(System.Type,System.IO.Stream)">
+            <summary>
+            Creates a new instance from a protocol-buffer stream
+            </summary>
+            <param name="type">The type to be created.</param>
+            <param name="source">The binary stream to apply to the new instance (cannot be null).</param>
+            <returns>A new, initialized instance.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.DeepClone(System.Object)">
+            <summary>
+            Create a deep clone of the supplied instance; any sub-items are also cloned.
+            </summary>
+            <param name="instance">The existing instance to be cloned.</param>
+            <returns>A new copy, cloned from the supplied instance.</returns>
+        </member>
+        <member name="T:Google.ProtoBuf.ImplicitFields">
+            <summary>
+            Specifies the method used to infer field tags for members of the type
+            under consideration. Tags are deduced using the invariant alphabetic
+            sequence of the members' names; this makes implicit field tags very brittle,
+            and susceptible to changes such as field names (normally an isolated
+            change).
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.ImplicitFields.None">
+            <summary>
+            No members are serialized implicitly; all members require a suitable
+            attribute such as [ProtoMember]. This is the recmomended mode for
+            most scenarios.
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.ImplicitFields.AllPublic">
+            <summary>
+            Public properties and fields are eligible for implicit serialization;
+            this treats the public API as a contract.
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.ImplicitFields.AllFields">
+            <summary>
+            Public and non-public fields are eligible for implicit serialization;
+            this acts as a state/implementation serializer.
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.ObjectFactory`1">
+            <summary>
+            Abstract object factory, used to negate the need for a ": new()" generic constraint
+            on Serializer-of-T.
+            </summary>
+            <typeparam name="T">The type of object to be created.</typeparam>
+        </member>
+        <member name="M:Google.ProtoBuf.ObjectFactory`1.Create">
+            <summary>
+            Create a new instance of the given type.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.ObjectFactory`1.CreateGeneric``1">
+            <summary>
+            Wrapper method used via reflection to add the ": new()" constraint at
+            runtime. In practice, TActual is always T once we have verified that
+            there is a public parameterless constructor.
+            </summary>
+            <remarks>
+            This method is public (not private) due to the reflection demands of
+            (for example) Silverlight.
+            </remarks>
+        </member>
+        <member name="T:Google.ProtoBuf.GenericFactory`1">
+            <summary>
+            Represents a factory for creating objects with a public parameterless constructor;
+            the "new()" generic constraint provides an optimisation over reflection.
+            </summary>
+            <typeparam name="T">The type of object to be created.</typeparam>
+        </member>
+        <member name="T:Google.ProtoBuf.ConstructorFactory`1">
+            <summary>
+            Represents a factory for creating objects with a non-public parameterless
+            constructor (via reflection), or for lazily throwing a suitable error
+            if no such constructor exists.
+            </summary>
+            <typeparam name="T">The type of object to be created.</typeparam>
+        </member>
+        <member name="T:Google.ProtoBuf.PrefixStyle">
+            <summary>
+            Specifies the type of prefix that should be applied to messages.
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.PrefixStyle.None">
+            <summary>
+            No length prefix is applied to the data; the data is terminated only be the end of the stream.
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.PrefixStyle.Base128">
+            <summary>
+            A base-128 length prefix is applied to the data (efficient for short messages).
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.PrefixStyle.Fixed32">
+            <summary>
+            A fixed-length (big-endian) length prefix is applied to the data (useful for compatibility).
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.Property.PropertyEnum`2">
+            <summary>
+            Property implemenation that handles enum values.
+            </summary>
+            <remarks>All enum wire-values must be in the Int32 range.</remarks>
+        </member>
+        <member name="T:Google.ProtoBuf.Property.PropertyFactory">
+            <summary>
+            Utility class for creating/initializing protobuf-net property
+            wrappers.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.Property.PropertyFactory.GetPassThru``1">
+            <summary>
+            Returns a Getter&lt;T,T&gt; delegate that simply returns
+            the original value. This allows code re-use between
+            different implementations.
+            </summary>
+            <remarks>Originally an anonymous method was used, but
+            this proved problematic with the Mono 2.0 compiler.</remarks>
+        </member>
+        <member name="M:Google.ProtoBuf.Property.PropertyFactory.CreatePassThru``1(System.Int32,Google.ProtoBuf.DataFormat@)">
+            <summary>
+            Create a simple Property that can be used standalone
+            to encode/decode values for the given type.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.Property.PropertyFactory.Create``1(System.Reflection.MemberInfo)">
+            <summary>
+            Create a Property based around a class
+            member (PropertyInfo/FieldInfo).
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.Property.PropertyFactory.CreateProperty``1(System.Type,Google.ProtoBuf.DataFormat@,Google.ProtoBuf.MemberSerializationOptions)">
+            <summary>
+            Responsible for deciding how to encode/decode a given data-type; maybe
+            not the most elegant solution, but it is simple and quick.
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.Property.PropertyFactory.PassThruCache`1">
+            <summary>
+            Stores, per T, a pass-thru Getter&lt;T,T&gt; delegate.
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.Property.PropertyMessageGroup`4">
+            <summary>
+            Serializes an entity using group (delimited) syntax.
+            The high number of type arguments is requird to support ancestral serialization;
+            there are 2 use-cases:
+              direct: for example, a property (base is the highest contract ancestor; prop = actual = the property-type)
+              descendent: used internally to cascade inheritance; prop = base = the parent type, actual = the child type
+            </summary>
+            <typeparam name="TSource">The type declaring the member</typeparam>
+            <typeparam name="TProperty">The defined member-type for accessing data</typeparam>
+            <typeparam name="TEntityBase">The base-type to use when verifying / instantiating sub-type instances</typeparam>
+            <typeparam name="TEntityActual">The type to use for serialization purposes</typeparam>
+        </member>
+        <member name="T:Google.ProtoBuf.Property.PropertyMessageString`4">
+            <summary>
+            Serializes an entity using string (length-prefixed) syntax.
+            The high number of type arguments is requird to support ancestral serialization;
+            there are 2 use-cases:
+              direct: for example, a property (base is the highest contract ancestor; prop = actual = the property-type)
+              descendent: used internally to cascade inheritance; prop = base = the parent type, actual = the child type
+            </summary>
+            <typeparam name="TSource">The type declaring the member</typeparam>
+            <typeparam name="TProperty">The defined member-type for accessing data</typeparam>
+            <typeparam name="TEntityBase">The base-type to use when verifying / instantiating sub-type instances</typeparam>
+            <typeparam name="TEntityActual">The type to use for serialization purposes</typeparam>
+        </member>
+        <member name="T:Google.ProtoBuf.ProtoException">
+            <summary>
+            Indicates an error during serialization/deserialization of a proto stream.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.ProtoException.#ctor">
+            <summary>Creates a new ProtoException instance.</summary>
+        </member>
+        <member name="M:Google.ProtoBuf.ProtoException.#ctor(System.String)">
+            <summary>Creates a new ProtoException instance.</summary>
+        </member>
+        <member name="M:Google.ProtoBuf.ProtoException.#ctor(System.String,System.Exception)">
+            <summary>Creates a new ProtoException instance.</summary>
+        </member>
+        <member name="F:Google.ProtoBuf.StreamState.Normal">
+            <summary>
+            Indicates that an EOF is not anticipated, and so will throw an exception.
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.StreamState.EofExpected">
+            <summary>
+            Indicates that an EOF is acceptable at the current time and will
+            not throw an exception.
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.StreamState.Peeked">
+            <summary>
+            Indicates that we have previously obtained a field value from
+            the stream that should be consumed next.
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.StreamState.Eof">
+            <summary>
+            Indicates that we have found the end of the stream; this is **only**
+            used to commicate to "Try", and should not persist.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.SerializationContext.Push(System.Object)">
+            <summary>
+            Allows for recursion detection by capturing
+            the call tree; this only takes effect after
+            an initial threshold call-depth is reached.
+            If the object is already in the call-tree,
+            an exception is thrown.
+            </summary>
+            <param name="obj">The item being processed (start).</param>
+        </member>
+        <member name="M:Google.ProtoBuf.SerializationContext.Push">
+            <summary>
+            Only used during debugging for the text nest-level
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.SerializationContext.Pop">
+            <summary>
+            Only used during debugging for the text nest-level
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.SerializationContext.Pop(System.Object)">
+            <summary>
+            Removes an object from the call-tree.
+            </summary>
+            <remarks>The object is not checked for validity (peformance);
+            ensure that objects are pushed/popped correctly.</remarks>
+            <param name="obj">The item being processed (end).</param>
+        </member>
+        <member name="M:Google.ProtoBuf.SerializationContext.DecodeUInt32Fixed(System.IO.Stream)">
+            <summary>
+            Slow (unbuffered) read from a stream; used to avoid issues
+            with buffers when performing network IO.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.SerializationContext.TryDecodeUInt32Fixed(System.IO.Stream,System.UInt32@)">
+            <summary>
+            Slow (unbuffered) read from a stream; used to avoid issues
+            with buffers when performing network IO.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.SerializationContext.DecodeUInt32(System.IO.Stream)">
+            <summary>
+            Slow (unbuffered) read from a stream; used to avoid issues
+            with buffers when performing network IO.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.SerializationContext.SkipStringData(System.IO.Stream)">
+            <summary>
+            Jump a block of data using a base-128 length prefix.
+            </summary>
+            <param name="source">The input stream.</param>
+        </member>
+        <member name="M:Google.ProtoBuf.SerializationContext.TryDecodeUInt32(System.IO.Stream,System.UInt32@)">
+            <summary>
+            Slow (unbuffered) read from a stream; used to avoid issues
+            with buffers when performing network IO.
+            </summary>
+            <returns>True if there is data in the stream and a value can be obtained;
+            False if there is no data in the stream; note that an exception is still
+            thrown if the data is invalid.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.SerializationContext.Fill(System.Int32,System.Boolean)">
+            <summary>
+            Fills the IO buffer if there is not enough data buffered to complete the current operation.
+            </summary>
+            <param name="required">The maximum number of bytes required by the current operation.</param>
+            <param name="demand">Should an exception be thrown if the data is not available?</param>
+        </member>
+        <member name="M:Google.ProtoBuf.SerializationContext.Fill">
+            <summary>
+            Fills the IO buffer, moving any un-consumed data to the beginning of the cache.
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.SerializationContext.Flush(System.Int32)">
+            <summary>
+            Flushes the IO buffer if there is not enough space to complete the current operation.
+            </summary>
+            <param name="spaceRequired">The maximum number of bytes required by the current operation.</param>
+        </member>
+        <member name="M:Google.ProtoBuf.SerializationContext.Flush">
+            <summary>
+            Flushes the IO buffer, writing any cached data to the underlying stream and resetting the cache.
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.SubStream">
+            <summary>
+            Describes a Stream that wraps an underlying stream but
+            which limits the length. This is used for processing
+            length-prefied messages (string wire-type) so that no
+            complex code is required to manage the end of each
+            object.
+            </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.UnknownType">
+            <summary>
+            The (non-extensible) UnknownType is used when deserializing
+            unexpected groups.
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.WireType.Variant">
+            <summary>
+            Base-128 variant-length encoding
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.WireType.Fixed64">
+            <summary>
+            Fixed-length 8-byte encoding
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.WireType.String">
+            <summary>
+            Length-variant-prefixed encoding
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.WireType.StartGroup">
+            <summary>
+            Indicates the start of a group
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.WireType.EndGroup">
+            <summary>
+            Indicates the end of a group
+            </summary>
+        </member>
+        <member name="F:Google.ProtoBuf.WireType.Fixed32">
+            <summary>
+            Fixed-length 4-byte encoding
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.RpcClientContext">
+            <summary>
+            	管理Rpc客户端调用的异步上下文
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.RpcErrorCode">
+            <summary>
+            	Rpc返回码
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.OK">
+            <summary>成功</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.SendFailed">
+            <summary>在客户端发送阶段产生错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.SendPending">
+            <summary>客户端通道过于拥挤，无法发送</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.TransactionTimeout">
+            <summary>Transaction超时, 在规定时间内未收到服务器应答</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.TransactionBusy">
+            <summary>客户端事务忒忙，无法创建</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ConnectionTimeout">
+            <summary>建立连接超时，在某些连接模式的Channel中会抛出</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ConnectionBroken">
+            <summary>连接断开失效，在连接模式的Channel中抛出</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ConnectionPending">
+            <summary>连接堵塞, 当对某一台服务器创建了太多无法使用的连接时抛出</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServiceNotFound">
+            <summary>服务未找到, 已到达Server端，由Rpc分发器返回</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.MethodNotFound">
+            <summary>方法未找到, 已到达Server端，由Rpc分发器返回</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServerError">
+            <summary>内部错误, Server端返回, 可能为应用抛出</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServerBusy">
+            <summary>服务器忙, 保护性错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.InvaildRequestArgs">
+            <summary>请求格式错误，可能为序列化错误，或内部报文格式错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.InvaildResponseArgs">
+            <summary>应答格式错误，可能为序列化错误，或内部报文格式错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ConnectionFailed">
+            <summary>连接状态维护失败，由服务器返回错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServerTimeout">
+            <summary>服务器转发，或处理超时</summary>
+            <remarks>TransacionTimeout为客户端未收到应答，ServerTimeout由服务器明确给出超时应答，在SGW或转发类服务中出现</remarks>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServerTransferFailed">
+            <summary>服务器转发错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.Unknown">
+            <summary>未知错误</summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.RpcServerContext">
+            <summary>
+            	在Server端管理Rpc方法
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServerContext.GetContextUri``1">
+            <summary>
+            	获取一个特定类型的上下文Uri
+            </summary>
+            <typeparam name="T">Uri类型</typeparam>
+            <returns>T类型的Uri</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServerContext.GetArgs``1">
+            <summary>
+            	获取请求参数
+            </summary>
+            <typeparam name="T">请求参数类型</typeparam>
+            <returns>请求参数</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServerContext.Return">
+            <summary>
+            	无参数成功返回
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServerContext.ReturnIf``1(``0,System.Func{System.Int32,System.Boolean})">
+            <summary>
+            有条件的返回
+            </summary>
+            <typeparam name="TResults"></typeparam>
+            <param name="results"></param>
+            <param name="ifProc"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServerContext.Return``1(``0)">
+            <summary>
+            	带参数成功返回
+            </summary>
+            <typeparam name="T">参数类型</typeparam>
+            <param name="results">返回参数</param>
+            <remarks>返回null等同于无参数返回</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServerContext.ThrowException(System.Exception)">
+            <summary>
+            	抛出异常到客户端
+            </summary>
+            <param name="ex">异常</param>
+            <remarks>等同于在方法中直接抛出异常，但可以在方法外异步抛出</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServerContext.ReturnError(Imps.Services.CommonV4.RpcErrorCode,System.Exception)">
+            <summary>
+            	返回错误到客户端
+            </summary>
+            <param name="errCode">错误码</param>
+            <param name="ex">异常</param>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.From">
+            <summary>
+            	来源 "服务@机器名"
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.FromService">
+            <summary>
+            	来源服务
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.FromComputer">
+            <summary>
+            	来源机器名
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.ServiceName">
+            <summary>
+            	访问Rpc服务名
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.MethodName">
+            <summary>
+            	访问Rpc方法名
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.Connection">
+            <summary>
+            	关联的Rpc连接
+            </summary>
+            <remarks>无连接模式下为null</remarks>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.Channel">
+            <summary>
+            	关联的通道
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.HasReturned">
+            <summary>
+            	是否已经调用过Return方法
+            </summary>
+            <remarks>调用Return方法，或在方法中抛出异常，均视为返回到客户端，结果仅返回一次</remarks>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.ContextUri">
+            <summary>
+            	上下文相关的Uri
+            </summary>
+            <remarks>可能为IdUri，GroupUri等，由客户端送上来的用户关联Uri</remarks>
+        </member>
+        <member name="T:Imps.Services.CommonV4.RpcProxyFactory">
+            <summary>
+            	获取Rpc客户端代理的工厂类
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.RegisterClientChannel(Imps.Services.CommonV4.Rpc.RpcClientChannel)">
+            <summary>
+            	注册客户端Channel
+            </summary>
+            <param name="channel">具体的Channel实体</param>
+            <remarks>一般来说，客户端Channel针对每种协议注册一个便可以</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.GetConnection(Imps.Services.CommonV4.ServerUri,System.String)">
+            <summary>
+            	获取一个连接
+            </summary>
+            <param name="serverUri"></param>
+            <param name="serviceRole"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.GetProxy``1(System.String)">
+            <summary>
+            	获取一个Rpc客户端代理
+            </summary>
+            <typeparam name="T">Rpc的声明Interface</typeparam>
+            <param name="uri">服务器的具体网络地址，如: sipc://192.168.1.100:5700</param>
+            <returns>Rpc客户端代理了类</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.GetProxy``1(Imps.Services.CommonV4.ServerUri)">
+            <summary>
+            	获取一个Rpc客户端代理
+            </summary>
+            <typeparam name="T">Rpc的声明Interface</typeparam>
+            <param name="uri">服务器的具体网络地址实体类，如: sipc://192.168.1.100:5700</param>
+            <returns>Rpc客户端代理类</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.GetProxy``1(Imps.Services.CommonV4.ResolvableUri)">
+            <summary>
+            	通过可路由Uri，获取一个Rpc客户端代理
+            </summary>
+            <typeparam name="T">Rpc的声明Interface</typeparam>
+            <param name="uri">一个可用于路由的Uri实体类，例如IdUri或GroupUri</param>
+            <returns>Rpc客户端代理类</returns>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServiceAttribute.ClientChecking">
+            <summary>
+            	是否在客户端进行强制命名检查
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServiceAttribute.EnableCounters">
+            <summary>
+            	
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.RpcServiceManager">
+            <summary>
+            	管理所有的RpcService
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServiceManager.RegisterServerChannel(Imps.Services.CommonV4.Rpc.RpcServerChannel)">
+            <summary>
+            	注册服务信道
+            </summary>
+            <param name="channel">待注册的信道</param>
+            <remarks>同一种信道如果监听不同的端口，可以注册多个</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServiceManager.HasService(System.String)">
+            <summary>
+            	检测RpcService是否有注册
+            </summary>
+            <param name="serviceName">服务名</param>
+            <returns>是否已注册</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServiceManager.RegisterRawService(Imps.Services.CommonV4.RpcServiceBase)">
+            <summary>
+            	注册派生自RpcSerivceBase的原生服务
+            </summary>
+            <param name="service">服务对象</param>
+            <remarks>每个名字的服务对象仅能注册一次</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServiceManager.RegisterService``1(``0)">
+            <summary>
+            	注册继承自rpc interface的服务
+            </summary>
+            <typeparam name="T">interface的类型</typeparam>
+            <param name="service">服务对象</param>
+            <remarks>每个类型的服务对象仅能注册一次</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServiceManager.RegisterService``1(System.String,``0)">
+            <summary>
+            	注册继承自rpc interface的服务，并用ServiceName覆盖服务名
+            </summary>
+            <typeparam name="T">interface的类型</typeparam>
+            <param name="serviceName">服务名></param>
+            <param name="service">服务对象</param>
+            <remarks>每个类型的服务对象仅能注册一次</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServiceManager.Start">
+            <summary>
+            	启动所有的Channels，开始监听
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServiceManager.Stop">
+            <summary>
+            	停止所有的Channels
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.ITracing">
+            <summary>
+            	处理IICTracing的接口
+            <seealso cref="T:Imps.Services.CommonV4.TracingManager"/>
+            <remarks>请从TracingManager.GetTracing系列方法获得一个可用的接口</remarks>
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.Info(System.String)">
+            <summary>
+            	记录Info级别的日志
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.Info(System.String,System.String,System.String)">
+            <summary>
+            	记录Info级别的日志
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.Info(System.Exception,System.String)">
+            <summary>
+            	记录Info级别的日志
+            </summary>
+            <param name="exception"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.Info(System.Exception,System.String,System.String,System.String)">
+            <summary>
+            	记录Info级别的日志
+            </summary>
+            <param name="exception"></param>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.InfoFmt(System.String,System.Object[])">
+            <summary>
+            	记录Info级别的日志
+            </summary>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.InfoFmt(System.Exception,System.String,System.Object[])">
+            <summary>
+            	记录Info级别的日志
+            </summary>
+            <param name="exception"></param>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.InfoFmt2(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            	记录Info级别的日志
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.InfoFmt2(System.Exception,System.String,System.String,System.String,System.Object[])">
+            <summary>
+            	记录Info级别的日志
+            </summary>
+            <param name="exception"></param>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.Warn(System.String)">
+            <summary>
+            	记录Warn级别的日志
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.TracingManager">
+            <summary>
+            	TracingManager
+            </summary>
+        </member>
+    </members>
+</doc>

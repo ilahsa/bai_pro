@@ -1,0 +1,9 @@
+E:\代码库\CommonLibrary\IICCommonLibrary_Console\obj\x86\Debug\IICCommonLibrary_Console.csprojResolveAssemblyReference.cache
+E:\代码库\CommonLibrary\IICCommonLibrary_Console\bin\Debug\IICCommonLibrary_Console.exe.config
+E:\代码库\CommonLibrary\IICCommonLibrary_Console\bin\Debug\IICCommonLibrary_Console.exe
+E:\代码库\CommonLibrary\IICCommonLibrary_Console\bin\Debug\IICCommonLibrary_Console.pdb
+E:\代码库\CommonLibrary\IICCommonLibrary_Console\bin\Debug\IICCommonLibrary.dll
+E:\代码库\CommonLibrary\IICCommonLibrary_Console\bin\Debug\IICCommonLibrary.pdb
+E:\代码库\CommonLibrary\IICCommonLibrary_Console\bin\Debug\IICCommonLibrary.xml
+E:\代码库\CommonLibrary\IICCommonLibrary_Console\obj\x86\Debug\IICCommonLibrary_Console.exe
+E:\代码库\CommonLibrary\IICCommonLibrary_Console\obj\x86\Debug\IICCommonLibrary_Console.pdb

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!--This file represents the results of running a test suite-->
+<test-results name="E:\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\bin\Debug\IICCommonlibrary_NUnitTest.exe" total="1" errors="0" failures="0" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2013-08-21" time="16:26:18">
+  <environment nunit-version="2.6.2.12296" clr-version="2.0.50727.5472" os-version="Microsoft Windows NT 6.1.7601 Service Pack 1" platform="Win32NT" cwd="E:\代码库\NUnit-2.6.2\NUnit-2.6.2\bin" machine-name="BAI-PC" user="bai" user-domain="bai-PC" />
+  <culture-info current-culture="zh-CN" current-uiculture="en-US" />
+  <test-suite type="Assembly" name="E:\代码库\CommonLibrary\IICCommonlibrary_NUnitTest\bin\Debug\IICCommonlibrary_NUnitTest.exe" executed="True" result="Success" success="True" time="4.007" asserts="0">
+    <results>
+      <test-suite type="Namespace" name="UnitTest" executed="True" result="Success" success="True" time="4.007" asserts="0">
+        <results>
+          <test-suite type="Namespace" name="Rpc" executed="True" result="Success" success="True" time="4.006" asserts="0">
+            <results>
+              <test-suite type="TestFixture" name="RpcChannels_Test" executed="True" result="Success" success="True" time="4.005" asserts="0">
+                <results>
+                  <test-case name="UnitTest.Rpc.RpcChannels_Test.ChannelTest_Tcp" executed="True" result="Success" success="True" time="4.004" asserts="11" />
+                </results>
+              </test-suite>
+            </results>
+          </test-suite>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>

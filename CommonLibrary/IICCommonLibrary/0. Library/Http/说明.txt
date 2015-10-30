@@ -1,0 +1,5 @@
+﻿          使用实例
+		    //HttpRequest.Post("http://192.168.0.15:8787/update.axd?version=1.8.0&language=tr&ttt=/sdfsf_dsfasf", new { k1 = "a", k2 = "3" }, str =>
+            //{
+            //    Console.WriteLine(str);
+            //});

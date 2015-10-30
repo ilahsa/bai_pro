@@ -1,0 +1,4 @@
+﻿后续改动
+1. 加入RpcTcpBufferPool机制
+2. SimplexConnection上的正确连接管理机制
+3. 针对配置的支持

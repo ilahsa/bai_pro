@@ -1,0 +1,12 @@
+E:\代码库\CommonLibrary\IICCommonLibrary-UnitTest\obj\Debug\IICCommonLibrary-UnitTest.csprojResolveAssemblyReference.cache
+E:\代码库\CommonLibrary\IICCommonLibrary-UnitTest\bin\Debug\LoadTest1.loadtest
+E:\代码库\CommonLibrary\IICCommonLibrary-UnitTest\bin\Debug\IICCommonLibrary-UnitTest.dll.config
+E:\代码库\CommonLibrary\IICCommonLibrary-UnitTest\bin\Debug\IICCommonLibrary-UnitTest.dll
+E:\代码库\CommonLibrary\IICCommonLibrary-UnitTest\bin\Debug\IICCommonLibrary-UnitTest.pdb
+E:\代码库\CommonLibrary\IICCommonLibrary-UnitTest\bin\Debug\IICCommonLibrary.dll
+E:\代码库\CommonLibrary\IICCommonLibrary-UnitTest\bin\Debug\MySql.Data.dll
+E:\代码库\CommonLibrary\IICCommonLibrary-UnitTest\bin\Debug\System.Web.dll
+E:\代码库\CommonLibrary\IICCommonLibrary-UnitTest\bin\Debug\IICCommonLibrary.pdb
+E:\代码库\CommonLibrary\IICCommonLibrary-UnitTest\bin\Debug\IICCommonLibrary.xml
+E:\代码库\CommonLibrary\IICCommonLibrary-UnitTest\obj\Debug\IICCommonLibrary-UnitTest.dll
+E:\代码库\CommonLibrary\IICCommonLibrary-UnitTest\obj\Debug\IICCommonLibrary-UnitTest.pdb

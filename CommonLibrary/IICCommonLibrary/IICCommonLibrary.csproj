@@ -1,0 +1,590 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{775F0E58-0B3C-4547-B82C-5CB201E8C21C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Imps.Services.CommonV4</RootNamespace>
+    <AssemblyName>IICCommonLibrary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <StartupObject>
+    </StartupObject>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Debug\IICCommonLibrary.XML</DocumentationFile>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <NoWarn>1591</NoWarn>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.6.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.OracleClient" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="0. Library\Container\AsyncQueue.cs" />
+    <Compile Include="0. Library\Container\ConfigDictionary.cs" />
+    <Compile Include="0. Library\Container\DictionaryList.cs" />
+    <Compile Include="0. Library\Http\HttpAsyncHandler.cs" />
+    <Compile Include="0. Library\Http\AsyncHttpListener.cs" />
+    <Compile Include="0. Library\Http\HttpRequest.cs" />
+    <Compile Include="0. Library\Http\NamedFileStream.cs" />
+    <Compile Include="0. Library\Http\HttpUtils.cs" />
+    <Compile Include="0. Library\Remoting\RemotingCachedObjectPool.cs" />
+    <Compile Include="0. Library\Remoting\RemotingProxyFactory.cs" />
+    <Compile Include="0. Library\Remoting\RemotingService.cs" />
+    <Compile Include="0. Library\Threading\TaskDelay.cs" />
+    <Compile Include="0. Library\Utils\MD5Hashing.cs" />
+    <Compile Include="1. Foundation\Serialization\JsonSerializer.cs" />
+    <Compile Include="2. Framework\Net\Server\AsyncSocketConnection.cs" />
+    <Compile Include="2. Framework\Net\Server\DataReceivedEventArgs.cs" />
+    <Compile Include="2. Framework\Net\Server\AsyncSocketListener.cs" />
+    <Compile Include="2. Framework\Net\Server\SocketConnectedEventArgs.cs" />
+    <Compile Include="2. Framework\Socket\SocketEx.cs" />
+    <Compile Include="2. Framework\Configration\Loader\Copy of LocalConfigurationLoader.cs" />
+    <Compile Include="2. Framework\Configration\Updater\ConfigTextUpdater.cs" />
+    <Compile Include="2. Framework\Net\Client\AsyncTcpSession.cs" />
+    <Compile Include="2. Framework\Net\Client\IPosList.cs" />
+    <Compile Include="2. Framework\Net\Client\ConnectAsyncExtension.Net40.cs" />
+    <Compile Include="2. Framework\Net\Client\ConnectAsyncExtension.Net.cs" />
+    <Compile Include="2. Framework\Net\Client\ConnectAsyncExtension.cs" />
+    <Compile Include="2. Framework\Net\Client\ClientSession.cs" />
+    <Compile Include="2. Framework\Net\Client\IBatchQueue.cs" />
+    <Compile Include="2. Framework\Net\Client\ConcurrentQueue.cs" />
+    <Compile Include="2. Framework\Net\Client\DataEventArgs.cs" />
+    <Compile Include="2. Framework\Net\Client\ErrorEventArgs.cs" />
+    <Compile Include="2. Framework\Net\Client\IBufferSetter.cs" />
+    <Compile Include="2. Framework\Net\Client\IClientSession.cs" />
+    <Compile Include="2. Framework\Net\Client\SslStreamTcpSession.cs" />
+    <Compile Include="2. Framework\Net\Client\TcpClientSession.cs" />
+    <Compile Include="3. Extension\RpcJson\JsonRpcHttpClientTransaction.cs" />
+    <Compile Include="3. Extension\RpcJson\JsonRpcErrorCode.cs" />
+    <Compile Include="3. Extension\RpcJson\JsonRpcException.cs" />
+    <Compile Include="3. Extension\RpcJson\JsonRpcResponse.cs" />
+    <Compile Include="3. Extension\RpcJson\JsonRpcSyncCaller.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpSimplexConnectionManager.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpBufferPool.cs" />
+    <Compile Include="0. Library\Container\SessionPool.cs" />
+    <Compile Include="0. Library\Database\Operations\OracleDatabase.cs" />
+    <Compile Include="0. Library\DataType\KeyWrapper.cs" />
+    <Compile Include="0. Library\Diagnostic\FrequencyHelper.cs" />
+    <Compile Include="0. Library\Diagnostic\IICAssertFailedException.cs" />
+    <Compile Include="0. Library\Memory\StreamHelper.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyCustom.cs" />
+    <Compile Include="0. Library\Utils\DoubleLock.cs" />
+    <Compile Include="0. Library\Utils\DummyStream.cs" />
+    <Compile Include="0. Library\Utils\LoopCounter.cs" />
+    <Compile Include="0. Library\Utils\SyncInvoker.cs" />
+    <Compile Include="0. Library\Utils\AttributeHelper.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="0. Library\Database\AsyncDbCallback.cs" />
+    <Compile Include="0. Library\Utils\EnumParser.cs" />
+    <Compile Include="0. Library\Diagnostic\IICAssert.cs" />
+    <Compile Include="0. Library\Utils\IPAddressHelper.cs" />
+    <Compile Include="0. Library\Utils\NumberUtils.cs" />
+    <Compile Include="1. Foundation\Enviornment\ServiceInitializer.cs" />
+    <Compile Include="1. Foundation\Observeration\IObserver.cs" />
+    <Compile Include="1. Foundation\Observeration\ObserverDataTable.cs" />
+    <Compile Include="1. Foundation\Observeration\ObserverDelegate.cs" />
+    <Compile Include="1. Foundation\Observeration\ObserverItemFormatter.cs" />
+    <Compile Include="1. Foundation\Observeration\PerformanceObserverItem.cs" />
+    <Compile Include="1. Foundation\RouteManager\Common\IUriParser.cs" />
+    <Compile Include="1. Foundation\RouteManager\Common\BaseUri.cs" />
+    <Compile Include="1. Foundation\RouteManager\Common\ResolvableUri.cs" />
+    <Compile Include="1. Foundation\RouteManager\Common\ServerUri.cs" />
+    <Compile Include="1. Foundation\RouteManager\Common\ServerUriManager.cs" />
+    <Compile Include="1. Foundation\RouteManager\ServerUris\DatabaseUri.cs" />
+    <Compile Include="1. Foundation\RouteManager\ServerUris\HttpUri.cs" />
+    <Compile Include="1. Foundation\RouteManager\ServerUris\InprocUri.cs" />
+    <Compile Include="1. Foundation\RouteManager\ServerUris\IPv4Uri.cs" />
+    <Compile Include="1. Foundation\RouteManager\ServerUris\SipcUri.cs" />
+    <Compile Include="1. Foundation\RouteManager\ServerUris\TcpUri.cs" />
+    <Compile Include="1. Foundation\RouteManager\ServerUris\NamedPipeUri.cs" />
+    <Compile Include="1. Foundation\RouteManager\ServerUris\UdpUri.cs" />
+    <Compile Include="1. Foundation\Serialization\CustomSerializer.cs" />
+    <Compile Include="1. Foundation\Serialization\DotNetSerializer.cs" />
+    <Compile Include="1. Foundation\Serialization\ISerializableObject.cs" />
+    <Compile Include="1. Foundation\Tracing\Implementation\TracingObserverItem.cs" />
+    <Compile Include="2. Framework\Cloud\ICloudResourceLocator.cs" />
+    <Compile Include="2. Framework\Cloud\ICloudResource.cs" />
+    <Compile Include="2. Framework\Rpc\Batch\RpcBatchItem.cs" />
+    <Compile Include="2. Framework\Rpc\Channel\RpcMessageDirection.cs" />
+    <Compile Include="2. Framework\Rpc\Channel\RpcMessageOptions.cs" />
+    <Compile Include="2. Framework\Rpc\Batch\RpcClientBatchManager.cs" />
+    <Compile Include="2. Framework\Rpc\Batch\RpcBatchClientTransaction.cs" />
+    <Compile Include="2. Framework\Rpc\Batch\RpcServiceBatchMethodAttribute.cs" />
+    <Compile Include="2. Framework\Rpc\Batch\RpcBatchServerContext.cs" />
+    <Compile Include="2. Framework\Rpc\Batch\RpcServiceBatchMethod.cs" />
+    <Compile Include="2. Framework\Rpc\Batch\RpcBatchRequest.cs" />
+    <Compile Include="2. Framework\Rpc\Batch\RpcBatchResponse.cs" />
+    <Compile Include="2. Framework\Rpc\Channel\RpcConnection.cs" />
+    <Compile Include="2. Framework\Rpc\Channel\RpcChannelSettings.cs" />
+    <Compile Include="2. Framework\Rpc\Channel\RpcBodyBuffer.cs" />
+    <Compile Include="2. Framework\Rpc\Channel\RpcSimplexConnection.cs" />
+    <Compile Include="2. Framework\Rpc\Client\RpcClientInterface.cs" />
+    <Compile Include="2. Framework\Rpc\Client\RpcClientInterfaceFactory.cs" />
+    <Compile Include="2. Framework\Rpc\Client\RpcClientMethodSensor.cs" />
+    <Compile Include="2. Framework\Rpc\Client\RpcClientNexus.cs" />
+    <Compile Include="2. Framework\Rpc\Duplex\RpcDuplexCallbackChannel.cs" />
+    <Compile Include="2. Framework\Rpc\Duplex\RpcDuplexCallbackNexus.cs" />
+    <Compile Include="2. Framework\Rpc\Duplex\RpcDuplexServer.cs" />
+    <Compile Include="2. Framework\Rpc\Sample\DuplexServerDemo.cs" />
+    <Compile Include="2. Framework\Rpc\Sample\RpcProxyService.cs" />
+    <Compile Include="2. Framework\Rpc\Server\RpcInteralServiceName.cs" />
+    <Compile Include="2. Framework\Rpc\Common\RpcNull.cs" />
+    <Compile Include="2. Framework\Rpc\Channel\RpcRequest.cs" />
+    <Compile Include="2. Framework\Rpc\Channel\RpcResponse.cs" />
+    <Compile Include="2. Framework\Rpc\Duplex\RpcDuplexClient.cs" />
+    <Compile Include="2. Framework\Rpc\Observation\RpcObserverManager.cs" />
+    <Compile Include="2. Framework\Rpc\Server\RpcServiceDelegate.cs" />
+    <Compile Include="2. Framework\Rpc\Server\RpcServiceDispather.cs" />
+    <Compile Include="2. Framework\Rpc\Server\RpcServiceMethod.cs" />
+    <Compile Include="2. Framework\Rpc\Server\RpcServiceMethodHandler.cs" />
+    <Compile Include="3. Extension\DbAccess\AsyncDbContext.cs" />
+    <Compile Include="3. Extension\DbAccess\DatabaseOperationContext.cs" />
+    <Compile Include="3. Extension\Dtc\Coordinator\TccCoordinator.cs" />
+    <Compile Include="3. Extension\Dtc\Coordinator\TccCoordinatorService.cs" />
+    <Compile Include="3. Extension\Dtc\Transaction\TccTransactionData.cs" />
+    <Compile Include="3. Extension\Dtc\Coordinator\TccTransactionPerfCounter.cs" />
+    <Compile Include="3. Extension\Dtc\Coordinator\TccTransactionSchema.cs" />
+    <Compile Include="3. Extension\Dtc\Transaction\ITccContext.cs" />
+    <Compile Include="3. Extension\Dtc\Transaction\TccRunningContext.cs" />
+    <Compile Include="3. Extension\Dtc\Transaction\TccTransactionException.cs" />
+    <Compile Include="3. Extension\Dtc\Transaction\TccTransactionState.cs" />
+    <None Include="3. Extension\Dtc\_Sql\TCC_ActiveTransaction.sql" />
+    <None Include="3. Extension\Dtc\_Sql\TCC_TransactionLog.sql" />
+    <Compile Include="3. Extension\Rpc\Channels\Inproc\RpcInprocClientChannel.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Inproc\RpcInprocServerChannel.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Inproc\RpcInprocClientTransaction.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Inproc\RpcInprocServerTransaction.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\NamedPipe\RpcPipeContext.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\NamedPipe\RpcPipeHeader.cs" />
+    <Compile Include="0. Library\Utils\CrcHelper.cs" />
+    <Compile Include="0. Library\Container\Dichotomy.cs" />
+    <Compile Include="0. Library\Utils\AsyncCallHelper.cs" />
+    <Compile Include="1. Foundation\Serialization\SerializerHelper.cs" />
+    <Compile Include="2. Framework\Configration\IICCodeTable\IICCodeTableItemKey.cs" />
+    <Compile Include="2. Framework\Rpc\Observation\RpcClientObserverItem.cs" />
+    <Compile Include="2. Framework\Rpc\Observation\RpcServerObserverItem.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpAsyncArgs.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpBufferManager.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\IRpcTcpSendPacket.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcContracts.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpConfigSection.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpMessage.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpPacket.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpClientChannel.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpClientTransaction.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpDuplexConnection.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpPerfCounters.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpServerChannel.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpServerConnection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpServerTransaction.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpSimplexConnection.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpSimplexConnectionWrapper.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpSocketConnection.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Tcp\RpcTcpTransactionManager.cs" />
+    <Compile Include="4.Other\AssemblyUtil.cs" />
+    <Compile Include="0. Library\Threading\Async.cs" />
+    <Compile Include="4.Other\CodeTimer.cs" />
+    <Compile Include="4.Other\DateTimeExtension.cs" />
+    <Compile Include="4.Other\StringExtension.NET4.cs" />
+    <Compile Include="4.Other\StringExtension.cs" />
+    <Compile Include="4.Other\DictionaryExtension.cs" />
+    <Compile Include="3. Extension\RpcJson\JsonRpcRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="3. Extension\Dtc\Transaction\TccWorkState.cs" />
+    <Compile Include="3. Extension\Dtc\Transaction\TccWorkUnitContext.cs" />
+    <Compile Include="3. Extension\Dtc\Coordinator\TccPersister.cs" />
+    <Compile Include="3. Extension\Dtc\Transaction\TccWorkUnit.cs" />
+    <Compile Include="3. Extension\Dtc\Coordinator\DtcDatabasePersister.cs" />
+    <Compile Include="3. Extension\Dtc\Rpc\TccRpcContext.cs" />
+    <Compile Include="1. Foundation\Serialization\BinarySerializer.cs" />
+    <Compile Include="0. Library\DataType\ComboClass.cs" />
+    <Compile Include="0. Library\Utils\RetryProtector.cs" />
+    <Compile Include="0. Library\Container\HybridDictionary.cs" />
+    <Compile Include="0. Library\Utils\FlagUtils.cs" />
+    <Compile Include="0. Library\Container\LazyQueue.cs" />
+    <Compile Include="0. Library\Container\LinkedNode.cs" />
+    <Compile Include="0. Library\Container\LRUCacheManager.cs" />
+    <Compile Include="0. Library\Utils\ObjectDumper.cs" />
+    <Compile Include="0. Library\Container\ParallelQueue.cs" />
+    <Compile Include="0. Library\Utils\ObjectHelper.cs" />
+    <Compile Include="1. Foundation\Serialization\ProtoBufSerializer.cs" />
+    <Compile Include="0. Library\DataType\Singleton.cs" />
+    <Compile Include="0. Library\Utils\MarshalHelper.cs" />
+    <Compile Include="1. Foundation\RouteManager\Common\RouteManager.cs" />
+    <Compile Include="1. Foundation\Enviornment\ServiceEnvironment.cs" />
+    <Compile Include="1. Foundation\Serialization\ISerializer.cs" />
+    <Compile Include="2. Framework\Configration\Loader\IConfigurationLoader.cs" />
+    <Compile Include="2. Framework\Configration\Interface\ConfigurationExceptions.cs" />
+    <Compile Include="2. Framework\Configration\Interface\IICConfigItem.cs" />
+    <Compile Include="2. Framework\Configration\Interface\IICConfigSection.cs" />
+    <Compile Include="2. Framework\Configration\Loader\ConfiguratorImp.cs" />
+    <Compile Include="3. Extension\HA\DummyConfigHandler.cs" />
+    <Compile Include="2. Framework\Configration\Loader\IICConfigFieldBuffer.cs" />
+    <Compile Include="2. Framework\Configration\Loader\IICConfigItemBuffer.cs" />
+    <Compile Include="2. Framework\Configration\Interface\IICConfigItemCollection.cs" />
+    <Compile Include="2. Framework\Configration\Interface\IICConfigSectionAttributes.cs" />
+    <Compile Include="2. Framework\Configration\Interface\IICConfigurationManager.cs" />
+    <Compile Include="2. Framework\Configration\Loader\LocalConfigurationLoader.cs" />
+    <Compile Include="2. Framework\Configration\Updater\ConfigFieldUpdater.cs" />
+    <Compile Include="2. Framework\Configration\Updater\ConfigItemCollectionUpdater.cs" />
+    <Compile Include="2. Framework\Configration\Updater\ConfigItemUpdater.cs" />
+    <Compile Include="2. Framework\Configration\Updater\ConfigSectionUpdater.cs" />
+    <Compile Include="2. Framework\Configration\Updater\ConfigTableUpdater.cs" />
+    <Compile Include="2. Framework\Configration\Updater\ConfigUpdater.cs" />
+    <Compile Include="3. Extension\Dtc\Transaction\TccTransaction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="3. Extension\Dtc\Transaction\TccTransactionContext.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="3. Extension\Dtc\Rpc\TccRpcHostService.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="3. Extension\Dtc\Rpc\TccRpcHostUnit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="3. Extension\Dtc\Rpc\TccRpcWorkUnit.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="3. Extension\DbAccess\DatabaseObserverItem.cs" />
+    <Compile Include="0. Library\Database\Operations\MysqlBatchInsert.cs" />
+    <Compile Include="2. Framework\Http\SimpleHttpHandler.cs" />
+    <Compile Include="2. Framework\Http\SimpleHttpContext.cs" />
+    <Compile Include="2. Framework\Http\SimpleHttpLibrary.cs" />
+    <Compile Include="2. Framework\Http\SimpleHttpRequest.cs" />
+    <Compile Include="2. Framework\Http\SimpleHttpResponse.cs" />
+    <Compile Include="2. Framework\Http\SimpleHttpServer.cs" />
+    <Compile Include="1. Foundation\Observeration\ObserverItem.cs" />
+    <Compile Include="1. Foundation\Observeration\ObserverFieldAttribute.cs" />
+    <Compile Include="1. Foundation\Observeration\ObserverManager.cs" />
+    <Compile Include="3. Extension\ServiceSettings\ServiceSettings.cs" />
+    <Compile Include="3. Extension\ServiceSettings\ServiceSettingsConfigProxy.cs" />
+    <Compile Include="3. Extension\ServiceSettings\ServiceSettingsConfigSection.cs" />
+    <Compile Include="0. Library\Utils\SqlUtils.cs" />
+    <Compile Include="0. Library\Database\TableFieldAttribute.cs" />
+    <Compile Include="3. Extension\DbAccess\DatabaseManager.cs" />
+    <Compile Include="0. Library\Database\IDatabaseOperation.cs" />
+    <Compile Include="3. Extension\DbAccess\IICDbConfigItem.cs" />
+    <Compile Include="2. Framework\Configration\IICCodeTable\IICCodeTable.cs" />
+    <Compile Include="2. Framework\Configration\IICCodeTable\IICCodeTableBase.cs" />
+    <Compile Include="2. Framework\Configration\Loader\IICConfigTableBuffer.cs" />
+    <Compile Include="2. Framework\Configration\IICCodeTable\IICCodeTableFieldAttribute.cs" />
+    <Compile Include="2. Framework\Configration\IICCodeTable\IICCodeTableItem.cs" />
+    <Compile Include="2. Framework\Configration\Loader\ConfiguratorProxy.cs" />
+    <Compile Include="2. Framework\Configration\Interface\IConfigurator.cs" />
+    <Compile Include="3. Extension\HA\IHACenterConfigServiceArgs.cs" />
+    <Compile Include="3. Extension\Configuration\HAConfiguratorLoader.cs" />
+    <Compile Include="3. Extension\HA\HAComponent.cs" />
+    <Compile Include="3. Extension\HA\HAServiceAttribute.cs" />
+    <Compile Include="3. Extension\HA\IHACenterConfigService.cs" />
+    <Compile Include="3. Extension\HA\IHACenterConfigServiceResults.cs" />
+    <Compile Include="0. Library\PerfCounters\IICPerformanceCounterSet.cs" />
+    <Compile Include="2. Framework\Rpc\Client\RpcClientProxy.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\NamedPipe\RpcPipeClientChannel.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\NamedPipe\RpcPipeClientTransaction.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\NamedPipe\RpcPipeServerChannel.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\NamedPipe\RpcPipeServerTransaction.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\NamedPipe\RpcPipeStreamHelper.cs" />
+    <Compile Include="2. Framework\Rpc\Observation\RpcServerPerfCounter.cs" />
+    <Compile Include="2. Framework\Rpc\Server\RpcServiceBase.cs" />
+    <Compile Include="0. Library\Threading\IICWorkerThreadMonitor.cs" />
+    <Compile Include="1. Foundation\Tracing\Implementation\AntiRepeater.cs" />
+    <Compile Include="0. Library\Diagnostic\TraceHelper.cs" />
+    <Compile Include="1. Foundation\Tracing\Implementation\TracingPerfCounters.cs" />
+    <Compile Include="1. Foundation\Tracing\Implementation\DebugTraceListener.cs" />
+    <Compile Include="3. Extension\Tracing\Sniffer\TracingSniffer.cs" />
+    <Compile Include="3. Extension\Tracing\Appenders\ITracingConsole.cs" />
+    <Compile Include="0. Library\Utils\StrUtils.cs" />
+    <Compile Include="0. Library\PerfCounters\IICPerformanceCounterMananger.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Http\RpcHttpClientChannel.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Http\RpcHttpClientTransaction.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Http\RpcHttpServerChannel.cs" />
+    <Compile Include="3. Extension\Rpc\Channels\Http\RpcHttpServerTransaction.cs" />
+    <Compile Include="3. Extension\DbAccess\Database.cs" />
+    <Compile Include="3. Extension\DbAccess\DatabasePerfCounters.cs" />
+    <Compile Include="0. Library\Database\DataReader.cs" />
+    <Compile Include="3. Extension\DbAccess\IICDbType.cs" />
+    <Compile Include="0. Library\Database\Operations\MysqlDatabase.cs" />
+    <Compile Include="0. Library\Database\Operations\SqlServerDatabase.cs" />
+    <Compile Include="0. Library\Container\IICIndex.cs" />
+    <Compile Include="0. Library\Threading\IICLockRegion.cs" />
+    <Compile Include="0. Library\Threading\IICReaderWriterLock.cs" />
+    <Compile Include="0. Library\Container\SafeDictionary.cs" />
+    <Compile Include="0. Library\Container\SafeList.cs" />
+    <Compile Include="0. Library\Utils\XmlHelper.cs" />
+    <Compile Include="0. Library\PerfCounters\IICPerformanceCounterAttribute.cs" />
+    <Compile Include="0. Library\PerfCounters\IICPerformanceCounterCategory.cs" />
+    <Compile Include="0. Library\PerfCounters\IICPerformanceCounter.cs" />
+    <Compile Include="0. Library\PerfCounters\IICPerformanceCountersAttribute.cs" />
+    <Compile Include="0. Library\PerfCounters\IICPerformanceCounterFactory.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\AsyncUtility.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Attributes\ProtoContractAttribute.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Attributes\ProtoEnumAttribute.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Attributes\ProtoIgnoreAttribute.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Attributes\ProtoIncludeAttribute.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Attributes\ProtoMemberAttribute.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\AttributeUtils.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Base128Variant.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\BufferExtension.cs">
+      <DependentUpon>IExtension.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0. Library\ProtocolBuffer\CallbackAttributes.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\CloneStream.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\DataFormat.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Delegates.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Entity.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Extensible.cs">
+      <DependentUpon>IExtensible.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0. Library\ProtocolBuffer\ExtensibleUtil.cs">
+      <DependentUpon>IExtensible.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0. Library\ProtocolBuffer\Formatter.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\GlobalOptions.cs">
+      <DependentUpon>Serializer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0. Library\ProtocolBuffer\IExtensible.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\IExtension.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\ImplicitFields.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\NonGeneric.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\ObjectFactory.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\PrefixStyle.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\Property.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyArray.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyBlob.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyBoolean.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyByte.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyChar.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyDateTimeFixed.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyDateTimeGroup.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyDateTimeString.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyDecimalGroup.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyDecimalString.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyDouble.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyEnum.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyEnumerable.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyFactory.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyGuidGroup.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyGuidString.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyInclude.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyInt16Variant.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyInt16ZigZag.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyInt32Fixed.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyInt32Variant.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyInt32ZigZag.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyInt64Fixed.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyInt64Variant.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyInt64ZigZag.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyList.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyMessageGroup.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyMessageString.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyNullable.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyPackedArray.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyPackedEnumerable.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyPackedList.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyPairString.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyParseable.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertySByte.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertySingle.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertySpecified.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyString.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyTimeSpanFixed.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyTimeSpanGroup.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyTimeSpanString.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyUInt32Fixed.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyUInt32Variant.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyUInt64Fixed.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyUInt64Variant.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyUri.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\Property\PropertyUtil.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\ProtoBcl\ProtoDecimal.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\ProtoBcl\ProtoGuid.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\ProtoBcl\ProtoTimeSpan.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\ProtoException.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\ProtoFormat.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\SerializationContext.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\SerializationContext.Read.cs">
+      <DependentUpon>SerializationContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0. Library\ProtocolBuffer\SerializationContext.Write.cs">
+      <DependentUpon>SerializationContext.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0. Library\ProtocolBuffer\Serializer.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\SerializerProxy.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\SerializerT.cs">
+      <DependentUpon>Serializer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="0. Library\ProtocolBuffer\SubStream.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\UnexpectedDataException.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\UnknownType.cs" />
+    <Compile Include="0. Library\ProtocolBuffer\WireType.cs" />
+    <Compile Include="2. Framework\Rpc\Channel\RpcClientChannel.cs" />
+    <Compile Include="2. Framework\Rpc\Channel\RpcClientTransaction.cs" />
+    <Compile Include="2. Framework\Rpc\Client\RpcClientContext.cs" />
+    <Compile Include="2. Framework\Rpc\Common\RpcException.cs" />
+    <Compile Include="2. Framework\Rpc\Common\RpcClasses.cs" />
+    <Compile Include="2. Framework\Rpc\Common\RpcErrorCode.cs" />
+    <Compile Include="2. Framework\Rpc\Channel\RpcServerChannel.cs" />
+    <Compile Include="2. Framework\Rpc\Server\RpcServerContext.cs" />
+    <Compile Include="2. Framework\Rpc\Client\RpcProxyFactory.cs" />
+    <Compile Include="2. Framework\Rpc\Channel\RpcServerTransaction.cs" />
+    <Compile Include="2. Framework\Rpc\Server\RpcServiceDecorator.cs" />
+    <Compile Include="2. Framework\Rpc\Common\RpcServiceAttribute.cs" />
+    <Compile Include="2. Framework\Rpc\Observation\RpcClientPerfCounter.cs" />
+    <Compile Include="2. Framework\Rpc\Server\RpcServiceManager.cs" />
+    <Compile Include="2. Framework\Rpc\Common\RpcServiceMethodAttribute.cs" />
+    <Compile Include="0. Library\StxdBase\CodeHelper.cs" />
+    <Compile Include="0. Library\StxdBase\ContextName.cs" />
+    <Compile Include="0. Library\StxdBase\DomHelper.cs" />
+    <Compile Include="0. Library\StxdBase\IXmlDocument.cs" />
+    <Compile Include="0. Library\StxdBase\IXmlNode.cs" />
+    <Compile Include="0. Library\StxdBase\StxdParsingException.cs" />
+    <Compile Include="0. Library\StxdBase\TypeConvert.cs" />
+    <Compile Include="0. Library\StxdBase\XmlReaderHelper.cs" />
+    <Compile Include="0. Library\StxdBase\XmlWriterHelper.cs" />
+    <Compile Include="3. Extension\Tracing\Appenders\TracingConsoleAppender.cs" />
+    <Compile Include="3. Extension\Tracing\Appenders\TracingDatabaseAppender.cs" />
+    <Compile Include="1. Foundation\Tracing\Implementation\IAppender.cs" />
+    <Compile Include="3. Extension\Tracing\Sniffer\ITracingSniffer.cs" />
+    <Compile Include="1. Foundation\Tracing\Implementation\SystemLogEvent.cs" />
+    <Compile Include="1. Foundation\Tracing\Interface\SystemLog.cs" />
+    <Compile Include="3. Extension\Tracing\Appenders\TracingTextAppender.cs" />
+    <Compile Include="1. Foundation\Tracing\Implementation\TracingImpl.cs" />
+    <Compile Include="1. Foundation\Tracing\Interface\TracingLevel.cs" />
+    <Compile Include="1. Foundation\Tracing\Interface\ITracing.cs" />
+    <Compile Include="3. Extension\Tracing\TracingConfigSection.cs" />
+    <Compile Include="1. Foundation\Tracing\Implementation\TracingEvent.cs" />
+    <Compile Include="1. Foundation\Tracing\Interface\TracingManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="1. Foundation\Tracing\CMN_ServerTrace.sql" />
+    <None Include="1. Foundation\Tracing\CMN_ServerTrace_Mysql.sql" />
+    <None Include="1. Foundation\Tracing\CMN_SystemLog.sql" />
+    <None Include="3. Extension\Dtc\_Sql\USP_TCC_DeleteActiveTransaction.sql" />
+    <None Include="3. Extension\Dtc\_Sql\USP_TCC_GetTransactionLog.sql" />
+    <None Include="3. Extension\Dtc\_Sql\USP_TCC_InsertTransactionLog.sql" />
+    <None Include="3. Extension\Dtc\_Sql\USP_TCC_NewTransaction.sql" />
+    <None Include="3. Extension\Dtc\_Sql\USP_TCC_UpdateTransaction.sql" />
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="0. Library\Http\说明.txt" />
+    <Content Include="0. Library\ProtocolBuffer\Readme.txt" />
+    <Content Include="3. Extension\Dtc\readme.txt" />
+    <Content Include="3. Extension\Dtc\_Sql\TCC_TransactionSchema.sql" />
+    <Content Include="3. Extension\Rpc\Channels\Tcp\History.txt" />
+    <Content Include="Readme.txt" />
+    <Content Include="History.txt" />
+    <Content Include="2. Framework\Rpc\Protocol.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="1. Foundation\Installer\" />
+    <Folder Include="2. Framework\Rpc\Detector\" />
+    <Folder Include="3. Extension\Container\" />
+    <Folder Include="3. Extension\Dtc\CoordinatorService\" />
+    <Folder Include="3. Extension\Rpc\Configuration\" />
+    <Folder Include="3. Extension\Tracing\Configuration\" />
+    <Folder Include="X. UnderConstruction\" />
+    <Folder Include="Z. Obsoleted\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

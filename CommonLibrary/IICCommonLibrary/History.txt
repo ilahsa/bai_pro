@@ -1,0 +1,152 @@
+﻿2010.08.11
+	- 打开工程Warning as Error，继续提升稳定性
+	- Configration和Rpc的调用中的From彻底分开，允许在Computer伪造情况下的正常统计值
+	- RpcNamedPipeChannel增加RealClose方法
+	- 修正RpcHttpTransaction的方法
+	- 增加OracleDatabaseOperation的支持, 
+	BTW:
+		Mysql的异步数据库操作就是粪，强烈谴责不负责任的开源社区贡献人员
+
+2010.07.30 V4.1.1
+	打开XML注释，准备整理文档工程
+
+2010.07.29
+	Rpc基础类重构
+	初步实现了Rpc/TcpChannel，简单的单元测试通过，但是复杂的逻辑还有待测试
+	- TODO
+		断连接时的SendPending报错处理
+		Duplex方式
+
+
+2010.06.11
+	- Library/Diagnostic下增加IICAssert类，仅在Debug模式下生效
+
+2010.04.22
+	调整RouteManager机制，ServerUri继承自BaseUri，作为内部访问的网络部分Uri
+
+2010.??.??
+	v4.1 Coding Complete, 修改部分如下
+	- 重新调整目录结构分为:Library,Foundation,Framework,Extension,UnderConstruction,Obsoleted目录
+	- DbAccess
+		- 剥离IDatabaseOperation抽象, 实现通过DataTable的BulkCopy方法, DatabaseOperation系列接口不依赖配置
+		- 添加完整的Observation, 放到DatabaseManager,和Database类中实现,考虑暴露连接串,可从Database中隐式的创建DatabaseOperation
+	- ServiceSettings
+		- 提取ServiceEnviornment类用于基础访问
+		- CommonLibrary中除HA部分不对ServiceSettings进行依赖,
+	- Tracing
+	- Foundaction层次
+	- Observation
+	- RouteManager
+		
+	- Rpc
+		- 提供V4.0, V4.1协议标识(可通过Uri进行判断)
+		- 下一个版本再容错, 
+		- inproc改用channel方式实现
+		- 添加Observation
+		- Channels扩展
+			- tcp
+			- sipc
+			- http
+			- pipe
+			- inproc
+		
+	
+2010.03.03
+	重新布局RPC的依赖, 让Channel的实现更简单
+	
+2010.02.25
+	和小P讨论RoutableUri的
+	
+2010.02.00
+	开始考虑分离基础组件的各个层次, 更清晰的分层, 去掉掉不合适的依赖, 
+	
+2009.12.08
+	V4上线很操蛋	
+	
+2009.10.23
+	RpcServiceMethod 有些服务可能会先Return, 在throw exception, 这个需要单独记录错误日志
+	
+2009.10.19
+	NamedPipeServerTransaction, 发现一个问题, IRpcServerTransaction和IRpcClientTransaction应当遵循Dispose模式
+	
+2009.09.29
+	完成例如NamedPipe的RpcChannel, 为HAWorker, HAMaster中间的接口通道打开了最大的障碍
+	初步测试了HttpClientTransaction的超时问题, 并且发现了RPC客户端及服务器端线程管理的新问题。
+	
+2009.09.28
+	实现了Tracing的AntiRepeat, 以及TracingSniffer的功能, 
+	
+	[TODO]
+		- RPC方法增加入口方法名及参数检查
+		- PerformanceCounter增加Dictionary Cache避免反复初始化
+		- 测试ProtoBuffer的兼容类型，增加NullType支持RpcInvoke泛型方法
+	
+	- 增加了Rpc的Tracing功能, 
+2009.09.11
+	1. HA模式已经基本测试通过, ServiceSettings类基本成熟
+	[TODO]
+	1. Tracing的Appender会互相影响, 不是太爽, 需要恢复原有模式下, DatabaseAppender不可用时切换到TextAppender的逻辑
+	2. SystemLog会支持直接通过DatabaseAppender写LOG到HADB的模式, 也会支持CenterUrl的模式
+		重新整理, 哪些写SystemLog, 哪些写Tracing, 哪些用Console.Writeline
+		
+	3. 服务内部会启动一个HAWorkerMonitor, RpcOverHttp会处理如下的操作, 回头Master也会调这个
+		- UpdateConfig 更新配置文件
+		- AddTracingSniffer 加Tracing后门
+		- GetDependency
+		- GetCounters
+		- Ping (HA经典ThreadPool Ping)
+		- DumpMemory (待考虑如何实现)
+		
+	4. DynamicTable, 轮询 + 反向更新 + Provider方式更新, 为CS的方式
+	
+	[TODO2]
+	1. 整理代码, 所有基础组件的入口均需要try...catch, 捕获内部异常后格式化信息后抛出(需要增加调用参数的信息), 除了某些性能特别care的操作
+	2. 再次Review一下
+		
+	
+2009.09.02
+	前几天已经完成了Configuration的迁移, 但是遇到了ServiceSettings和IICConfigurationManager的依赖初始化问题.
+	还有以下问题争取最近两天内实现:
+	1. Remoting组件的AsyncCallHelper
+	2. SipcStack的默认配置
+	3. ServiceSettings的自动判定
+	
+	
+2009.08.23
+	代码整理, 去掉Console.WriteLine, 用TracingMananger.WriteLine代替, 
+	完成ServiceSettings类中关于RunMode的构想
+	
+	
+2009.08.19
+	ServiceSettings, SystemLog 两个class存在一个栈溢出的漏洞,
+	默认配置还没有实现, 还有很多Console.WriteLine, 需要完善
+	特别是HA部分, 
+	DynamicTable
+	
+2009.08.06
+	重新整理了代码, Tracing实现一半, Sniffer模式修改
+	TODO:
+	Tracing的Sniffer模式, 
+	CodeTable的BufferLoader方式,
+	RemotingProxyFactory的兼容模式
+	
+2009.08.05
+	Http的Rpc基本上搞定, Sipc的Rpc也基本搞定, SipcStack里面的圈套还很多, 不过基本能用了	
+	先搞定Tracing再慢慢夯实基础组件吧
+	
+2009.07.30
+	测通PerformanceCounter, 有一个问题, 就是创建性能计数器的时候, 如果更改Counter内容, 有可能无法重新创建, 
+	特别是从MultiInstance更新为SingleInstance时
+	TODO:	MultiInstance的默认Instance名称, PerformanceCounter的管理接口
+	
+2009.07.29
+    创建这个文件, 实现基本的LocalConfigurator, 配置信息的报错依然不是很友好, 需要很多调整, 这个礼拜不见得做得完
+TODO:
+    SystemLog:            差AntiRepeat机制, 以及HALOG的注入接口
+    IICTracing:           不能用, 很多没实现, 差AntiRepeat机制
+    ServiceSettings:      基本能用, 需要测试
+    Configuration:        需要整理代码, 基本上凑合能用了, 还需要添加
+    PerfCounter:          基本能用, 要添加出错初始化的逻辑
+    DbAccess:	          Mysql没测试, BulkInsert没加上, 还有异步的代码
+    Rpc:                  仅有框架代码, httplistener基本能用, 但还需要查询一下  
+
