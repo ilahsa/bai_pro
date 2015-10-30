@@ -1,0 +1,14 @@
+C:\work\egg_pannel\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe.config
+C:\work\egg_pannel\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.exe
+C:\work\egg_pannel\ConsoleApplication1\ConsoleApplication1\bin\Debug\ConsoleApplication1.pdb
+C:\work\egg_pannel\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\work\egg_pannel\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.exe
+C:\work\egg_pannel\ConsoleApplication1\ConsoleApplication1\obj\Debug\ConsoleApplication1.pdb
+C:\work\bai_pro\RegularTool\ConsoleApplication1\obj\Debug\ConsoleApplication1.csprojResolveAssemblyReference.cache
+C:\work\bai_pro\RegularTool\ConsoleApplication1\bin\Debug\RegularTool.exe.config
+C:\work\bai_pro\RegularTool\ConsoleApplication1\bin\Debug\RegularTool.exe
+C:\work\bai_pro\RegularTool\ConsoleApplication1\bin\Debug\RegularTool.pdb
+C:\work\bai_pro\RegularTool\ConsoleApplication1\bin\Debug\System.Net.Http.dll
+C:\work\bai_pro\RegularTool\ConsoleApplication1\bin\Debug\System.Net.Http.xml
+C:\work\bai_pro\RegularTool\ConsoleApplication1\obj\Debug\RegularTool.exe
+C:\work\bai_pro\RegularTool\ConsoleApplication1\obj\Debug\RegularTool.pdb

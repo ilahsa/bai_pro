@@ -1,0 +1,2 @@
+RegularTool.exe f1.name 正则 f2.name 
+支持绝对路径
