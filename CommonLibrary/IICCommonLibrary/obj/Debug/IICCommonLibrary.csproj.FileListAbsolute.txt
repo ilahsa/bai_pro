@@ -28,3 +28,9 @@ D:\微云网盘\37884371\代码库\CommonLibrary\IICCommonLibrary\obj\Debug\IICC
 D:\微云网盘\37884371\代码库\CommonLibrary\IICCommonLibrary\obj\Debug\IICCommonLibrary.pdb
 D:\微云网盘\37884371\代码库\CommonLibrary\IICCommonLibrary\obj\Debug\IICCommonLibrary.csprojResolveAssemblyReference.cache
 D:\微云网盘\37884371\代码库\CommonLibrary\IICCommonLibrary\bin\Debug\IICCommonLibrary.XML
+C:\work\bai_pro\CommonLibrary\IICCommonLibrary\bin\Debug\IICCommonLibrary.dll.config
+C:\work\bai_pro\CommonLibrary\IICCommonLibrary\bin\Debug\IICCommonLibrary.XML
+C:\work\bai_pro\CommonLibrary\IICCommonLibrary\bin\Debug\IICCommonLibrary.dll
+C:\work\bai_pro\CommonLibrary\IICCommonLibrary\bin\Debug\IICCommonLibrary.pdb
+C:\work\bai_pro\CommonLibrary\IICCommonLibrary\obj\Debug\IICCommonLibrary.dll
+C:\work\bai_pro\CommonLibrary\IICCommonLibrary\obj\Debug\IICCommonLibrary.pdb

@@ -186,6 +186,18 @@
             <param name="Parameters">The key-value pair array</param>
             <returns>The URL encoded query string</returns>
         </member>
+        <member name="M:Imps.Services.CommonV4.HttpUtils.HttpRequest(System.String,System.String,System.String,System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{System.String,System.String}},System.Byte[],System.Collections.Generic.List{System.Collections.Generic.KeyValuePair{System.String,System.String}}@,System.Byte[]@)">
+            <summary>
+            
+            </summary>
+            <param name="method">POST or GET</param>
+            <param name="url"></param>
+            <param name="contentType">application/json or ...</param>
+            <param name="headers"></param>
+            <param name="reqBytes"></param>
+            <param name="respHeaders"></param>
+            <param name="respBytes"></param>
+        </member>
         <member name="T:Imps.Services.CommonV4.TaskDelay">
             <summary>
             task ex
@@ -206,33 +218,6 @@
             </summary>  
             <param name="sourceString">要散列的字符串</param>  
             <returns>散列后的字符串</returns>  
-        </member>
-        <member name="T:Imps.Services.CommonV4.SocketEx">
-            <summary>
-            socket 的扩展方法
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.SocketEx.SafeClose(System.Net.Sockets.Socket)">
-            <summary>
-            Close the socket safely.
-            </summary>
-            <param name="socket">The socket.</param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.SocketEx.SendData(System.Net.Sockets.Socket,System.Byte[])">
-            <summary>
-            Sends the data.
-            </summary>
-            <param name="client">The client.</param>
-            <param name="data">The data.</param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.SocketEx.SendData(System.Net.Sockets.Socket,System.Byte[],System.Int32,System.Int32)">
-            <summary>
-            Sends the data.
-            </summary>
-            <param name="client">The client.</param>
-            <param name="data">The data.</param>
-            <param name="offset">The offset.</param>
-            <param name="length">The length.</param>
         </member>
         <member name="T:Imps.Services.CommonV4.Net.IPosList`1">
             <summary>
@@ -379,6 +364,38 @@
             <param name="sslPolicyErrors">The SSL policy errors.</param>
             <returns></returns>
         </member>
+        <member name="T:Imps.Services.CommonV4.SocketEx">
+            <summary>
+            socket 的扩展方法
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SocketEx.SafeClose(System.Net.Sockets.Socket)">
+            <summary>
+            Close the socket safely.
+            </summary>
+            <param name="socket">The socket.</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SocketEx.SendData(System.Net.Sockets.Socket,System.Byte[])">
+            <summary>
+            Sends the data.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="data">The data.</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SocketEx.SendData(System.Net.Sockets.Socket,System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            Sends the data.
+            </summary>
+            <param name="client">The client.</param>
+            <param name="data">The data.</param>
+            <param name="offset">The offset.</param>
+            <param name="length">The length.</param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Configuration.ConfiguratorImp">
+            <summary>
+            	实现类, 获取更新, 并且执行OnUpdate方法
+            </summary>
+        </member>
         <member name="F:Imps.Services.CommonV4.JsonRpcErrorCode.OK">
             <summary>成功</summary>
         </member>
@@ -456,134 +473,6 @@
             </summary>
             <typeparam name="T"></typeparam>
         </member>
-        <member name="M:Imps.Services.CommonV4.DbAccess.IDatabaseOperation.SpBeginExecuteNonQuery(System.String,System.Action{Imps.Services.CommonV4.AsyncDbCallback{System.Int32}},System.String[],System.Object[])">
-            <summary>
-            SpExecuteNonQuery的异步方法。。。
-            </summary>
-            <param name="callback">回调函数</param>
-            <param name="spName"></param>
-            <param name="parameters"></param>
-            <param name="values"></param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.DbAccess.IDatabaseOperation.SpBeginExecuteReader(System.String,System.Action{Imps.Services.CommonV4.AsyncDbCallback{Imps.Services.CommonV4.DataReader}},System.String[],System.Object[])">
-            <summary>
-            SpExecuteReader的异步方法。。。
-            </summary>
-            <param name="callback"></param>
-            <param name="spName"></param>
-            <param name="paramters"></param>
-            <param name="values"></param>
-        </member>
-        <member name="P:Imps.Services.CommonV4.DbAccess.IDatabaseOperation.CommandTimeout">
-            <summary>Count in Seconds</summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.DbAccess.OracleDatabase.BulkInsert(System.String,System.Data.DataTable,System.String[])">
-            <summary>
-            根据指定的字段顺序插入表
-            </summary>
-            <param name="tableName"></param>
-            <param name="table"></param>
-            <param name="colNames">字段顺序列</param>
-            <returns></returns>
-        </member>
-        <member name="T:Imps.Services.CommonV4.LoopCounter">
-            <summary>
-            	严格保证线程安全的循环计数器
-            </summary>
-            <remarks>为保证性能，循环计数器的平均率，会有万分之一以下的误差</remarks>
-        </member>
-        <member name="M:Imps.Services.CommonV4.LoopCounter.#ctor(System.Int32)">
-            <summary>
-            	构造函数, 创建一个线程安全，顺序返回0..n-1的循环计数器
-            </summary>
-            <param name="n">上限</param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.LoopCounter.Reset">
-            <summary>
-            	重置为零
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.LoopCounter.Next">
-            <summary>
-            	获取下一个值，会在0..n-1之间顺序循环
-            </summary>
-            <returns>0..n-1，顺序循环的值</returns>
-        </member>
-        <member name="T:Imps.Services.CommonV4.SyncInvokerBase">
-            <summary>
-            	用于消除异步转同步时冗余代码的辅助类, 基类
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.SyncInvokerBase.#ctor">
-            <summary>
-            	创建一个AsyncInvoker调用器
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.SyncInvokerBase.Wait(System.Int32)">
-            <summary>
-            	等待
-            </summary>
-            <param name="timeoutMs">等待超时，-1为无限等待</param>
-            <returns>在时限内返回：true</returns>
-        </member>
-        <member name="T:Imps.Services.CommonV4.SyncInvoker">
-            <summary>
-            	用于消除异步转同步时冗余代码的辅助类，适用于无参数的异步回调
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.SyncInvoker.Callback">
-            <summary>
-            	提供给异步回调使用的Callback函数
-            </summary>
-        </member>
-        <member name="T:Imps.Services.CommonV4.SyncInvoker`1">
-            <summary>
-            	用于消除异步转同步时冗余代码的辅助类，适用于一个参数的异步回调
-            </summary>
-            <typeparam name="TContext">异步回调参数类型</typeparam>
-        </member>
-        <member name="M:Imps.Services.CommonV4.SyncInvoker`1.#ctor">
-            <summary>
-            	创建一个AsyncInvoker调用器
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.SyncInvoker`1.Callback">
-            <summary>
-            	提供给异步回调使用的Callback函数
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.SyncInvoker`1.Context">
-            <summary>
-            	异步回调的上下文参数
-            </summary>
-        </member>
-        <member name="T:Imps.Services.CommonV4.SyncInvoker`2">
-            <summary>
-            	用于消除异步转同步时冗余代码的辅助类，适用于一个参数的异步回调
-            </summary>
-            <typeparam name="C1">异步回调参数1类型</typeparam>
-            <typeparam name="C2">异步回调参数2类型</typeparam>
-        </member>
-        <member name="M:Imps.Services.CommonV4.SyncInvoker`2.#ctor">
-            <summary>
-            	创建一个AsyncInvoker调用器
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.SyncInvoker`2.Callback">
-            <summary>
-            	提供给异步回调使用的Callback函数
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.SyncInvoker`2.Param1">
-            <summary>
-            	异步回调的参数1
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.SyncInvoker`2.Param2">
-            <summary>
-            	异步回调的参数2
-            </summary>
-        </member>
         <member name="T:Imps.Services.CommonV4.Rpc.RpcMessageDirection">
             <summary>
             	RpcMessage 方向
@@ -660,6 +549,31 @@
             	用于Rpc长连接的管理，长连接被可以是双向: Duplex的或单向: Simplex的
             </summary>
         </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.Mode">
+            <summary>连接类型</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.Connected">
+            <summary>是否连接上</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.Direction">
+            <summary>连接方向</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.RemoteUri">
+            <summary>对端Uri</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.RemoteService">
+            <summary>远程服务角色名</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.Contexts">
+            <summary>自定义连接上下文，用于保存状态</summary>
+        </member>
+        <member name="E:Imps.Services.CommonV4.Rpc.RpcConnection.Disconnected">
+            <summary>连接断开时触发，主动连接不会触发</summary>
+        </member>
+        <member name="E:Imps.Services.CommonV4.Rpc.RpcConnection.TransactionCreated">
+            <summary>收到请求, Transaction创建时触发此事件, 服务端</summary>
+            <remarks>一般情况, 触发此事件后, 会继续触发Channel.OnTransactionCreated, 所以本事件不要用于业务处理</remarks>
+        </member>
         <member name="M:Imps.Services.CommonV4.Rpc.RpcConnection.OnTransactionCreated(Imps.Services.CommonV4.Rpc.RpcServerTransaction)">
             <summary>触发Transaction创建事件</summary>
         </member>
@@ -691,31 +605,6 @@
             	同步创建连接
             </summary>
             <param name="timeout"></param>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.Mode">
-            <summary>连接类型</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.Connected">
-            <summary>是否连接上</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.Direction">
-            <summary>连接方向</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.RemoteUri">
-            <summary>对端Uri</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.RemoteService">
-            <summary>远程服务角色名</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcConnection.Contexts">
-            <summary>自定义连接上下文，用于保存状态</summary>
-        </member>
-        <member name="E:Imps.Services.CommonV4.Rpc.RpcConnection.Disconnected">
-            <summary>连接断开时触发，主动连接不会触发</summary>
-        </member>
-        <member name="E:Imps.Services.CommonV4.Rpc.RpcConnection.TransactionCreated">
-            <summary>收到请求, Transaction创建时触发此事件, 服务端</summary>
-            <remarks>一般情况, 触发此事件后, 会继续触发Channel.OnTransactionCreated, 所以本事件不要用于业务处理</remarks>
         </member>
         <member name="T:Imps.Services.CommonV4.Rpc.RpcChannelSupportModes">
             <summary>
@@ -759,84 +648,6 @@
             	当使用RpcDuplexClient时, 被callback的Transaction.Connection.Channel引用
             </summary>
             <remarks>实质上将一个ClientChannel封装成ServerChannel</remarks>
-        </member>
-        <member name="T:Imps.Services.CommonV4.Rpc.RpcServerChannel">
-            <summary>
-            	Rpc Server通道的抽象基类: 要实现一个Server通道的话，请继承此类
-            </summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_syncRoot">
-            <summary>内部同步对象</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_started">
-            <summary>通道是否启动（监听）</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_protocol">
-            <summary>协议</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_serverUri">
-            <summary>服务监听的Uri</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_channelSettings">
-            <summary>默认通道的配置</summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.Start">
-            <summary>启动监听</summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.Stop">
-            <summary>中止监听</summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.DoStart">
-            <summary>
-            	开始监听的具体实现
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.DoStop">
-            <summary>
-            	关闭监听的具体实现
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.#ctor(System.String,System.String)">
-            <summary>
-            基础构造函数
-            </summary>
-            <param name="protocol">协议: 如"http"."tcp"</param>
-            <param name="serverUri">监听的url，如tcp://192.168.1.100:8000/</param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.OnTransactionCreated(Imps.Services.CommonV4.Rpc.RpcServerTransaction)">
-            <summary>
-            	安全触发Transaction创建事件
-            </summary>
-            <param name="trans"></param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.OnConnectionCreated(Imps.Services.CommonV4.Rpc.RpcConnection)">
-            <summary>
-            	安全触发Connection创建事件
-            </summary>
-            <param name="conn"></param>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerChannel.ServerUrl">
-            <summary>服务器端Url</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerChannel.Protocol">
-            <summary>协议</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerChannel.Started">
-            <summary>是否启动监听</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerChannel.ChannelSettings">
-            <summary>通道配置</summary>
-        </member>
-        <member name="E:Imps.Services.CommonV4.Rpc.RpcServerChannel.TransactionCreated">
-            <summary>Server事务创建时触发</summary>
-        </member>
-        <member name="E:Imps.Services.CommonV4.Rpc.RpcServerChannel.ConnectionCreated">
-            <summary>连接创建时触发</summary>
-        </member>
-        <member name="T:Imps.Services.CommonV4.RpcServiceBase">
-            <summary>
-            	所有Rpc服务的基类
-            </summary>
         </member>
         <member name="T:Imps.Services.CommonV4.Rpc.RpcRequest">
             <summary>
@@ -895,6 +706,26 @@
             	Rpc的双工客户端程序,允许保持长连接,并允许从服务器端进行反向调用
             </summary>
         </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.Connected">
+            <summary>是否连接上</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.ServerUri">
+            <summary>目标的服务Uri</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.TargetService">
+            <summary>Nexus</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.TargetComputer">
+            <summary>Nexus</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.Timeout">
+            <summary>超时</summary>
+        </member>
+        <member name="E:Imps.Services.CommonV4.Rpc.RpcDuplexClient.Disconnected">
+            <summary>
+            	断开连接时触发, 连接失败不会触发
+            </summary>
+        </member>
         <member name="M:Imps.Services.CommonV4.Rpc.RpcDuplexClient.BeginConnect(System.Action{System.Exception})">
             <summary>
             	异步尝试Connect到服务器端, 并在连接后直接注册
@@ -945,105 +776,6 @@
             </summary>
             <param name="request"></param>
             <returns></returns>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.Connected">
-            <summary>是否连接上</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.ServerUri">
-            <summary>目标的服务Uri</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.TargetService">
-            <summary>Nexus</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.TargetComputer">
-            <summary>Nexus</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcDuplexClient.Timeout">
-            <summary>超时</summary>
-        </member>
-        <member name="E:Imps.Services.CommonV4.Rpc.RpcDuplexClient.Disconnected">
-            <summary>
-            	断开连接时触发, 连接失败不会触发
-            </summary>
-        </member>
-        <member name="T:Imps.Services.CommonV4.AsyncDbContext`1">
-            <summary>
-            	数据库方法的异步回调
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="T:Imps.Services.CommonV4.Rpc.RpcClientChannel">
-            <summary>
-            	Rpc客户端通道的抽象基类
-            </summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.Rpc.RpcClientChannel.p_protocol">
-            <summary>协议: 如"http"</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.Rpc.RpcClientChannel.p_channelSettings">
-            <summary>通道设置</summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.Rpc.RpcClientChannel.#ctor(System.String)">
-            <summary>构造函数</summary>
-            <param name="protocol">协议</param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.Rpc.RpcClientChannel.CreateConnection(Imps.Services.CommonV4.ServerUri,Imps.Services.CommonV4.Rpc.RpcConnectionMode)">
-            <summary>创建连接，单工连接或者双工连接，适用于高级的Channel</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcClientChannel.Protocol">
-            <summary>协议</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcClientChannel.Timeout">
-            <summary>通道超时: ms毫秒</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcClientChannel.DefaultSettings">
-            <summary>ChannelSettings 的默认配置，在没有检查到DetectorService时使用该配置</summary>
-        </member>
-        <member name="T:Imps.Services.CommonV4.Rpc.RpcServerTransaction">
-            <summary>
-            	服务器端事务的封装
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerTransaction.Request">
-            <summary>
-            	RPC请求
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerTransaction.Bypassed">
-            <summary>
-            	允许其他事件优先处理RpcServerTransaction, 
-            	并在RpcServiceManager的TransactionCreated事件中跳过请求的处理
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerTransaction.Connection">
-            <summary>
-            	连接对象
-            </summary>
-        </member>
-        <member name="T:Imps.Services.CommonV4.AsyncCallHelper`1">
-            <summary>
-            	异步调用的Helper class
-            </summary>
-            <typeparam name="T"></typeparam>
-        </member>
-        <member name="T:Google.ProtoBuf.IExtensible">
-            <summary>
-            Indicates that the implementing type has support for protocol-buffer
-            <see cref="T:Google.ProtoBuf.IExtension">extensions</see>.
-            </summary>
-            <remarks>Can be implemented by deriving from <see cref="T:Google.ProtoBuf.Extensible"/>.</remarks>
-        </member>
-        <member name="M:Google.ProtoBuf.IExtensible.GetExtensionObject(System.Boolean)">
-            <summary>
-            Retrieves the <see cref="T:Google.ProtoBuf.IExtension">extension</see> object for the current
-            instance, optionally creating it if it does not already exist.
-            </summary>
-            <param name="createIfMissing">Should a new extension object be
-            created if it does not already exist?</param>
-            <returns>The extension object if it exists (or was created), or null
-            if the extension object does not exist or is not available.</returns>
-            <remarks>The <c>createIfMissing</c> argument is false during serialization,
-            and true during deserialization upon encountering unexpected fields.</remarks>
         </member>
         <member name="M:Imps.Services.CommonV4.Rpc.RpcTcpPacket.#ctor(System.Byte[],System.Int32,System.Int32)">
             <summary>
@@ -1160,6 +892,297 @@
             	这是一个回调链，完全靠回调组织起来的，当_sending = 1时，存在一个回调链
             </summary>
             <param name="sendFirst"></param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcPipeServerChannel">
+            <summary>
+            	Rpc服务器通道: NamedPipe
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcPipeServerChannel.Close">
+            <summary>
+            关闭当前流
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcPipeServerChannel.Dispose">
+            <summary>
+            释放资源
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcClientChannel">
+            <summary>
+            	Rpc客户端通道的抽象基类
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcClientChannel.p_protocol">
+            <summary>协议: 如"http"</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcClientChannel.p_channelSettings">
+            <summary>通道设置</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcClientChannel.#ctor(System.String)">
+            <summary>构造函数</summary>
+            <param name="protocol">协议</param>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcClientChannel.Protocol">
+            <summary>协议</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcClientChannel.Timeout">
+            <summary>通道超时: ms毫秒</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcClientChannel.DefaultSettings">
+            <summary>ChannelSettings 的默认配置，在没有检查到DetectorService时使用该配置</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcClientChannel.CreateConnection(Imps.Services.CommonV4.ServerUri,Imps.Services.CommonV4.Rpc.RpcConnectionMode)">
+            <summary>创建连接，单工连接或者双工连接，适用于高级的Channel</summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcServerChannel">
+            <summary>
+            	Rpc Server通道的抽象基类: 要实现一个Server通道的话，请继承此类
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_syncRoot">
+            <summary>内部同步对象</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_started">
+            <summary>通道是否启动（监听）</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_protocol">
+            <summary>协议</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_serverUri">
+            <summary>服务监听的Uri</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.Rpc.RpcServerChannel.p_channelSettings">
+            <summary>默认通道的配置</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerChannel.ServerUrl">
+            <summary>服务器端Url</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerChannel.Protocol">
+            <summary>协议</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerChannel.Started">
+            <summary>是否启动监听</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerChannel.ChannelSettings">
+            <summary>通道配置</summary>
+        </member>
+        <member name="E:Imps.Services.CommonV4.Rpc.RpcServerChannel.TransactionCreated">
+            <summary>Server事务创建时触发</summary>
+        </member>
+        <member name="E:Imps.Services.CommonV4.Rpc.RpcServerChannel.ConnectionCreated">
+            <summary>连接创建时触发</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.Start">
+            <summary>启动监听</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.Stop">
+            <summary>中止监听</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.DoStart">
+            <summary>
+            	开始监听的具体实现
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.DoStop">
+            <summary>
+            	关闭监听的具体实现
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.#ctor(System.String,System.String)">
+            <summary>
+            基础构造函数
+            </summary>
+            <param name="protocol">协议: 如"http"."tcp"</param>
+            <param name="serverUri">监听的url，如tcp://192.168.1.100:8000/</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.OnTransactionCreated(Imps.Services.CommonV4.Rpc.RpcServerTransaction)">
+            <summary>
+            	安全触发Transaction创建事件
+            </summary>
+            <param name="trans"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Rpc.RpcServerChannel.OnConnectionCreated(Imps.Services.CommonV4.Rpc.RpcConnection)">
+            <summary>
+            	安全触发Connection创建事件
+            </summary>
+            <param name="conn"></param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.Rpc.RpcServerTransaction">
+            <summary>
+            	服务器端事务的封装
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerTransaction.Request">
+            <summary>
+            	RPC请求
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerTransaction.Bypassed">
+            <summary>
+            	允许其他事件优先处理RpcServerTransaction, 
+            	并在RpcServiceManager的TransactionCreated事件中跳过请求的处理
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.Rpc.RpcServerTransaction.Connection">
+            <summary>
+            	连接对象
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.DbAccess.OracleDatabase.BulkInsert(System.String,System.Data.DataTable,System.String[])">
+            <summary>
+            根据指定的字段顺序插入表
+            </summary>
+            <param name="tableName"></param>
+            <param name="table"></param>
+            <param name="colNames">字段顺序列</param>
+            <returns></returns>
+        </member>
+        <member name="P:Imps.Services.CommonV4.DbAccess.IDatabaseOperation.CommandTimeout">
+            <summary>Count in Seconds</summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.DbAccess.IDatabaseOperation.SpBeginExecuteNonQuery(System.String,System.Action{Imps.Services.CommonV4.AsyncDbCallback{System.Int32}},System.String[],System.Object[])">
+            <summary>
+            SpExecuteNonQuery的异步方法。。。
+            </summary>
+            <param name="callback">回调函数</param>
+            <param name="spName"></param>
+            <param name="parameters"></param>
+            <param name="values"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.DbAccess.IDatabaseOperation.SpBeginExecuteReader(System.String,System.Action{Imps.Services.CommonV4.AsyncDbCallback{Imps.Services.CommonV4.DataReader}},System.String[],System.Object[])">
+            <summary>
+            SpExecuteReader的异步方法。。。
+            </summary>
+            <param name="callback"></param>
+            <param name="spName"></param>
+            <param name="paramters"></param>
+            <param name="values"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.DbAccess.MysqlDatabase.BulkInsert(System.String,System.Data.DataTable,System.String[])">
+            <summary>
+            ¸ù¾ÝÖ¸¶¨µÄ×Ö¶ÎË³Ðò²åÈë±í
+            </summary>
+            <param name="tableName"></param>
+            <param name="table"></param>
+            <param name="colNames">×Ö¶ÎË³ÐòÁÐ</param>
+            <returns></returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.LoopCounter">
+            <summary>
+            	严格保证线程安全的循环计数器
+            </summary>
+            <remarks>为保证性能，循环计数器的平均率，会有万分之一以下的误差</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.LoopCounter.#ctor(System.Int32)">
+            <summary>
+            	构造函数, 创建一个线程安全，顺序返回0..n-1的循环计数器
+            </summary>
+            <param name="n">上限</param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.LoopCounter.Reset">
+            <summary>
+            	重置为零
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.LoopCounter.Next">
+            <summary>
+            	获取下一个值，会在0..n-1之间顺序循环
+            </summary>
+            <returns>0..n-1，顺序循环的值</returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.SyncInvokerBase">
+            <summary>
+            	用于消除异步转同步时冗余代码的辅助类, 基类
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SyncInvokerBase.#ctor">
+            <summary>
+            	创建一个AsyncInvoker调用器
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SyncInvokerBase.Wait(System.Int32)">
+            <summary>
+            	等待
+            </summary>
+            <param name="timeoutMs">等待超时，-1为无限等待</param>
+            <returns>在时限内返回：true</returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.SyncInvoker">
+            <summary>
+            	用于消除异步转同步时冗余代码的辅助类，适用于无参数的异步回调
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.SyncInvoker.Callback">
+            <summary>
+            	提供给异步回调使用的Callback函数
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.SyncInvoker`1">
+            <summary>
+            	用于消除异步转同步时冗余代码的辅助类，适用于一个参数的异步回调
+            </summary>
+            <typeparam name="TContext">异步回调参数类型</typeparam>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SyncInvoker`1.#ctor">
+            <summary>
+            	创建一个AsyncInvoker调用器
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.SyncInvoker`1.Callback">
+            <summary>
+            	提供给异步回调使用的Callback函数
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.SyncInvoker`1.Context">
+            <summary>
+            	异步回调的上下文参数
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.SyncInvoker`2">
+            <summary>
+            	用于消除异步转同步时冗余代码的辅助类，适用于一个参数的异步回调
+            </summary>
+            <typeparam name="C1">异步回调参数1类型</typeparam>
+            <typeparam name="C2">异步回调参数2类型</typeparam>
+        </member>
+        <member name="M:Imps.Services.CommonV4.SyncInvoker`2.#ctor">
+            <summary>
+            	创建一个AsyncInvoker调用器
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.SyncInvoker`2.Callback">
+            <summary>
+            	提供给异步回调使用的Callback函数
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.SyncInvoker`2.Param1">
+            <summary>
+            	异步回调的参数1
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.SyncInvoker`2.Param2">
+            <summary>
+            	异步回调的参数2
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.AsyncDbContext`1">
+            <summary>
+            	数据库方法的异步回调
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Imps.Services.CommonV4.Dtc.TccDatabasePersister.LoadFailedTransaction">
+            <summary>
+            查询出所有没有Confirmed的Transaction
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Imps.Services.CommonV4.AsyncCallHelper`1">
+            <summary>
+            	Òì²½µ÷ÓÃµÄHelper class
+            </summary>
+            <typeparam name="T"></typeparam>
         </member>
         <member name="T:Imps.Services.CommonV4.AssemblyUtil">
             <summary>
@@ -1492,12 +1515,6 @@
             <param name="method"></param>
             <param name="contextUri"></param>
         </member>
-        <member name="M:Imps.Services.CommonV4.Dtc.TccDatabasePersister.LoadFailedTransaction">
-            <summary>
-            查询出所有没有Confirmed的Transaction
-            </summary>
-            <returns></returns>
-        </member>
         <member name="M:Imps.Services.CommonV4.LazyQueue`1.Dispose">
             <summary>
             提供使用者一个显式释放资源的方法。
@@ -1551,48 +1568,6 @@
         <member name="P:Imps.Services.CommonV4.ServiceEnvironment.Debug">
             <summary>是否允许Debug信息</summary>
         </member>
-        <member name="T:Imps.Services.CommonV4.Configuration.ConfiguratorImp">
-            <summary>
-            	实现类, 获取更新, 并且执行OnUpdate方法
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigField``1(System.String,System.Action{``0})">
-            <summary>
-            	Local:		<AppSettings/>
-            	Server:		HaConfigTable: Key->Value
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigItem``1(System.String,System.String,System.Action{``0})">
-            <summary>
-            	Local:		Section->Item
-            	Server:		HaConfigTable: Key->Value
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigItems``2(System.String,System.Action{Imps.Services.CommonV4.IICConfigItemCollection{``0,``1}})">
-            <summary>
-            	Local:		Section->Items/Item
-            	Server:		HaConfigTable: Section->Items
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigSecion``1(System.String,System.Action{``0})">
-            <summary>
-            	Local:		<ConfigSections/>
-            	Server:		HaConfigTable: Section
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigText(System.String,System.Action{System.String})">
-            <summary>
-            	获取一段配置文本 
-            </summary>
-            <param name="path"></param>
-            <param name="onUpdate"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Imps.Services.CommonV4.IConfigurator.GetCodeTable``2(System.String,System.Action{Imps.Services.CommonV4.IICCodeTable{``0,``1}})">
-            <summary>
-                GetConfiguration
-            </summary>
-        </member>
         <member name="T:Imps.Services.CommonV4.IICConfigSectionAttribute">
             <summary>
             	ConfigSection：
@@ -1627,6 +1602,18 @@
             	服务配置
             </summary>
         </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettings.ComputerName">
+            <summary>服务器名</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettings.ServiceName">
+            <summary>服务名</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettings.RunMode">
+            <summary>运行模式</summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.ServiceSettings.Current">
+            <summary>当前配置实体对象</summary>
+        </member>
         <member name="M:Imps.Services.CommonV4.ServiceSettings.InitService(System.String)">
             <summary>本地初始化服务, 默认初始化为本地配置, HA会覆盖这个配置</summary>
         </member>
@@ -1649,18 +1636,6 @@
             <summary>
             	初始化Web
             </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.ServiceSettings.ComputerName">
-            <summary>服务器名</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.ServiceSettings.ServiceName">
-            <summary>服务名</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.ServiceSettings.RunMode">
-            <summary>运行模式</summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.ServiceSettings.Current">
-            <summary>当前配置实体对象</summary>
         </member>
         <member name="T:Imps.Services.CommonV4.ServiceRunMode">
             <summary>
@@ -1797,23 +1772,58 @@
             <param name="obj"></param>
             <returns></returns>
         </member>
-        <member name="T:Imps.Services.HA.HAConfigurationLoader">
+        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigField``1(System.String,System.Action{``0})">
             <summary>
-            	通过HA方式获取Configuration的Loader
+            	Local:		<AppSettings/>
+            	Server:		HaConfigTable: Key->Value
             </summary>
         </member>
-        <member name="M:Imps.Services.HA.HAConfigurationLoader.#ctor(System.String,System.String,System.String)">
+        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigItem``1(System.String,System.String,System.Action{``0})">
             <summary>
-            	构造函数
+            	Local:		Section->Item
+            	Server:		HaConfigTable: Key->Value
             </summary>
-            <param name="serviceName">服务名称</param>
-            <param name="computerName">计算机名</param>
-            <param name="centerUrl"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigItems``2(System.String,System.Action{Imps.Services.CommonV4.IICConfigItemCollection{``0,``1}})">
+            <summary>
+            	Local:		Section->Items/Item
+            	Server:		HaConfigTable: Section->Items
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigSecion``1(System.String,System.Action{``0})">
+            <summary>
+            	Local:		<ConfigSections/>
+            	Server:		HaConfigTable: Section
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.IConfigurator.GetConfigText(System.String,System.Action{System.String})">
+            <summary>
+            	获取一段配置文本 
+            </summary>
+            <param name="path"></param>
+            <param name="onUpdate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.IConfigurator.GetCodeTable``2(System.String,System.Action{Imps.Services.CommonV4.IICCodeTable{``0,``1}})">
+            <summary>
+                GetConfiguration
+            </summary>
         </member>
         <member name="T:Imps.Services.CommonV4.RpcClientProxy">
             <summary>
             	调用Rpc接口的客户端代理，不允许重用s，每次从RpcProxyFactory.GetProxy中创建
             </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcClientProxy.ServiceName">
+            <summary>
+            	服务名称
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcClientProxy.Timeout">
+            <summary>
+            	调用超时, 毫秒
+            </summary>
+            <remarks>不设置的话，会采用Channel上的默认值</remarks>
         </member>
         <member name="M:Imps.Services.CommonV4.RpcClientProxy.BeginInvoke(System.String,System.Action{Imps.Services.CommonV4.RpcClientContext})">
             <summary>
@@ -1871,30 +1881,9 @@
             	3. 单元测试
             </remarks>
         </member>
-        <member name="P:Imps.Services.CommonV4.RpcClientProxy.ServiceName">
+        <member name="T:Imps.Services.CommonV4.RpcServiceBase">
             <summary>
-            	服务名称
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.RpcClientProxy.Timeout">
-            <summary>
-            	调用超时, 毫秒
-            </summary>
-            <remarks>不设置的话，会采用Channel上的默认值</remarks>
-        </member>
-        <member name="T:Imps.Services.CommonV4.Rpc.RpcPipeServerChannel">
-            <summary>
-            	Rpc服务器通道: NamedPipe
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.Rpc.RpcPipeServerChannel.Close">
-            <summary>
-            关闭当前流
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.Rpc.RpcPipeServerChannel.Dispose">
-            <summary>
-            释放资源
+            	所有Rpc服务的基类
             </summary>
         </member>
         <member name="T:Imps.Services.CommonV4.StrUtils">
@@ -1987,7 +1976,7 @@
         </member>
         <member name="T:Imps.Services.CommonV4.Database">
             <summary>
-            	用于访问数据库的代理类
+            	ÓÃÓÚ·ÃÎÊÊý¾Ý¿âµÄ´úÀíÀà
             </summary>
         </member>
         <member name="T:Imps.Services.CommonV4.IICDbType">
@@ -2006,15 +1995,6 @@
         </member>
         <member name="F:Imps.Services.CommonV4.IICDbType.Oracle">
             <summary>Oracle</summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.DbAccess.MysqlDatabase.BulkInsert(System.String,System.Data.DataTable,System.String[])">
-            <summary>
-            根据指定的字段顺序插入表
-            </summary>
-            <param name="tableName"></param>
-            <param name="table"></param>
-            <param name="colNames">字段顺序列</param>
-            <returns></returns>
         </member>
         <member name="M:Imps.Services.CommonV4.SafeDictionary`2.#ctor">
             <summary>
@@ -2059,55 +2039,423 @@
         </member>
         <member name="M:Imps.Services.CommonV4.XmlHelper.HtmlToText(System.String)">
             <summary>
-            将html格式文本转换成纯文本格式
+            ½«html¸ñÊ½ÎÄ±¾×ª»»³É´¿ÎÄ±¾¸ñÊ½
             </summary>
-            <param name="htmlText">html格式文本</param>
-            <returns>转换后的纯文本</returns>
+            <param name="htmlText">html¸ñÊ½ÎÄ±¾</param>
+            <returns>×ª»»ºóµÄ´¿ÎÄ±¾</returns>
         </member>
         <member name="M:Imps.Services.CommonV4.XmlHelper.Read(System.String,System.String,System.String)">
             <summary>
-            读取节点中某一个属性的值。如果attribute为空，则返回整个节点的InnerText，否则返回具体attribute的值
+            ¶ÁÈ¡½ÚµãÖÐÄ³Ò»¸öÊôÐÔµÄÖµ¡£Èç¹ûattributeÎª¿Õ£¬Ôò·µ»ØÕû¸ö½ÚµãµÄInnerText£¬·ñÔò·µ»Ø¾ßÌåattributeµÄÖµ
             </summary>
-            <param name="path">xml文件路径</param>
-            <param name="node">节点</param>
-            <param name="attribute">节点中的属性</param>
-            <returns>如果attribute为空，则返回整个节点的InnerText，否则返回具体attribute的值</returns>
-            使用实例: XMLHelper.Read(path, "PersonF/person[@Name='Person2']", "");
+            <param name="path">xmlÎÄ¼þÂ·¾¶</param>
+            <param name="node">½Úµã</param>
+            <param name="attribute">½ÚµãÖÐµÄÊôÐÔ</param>
+            <returns>Èç¹ûattributeÎª¿Õ£¬Ôò·µ»ØÕû¸ö½ÚµãµÄInnerText£¬·ñÔò·µ»Ø¾ßÌåattributeµÄÖµ</returns>
+            Ê¹ÓÃÊµÀý: XMLHelper.Read(path, "PersonF/person[@Name='Person2']", "");
              XMLHelper.Read(path, "PersonF/person[@Name='Person2']", "Name");
         </member>
         <member name="M:Imps.Services.CommonV4.XmlHelper.Insert(System.String,System.String,System.String,System.String,System.String)">
             <summary>
-            向节点中增加节点元素，属性
+            Ïò½ÚµãÖÐÔö¼Ó½ÚµãÔªËØ£¬ÊôÐÔ
             </summary>
-            <param name="path">路径</param>
-            <param name="node">要操作的节点</param>
-            <param name="element">要增加的节点元素，可空可不空。非空时插入新的元素，否则插入该元素的属性</param>
-            <param name="attribute">要增加的节点属性，可空可不空。非空时插入元素值，否则插入元素值</param>
-            <param name="value">要增加的节点值</param>
-            使用实例：XMLHelper.Insert(path, "PersonF/person[@Name='Person2']","Num", "ID", "88");
+            <param name="path">Â·¾¶</param>
+            <param name="node">Òª²Ù×÷µÄ½Úµã</param>
+            <param name="element">ÒªÔö¼ÓµÄ½ÚµãÔªËØ£¬¿É¿Õ¿É²»¿Õ¡£·Ç¿ÕÊ±²åÈëÐÂµÄÔªËØ£¬·ñÔò²åÈë¸ÃÔªËØµÄÊôÐÔ</param>
+            <param name="attribute">ÒªÔö¼ÓµÄ½ÚµãÊôÐÔ£¬¿É¿Õ¿É²»¿Õ¡£·Ç¿ÕÊ±²åÈëÔªËØÖµ£¬·ñÔò²åÈëÔªËØÖµ</param>
+            <param name="value">ÒªÔö¼ÓµÄ½ÚµãÖµ</param>
+            Ê¹ÓÃÊµÀý£ºXMLHelper.Insert(path, "PersonF/person[@Name='Person2']","Num", "ID", "88");
             XMLHelper.Insert(path, "PersonF/person[@Name='Person2']","Num", "", "88");
             XMLHelper.Insert(path, "PersonF/person[@Name='Person2']", "", "ID", "88");
         </member>
         <member name="M:Imps.Services.CommonV4.XmlHelper.Update(System.String,System.String,System.String,System.String)">
             <summary>
-            修改节点值
+            ÐÞ¸Ä½ÚµãÖµ
             </summary>
-            <param name="path">路径</param>
-            <param name="node">要修改的节点</param>
-            <param name="attribute">属性名，非空时修改节点的属性值，否则修改节点值</param>
-            <param name="value">属性值</param>
-            实例 XMLHelper.Update(path, "PersonF/person[@Name='Person3']/ID", "", "888");
+            <param name="path">Â·¾¶</param>
+            <param name="node">ÒªÐÞ¸ÄµÄ½Úµã</param>
+            <param name="attribute">ÊôÐÔÃû£¬·Ç¿ÕÊ±ÐÞ¸Ä½ÚµãµÄÊôÐÔÖµ£¬·ñÔòÐÞ¸Ä½ÚµãÖµ</param>
+            <param name="value">ÊôÐÔÖµ</param>
+            ÊµÀý XMLHelper.Update(path, "PersonF/person[@Name='Person3']/ID", "", "888");
             XMLHelper.Update(path, "PersonF/person[@Name='Person3']/ID", "Num", "999"); 
         </member>
         <member name="M:Imps.Services.CommonV4.XmlHelper.Delete(System.String,System.String,System.String)">
             <summary>
-            删除数据
+            É¾³ýÊý¾Ý
             </summary>
-            <param name="path">路径</param>
-            <param name="node">要删除的节点</param>
-            <param name="attribute">属性，为空则删除整个节点，不为空则删除节点中的属性</param>
-            实例：XMLHelper.Delete(path, "PersonF/person[@Name='Person3']/ID", "");
+            <param name="path">Â·¾¶</param>
+            <param name="node">ÒªÉ¾³ýµÄ½Úµã</param>
+            <param name="attribute">ÊôÐÔ£¬Îª¿ÕÔòÉ¾³ýÕû¸ö½Úµã£¬²»Îª¿ÕÔòÉ¾³ý½ÚµãÖÐµÄÊôÐÔ</param>
+            ÊµÀý£ºXMLHelper.Delete(path, "PersonF/person[@Name='Person3']/ID", "");
             XMLHelper.Delete(path, "PersonF/person[@Name='Person3']/ID", "Num");
+        </member>
+        <member name="T:Imps.Services.CommonV4.RpcClientContext">
+            <summary>
+            	管理Rpc客户端调用的异步上下文
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.RpcErrorCode">
+            <summary>
+            	Rpc返回码
+            </summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.OK">
+            <summary>成功</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.SendFailed">
+            <summary>在客户端发送阶段产生错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.SendPending">
+            <summary>客户端通道过于拥挤，无法发送</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.TransactionTimeout">
+            <summary>Transaction超时, 在规定时间内未收到服务器应答</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.TransactionBusy">
+            <summary>客户端事务忒忙，无法创建</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ConnectionTimeout">
+            <summary>建立连接超时，在某些连接模式的Channel中会抛出</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ConnectionBroken">
+            <summary>连接断开失效，在连接模式的Channel中抛出</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ConnectionPending">
+            <summary>连接堵塞, 当对某一台服务器创建了太多无法使用的连接时抛出</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServiceNotFound">
+            <summary>服务未找到, 已到达Server端，由Rpc分发器返回</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.MethodNotFound">
+            <summary>方法未找到, 已到达Server端，由Rpc分发器返回</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServerError">
+            <summary>内部错误, Server端返回, 可能为应用抛出</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServerBusy">
+            <summary>服务器忙, 保护性错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.InvaildRequestArgs">
+            <summary>请求格式错误，可能为序列化错误，或内部报文格式错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.InvaildResponseArgs">
+            <summary>应答格式错误，可能为序列化错误，或内部报文格式错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ConnectionFailed">
+            <summary>连接状态维护失败，由服务器返回错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServerTimeout">
+            <summary>服务器转发，或处理超时</summary>
+            <remarks>TransacionTimeout为客户端未收到应答，ServerTimeout由服务器明确给出超时应答，在SGW或转发类服务中出现</remarks>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServerTransferFailed">
+            <summary>服务器转发错误</summary>
+        </member>
+        <member name="F:Imps.Services.CommonV4.RpcErrorCode.Unknown">
+            <summary>未知错误</summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.RpcServerContext">
+            <summary>
+            	在Server端管理Rpc方法
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.From">
+            <summary>
+            	来源 "服务@机器名"
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.FromService">
+            <summary>
+            	来源服务
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.FromComputer">
+            <summary>
+            	来源机器名
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.ServiceName">
+            <summary>
+            	访问Rpc服务名
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.MethodName">
+            <summary>
+            	访问Rpc方法名
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.Connection">
+            <summary>
+            	关联的Rpc连接
+            </summary>
+            <remarks>无连接模式下为null</remarks>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.Channel">
+            <summary>
+            	关联的通道
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.HasReturned">
+            <summary>
+            	是否已经调用过Return方法
+            </summary>
+            <remarks>调用Return方法，或在方法中抛出异常，均视为返回到客户端，结果仅返回一次</remarks>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServerContext.ContextUri">
+            <summary>
+            	上下文相关的Uri
+            </summary>
+            <remarks>可能为IdUri，GroupUri等，由客户端送上来的用户关联Uri</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServerContext.GetContextUri``1">
+            <summary>
+            	获取一个特定类型的上下文Uri
+            </summary>
+            <typeparam name="T">Uri类型</typeparam>
+            <returns>T类型的Uri</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServerContext.GetArgs``1">
+            <summary>
+            	获取请求参数
+            </summary>
+            <typeparam name="T">请求参数类型</typeparam>
+            <returns>请求参数</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServerContext.Return">
+            <summary>
+            	无参数成功返回
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServerContext.ReturnIf``1(``0,System.Func{System.Int32,System.Boolean})">
+            <summary>
+            有条件的返回
+            </summary>
+            <typeparam name="TResults"></typeparam>
+            <param name="results"></param>
+            <param name="ifProc"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServerContext.Return``1(``0)">
+            <summary>
+            	带参数成功返回
+            </summary>
+            <typeparam name="T">参数类型</typeparam>
+            <param name="results">返回参数</param>
+            <remarks>返回null等同于无参数返回</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServerContext.ThrowException(System.Exception)">
+            <summary>
+            	抛出异常到客户端
+            </summary>
+            <param name="ex">异常</param>
+            <remarks>等同于在方法中直接抛出异常，但可以在方法外异步抛出</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServerContext.ReturnError(Imps.Services.CommonV4.RpcErrorCode,System.Exception)">
+            <summary>
+            	返回错误到客户端
+            </summary>
+            <param name="errCode">错误码</param>
+            <param name="ex">异常</param>
+        </member>
+        <member name="T:Imps.Services.CommonV4.RpcProxyFactory">
+            <summary>
+            	获取Rpc客户端代理的工厂类
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.RegisterClientChannel(Imps.Services.CommonV4.Rpc.RpcClientChannel)">
+            <summary>
+            	注册客户端Channel
+            </summary>
+            <param name="channel">具体的Channel实体</param>
+            <remarks>一般来说，客户端Channel针对每种协议注册一个便可以</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.GetConnection(Imps.Services.CommonV4.ServerUri,System.String)">
+            <summary>
+            	获取一个连接
+            </summary>
+            <param name="serverUri"></param>
+            <param name="serviceRole"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.GetProxy``1(System.String)">
+            <summary>
+            	获取一个Rpc客户端代理
+            </summary>
+            <typeparam name="T">Rpc的声明Interface</typeparam>
+            <param name="uri">服务器的具体网络地址，如: sipc://192.168.1.100:5700</param>
+            <returns>Rpc客户端代理了类</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.GetProxy``1(Imps.Services.CommonV4.ServerUri)">
+            <summary>
+            	获取一个Rpc客户端代理
+            </summary>
+            <typeparam name="T">Rpc的声明Interface</typeparam>
+            <param name="uri">服务器的具体网络地址实体类，如: sipc://192.168.1.100:5700</param>
+            <returns>Rpc客户端代理类</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.GetProxy``1(Imps.Services.CommonV4.ResolvableUri)">
+            <summary>
+            	通过可路由Uri，获取一个Rpc客户端代理
+            </summary>
+            <typeparam name="T">Rpc的声明Interface</typeparam>
+            <param name="uri">一个可用于路由的Uri实体类，例如IdUri或GroupUri</param>
+            <returns>Rpc客户端代理类</returns>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServiceAttribute.ClientChecking">
+            <summary>
+            	是否在客户端进行强制命名检查
+            </summary>
+        </member>
+        <member name="P:Imps.Services.CommonV4.RpcServiceAttribute.EnableCounters">
+            <summary>
+            	
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.RpcServiceManager">
+            <summary>
+            	管理所有的RpcService
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServiceManager.RegisterServerChannel(Imps.Services.CommonV4.Rpc.RpcServerChannel)">
+            <summary>
+            	注册服务信道
+            </summary>
+            <param name="channel">待注册的信道</param>
+            <remarks>同一种信道如果监听不同的端口，可以注册多个</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServiceManager.HasService(System.String)">
+            <summary>
+            	检测RpcService是否有注册
+            </summary>
+            <param name="serviceName">服务名</param>
+            <returns>是否已注册</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServiceManager.RegisterRawService(Imps.Services.CommonV4.RpcServiceBase)">
+            <summary>
+            	注册派生自RpcSerivceBase的原生服务
+            </summary>
+            <param name="service">服务对象</param>
+            <remarks>每个名字的服务对象仅能注册一次</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServiceManager.RegisterService``1(``0)">
+            <summary>
+            	注册继承自rpc interface的服务
+            </summary>
+            <typeparam name="T">interface的类型</typeparam>
+            <param name="service">服务对象</param>
+            <remarks>每个类型的服务对象仅能注册一次</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServiceManager.RegisterService``1(System.String,``0)">
+            <summary>
+            	注册继承自rpc interface的服务，并用ServiceName覆盖服务名
+            </summary>
+            <typeparam name="T">interface的类型</typeparam>
+            <param name="serviceName">服务名></param>
+            <param name="service">服务对象</param>
+            <remarks>每个类型的服务对象仅能注册一次</remarks>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServiceManager.Start">
+            <summary>
+            	启动所有的Channels，开始监听
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RpcServiceManager.Stop">
+            <summary>
+            	停止所有的Channels
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.ITracing">
+            <summary>
+            	´¦ÀíIICTracingµÄ½Ó¿Ú
+            <seealso cref="T:Imps.Services.CommonV4.TracingManager"/>
+            <remarks>Çë´ÓTracingManager.GetTracingÏµÁÐ·½·¨»ñµÃÒ»¸ö¿ÉÓÃµÄ½Ó¿Ú</remarks>
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.Info(System.String)">
+            <summary>
+            	¼ÇÂ¼Info¼¶±ðµÄÈÕÖ¾
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.Info(System.String,System.String,System.String)">
+            <summary>
+            	¼ÇÂ¼Info¼¶±ðµÄÈÕÖ¾
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.Info(System.Exception,System.String)">
+            <summary>
+            	¼ÇÂ¼Info¼¶±ðµÄÈÕÖ¾
+            </summary>
+            <param name="exception"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.Info(System.Exception,System.String,System.String,System.String)">
+            <summary>
+            	¼ÇÂ¼Info¼¶±ðµÄÈÕÖ¾
+            </summary>
+            <param name="exception"></param>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="message"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.InfoFmt(System.String,System.Object[])">
+            <summary>
+            	¼ÇÂ¼Info¼¶±ðµÄÈÕÖ¾
+            </summary>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.InfoFmt(System.Exception,System.String,System.Object[])">
+            <summary>
+            	¼ÇÂ¼Info¼¶±ðµÄÈÕÖ¾
+            </summary>
+            <param name="exception"></param>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.InfoFmt2(System.String,System.String,System.String,System.Object[])">
+            <summary>
+            	¼ÇÂ¼Info¼¶±ðµÄÈÕÖ¾
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.InfoFmt2(System.Exception,System.String,System.String,System.String,System.Object[])">
+            <summary>
+            	¼ÇÂ¼Info¼¶±ðµÄÈÕÖ¾
+            </summary>
+            <param name="exception"></param>
+            <param name="from"></param>
+            <param name="to"></param>
+            <param name="format"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:Imps.Services.CommonV4.ITracing.Warn(System.String)">
+            <summary>
+            	¼ÇÂ¼Warn¼¶±ðµÄÈÕÖ¾
+            </summary>
+        </member>
+        <member name="T:Imps.Services.CommonV4.TracingManager">
+            <summary>
+            	TracingManager
+            </summary>
+        </member>
+        <member name="T:Imps.Services.HA.HAConfigurationLoader">
+            <summary>
+            	通过HA方式获取Configuration的Loader
+            </summary>
+        </member>
+        <member name="M:Imps.Services.HA.HAConfigurationLoader.#ctor(System.String,System.String,System.String)">
+            <summary>
+            	构造函数
+            </summary>
+            <param name="serviceName">服务名称</param>
+            <param name="computerName">计算机名</param>
+            <param name="centerUrl"></param>
         </member>
         <member name="M:Google.ProtoBuf.AsyncUtility.RunAsync``1(Google.ProtoBuf.AsyncBegin{``0},Google.ProtoBuf.AsyncEnd{``0},System.Action{``0},System.Action{System.Exception})">
             <summary>Simplified calling convention for asynchronous Begin/End operations.</summary>
@@ -2159,16 +2507,16 @@
             enumerated values.
             </summary>
         </member>
+        <member name="P:Google.ProtoBuf.ProtoEnumAttribute.Value">
+            <summary>
+            Gets or sets the specific value to use for this enum during serialization.
+            </summary>
+        </member>
         <member name="M:Google.ProtoBuf.ProtoEnumAttribute.HasValue">
             <summary>
             Indicates whether this instance has a customised value mapping
             </summary>
             <returns>true if a specific value is set</returns>
-        </member>
-        <member name="P:Google.ProtoBuf.ProtoEnumAttribute.Value">
-            <summary>
-            Gets or sets the specific value to use for this enum during serialization.
-            </summary>
         </member>
         <member name="P:Google.ProtoBuf.ProtoEnumAttribute.Name">
             <summary>
@@ -2332,48 +2680,6 @@
             <summary>
             Provides a simple buffer-based implementation of an <see cref="T:Google.ProtoBuf.IExtension">extension</see> object.
             </summary>
-        </member>
-        <member name="T:Google.ProtoBuf.IExtension">
-            <summary>
-            Provides addition capability for supporting unexpected fields during
-            protocol-buffer serialization/deserialization. This allows for loss-less
-            round-trip/merge, even when the data is not fully understood.
-            </summary>
-        </member>
-        <member name="M:Google.ProtoBuf.IExtension.BeginAppend">
-            <summary>
-            Requests a stream into which any unexpected fields can be persisted.
-            </summary>
-            <returns>A new stream suitable for storing data.</returns>
-        </member>
-        <member name="M:Google.ProtoBuf.IExtension.EndAppend(System.IO.Stream,System.Boolean)">
-            <summary>
-            Indicates that all unexpected fields have now been stored. The
-            implementing class is responsible for closing the stream. If
-            "commit" is not true the data may be discarded.
-            </summary>
-            <param name="stream">The stream originally obtained by BeginAppend.</param>
-            <param name="commit">True if the append operation completed successfully.</param>
-        </member>
-        <member name="M:Google.ProtoBuf.IExtension.BeginQuery">
-            <summary>
-            Requests a stream of the unexpected fields previously stored.
-            </summary>
-            <returns>A prepared stream of the unexpected fields.</returns>
-        </member>
-        <member name="M:Google.ProtoBuf.IExtension.EndQuery(System.IO.Stream)">
-            <summary>
-            Indicates that all unexpected fields have now been read. The
-            implementing class is responsible for closing the stream.
-            </summary>
-            <param name="stream">The stream originally obtained by BeginQuery.</param>
-        </member>
-        <member name="M:Google.ProtoBuf.IExtension.GetLength">
-            <summary>
-            Requests the length of the raw binary stream; this is used
-            when serializing sub-entities to indicate the expected size.
-            </summary>
-            <returns>The length of the binary stream representing unexpected data.</returns>
         </member>
         <member name="T:Google.ProtoBuf.ProtoBeforeSerializationAttribute">
             <summary>Specifies a method on the root-contract in an hierarchy to be invoked before serialization.</summary>
@@ -2645,10 +2951,59 @@
             not recognised.
             </remarks>
         </member>
-        <member name="F:Google.ProtoBuf.Serializer.ListItemTag">
+        <member name="T:Google.ProtoBuf.Serializer.GlobalOptions">
             <summary>
-            The implicit tag used when serializing lists and other enumerable data.
+            Global switches that change the behavior of protobuf-net
             </summary>
+        </member>
+        <member name="T:Google.ProtoBuf.Serializer.NonGeneric">
+            <summary>
+            Provides non-generic, reflection-based access to Serializer functionality
+            </summary>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.SerializeWithLengthPrefix(System.IO.Stream,System.Object,Google.ProtoBuf.PrefixStyle,System.Int32)">
+            <summary>
+            Writes a protocol-buffer representation of the given instance to the supplied stream.
+            </summary>
+            <param name="instance">The existing instance to be serialized (cannot be null).</param>
+            <param name="style">How to encode the length prefix.</param>
+            <param name="destination">The destination stream to write to.</param>
+            <param name="tag">The tag used as a prefix to each record (only used with base-128 style prefixes).</param>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.Serialize(System.IO.Stream,System.Object)">
+            <summary>
+            Writes a protocol-buffer representation of the given instance to the supplied stream.
+            </summary>
+            <param name="instance">The existing instance to be serialized (cannot be null).</param>
+            <param name="destination">The destination stream to write to.</param>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.TryDeserializeWithLengthPrefix(System.IO.Stream,Google.ProtoBuf.PrefixStyle,Google.ProtoBuf.Getter{System.Int32,System.Type},System.Object@)">
+            <summary>
+            Deserialize object of unknown types from in input stream.
+            </summary>
+            <param name="source">The input stream.</param>
+            <param name="style">The prefix style used to encode the lengths.</param>
+            <param name="typeReader">The caller must provide a mechanism to resolve a Type from
+            the tags encountered in the stream. If the delegate returns null, then the instance
+            is skipped - otherwise, the object is deserialized according to type.</param>
+            <param name="item">The deserialized instance, or null if the stream terminated.</param>
+            <returns>True if an object was idenfified; false if the stream terminated. Note
+            that unexpected types are skipped.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.Deserialize(System.Type,System.IO.Stream)">
+            <summary>
+            Creates a new instance from a protocol-buffer stream
+            </summary>
+            <param name="type">The type to be created.</param>
+            <param name="source">The binary stream to apply to the new instance (cannot be null).</param>
+            <returns>A new, initialized instance.</returns>
+        </member>
+        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.DeepClone(System.Object)">
+            <summary>
+            Create a deep clone of the supplied instance; any sub-items are also cloned.
+            </summary>
+            <param name="instance">The existing instance to be cloned.</param>
+            <returns>A new copy, cloned from the supplied instance.</returns>
         </member>
         <member name="M:Google.ProtoBuf.Serializer.TryGetTag(System.Reflection.MemberInfo,System.Int32@,System.String@,Google.ProtoBuf.DataFormat@,Google.ProtoBuf.MemberSerializationOptions@)">
             <summary>
@@ -2674,6 +3029,11 @@
             <typeparam name="T">The type to be created.</typeparam>
             <param name="source">The binary stream to apply to the new instance (cannot be null).</param>
             <returns>A new, initialized instance.</returns>
+        </member>
+        <member name="F:Google.ProtoBuf.Serializer.ListItemTag">
+            <summary>
+            The implicit tag used when serializing lists and other enumerable data.
+            </summary>
         </member>
         <member name="M:Google.ProtoBuf.Serializer.DeserializeItems``1(System.IO.Stream,Google.ProtoBuf.PrefixStyle,System.Int32)">
             <summary>
@@ -2860,59 +3220,66 @@
             </summary>
             <typeparam name="T">The object type to prepare.</typeparam>
         </member>
-        <member name="T:Google.ProtoBuf.Serializer.GlobalOptions">
+        <member name="T:Google.ProtoBuf.IExtensible">
             <summary>
-            Global switches that change the behavior of protobuf-net
+            Indicates that the implementing type has support for protocol-buffer
+            <see cref="T:Google.ProtoBuf.IExtension">extensions</see>.
+            </summary>
+            <remarks>Can be implemented by deriving from <see cref="T:Google.ProtoBuf.Extensible"/>.</remarks>
+        </member>
+        <member name="M:Google.ProtoBuf.IExtensible.GetExtensionObject(System.Boolean)">
+            <summary>
+            Retrieves the <see cref="T:Google.ProtoBuf.IExtension">extension</see> object for the current
+            instance, optionally creating it if it does not already exist.
+            </summary>
+            <param name="createIfMissing">Should a new extension object be
+            created if it does not already exist?</param>
+            <returns>The extension object if it exists (or was created), or null
+            if the extension object does not exist or is not available.</returns>
+            <remarks>The <c>createIfMissing</c> argument is false during serialization,
+            and true during deserialization upon encountering unexpected fields.</remarks>
+        </member>
+        <member name="T:Google.ProtoBuf.IExtension">
+            <summary>
+            Provides addition capability for supporting unexpected fields during
+            protocol-buffer serialization/deserialization. This allows for loss-less
+            round-trip/merge, even when the data is not fully understood.
             </summary>
         </member>
-        <member name="T:Google.ProtoBuf.Serializer.NonGeneric">
+        <member name="M:Google.ProtoBuf.IExtension.BeginAppend">
             <summary>
-            Provides non-generic, reflection-based access to Serializer functionality
+            Requests a stream into which any unexpected fields can be persisted.
             </summary>
+            <returns>A new stream suitable for storing data.</returns>
         </member>
-        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.SerializeWithLengthPrefix(System.IO.Stream,System.Object,Google.ProtoBuf.PrefixStyle,System.Int32)">
+        <member name="M:Google.ProtoBuf.IExtension.EndAppend(System.IO.Stream,System.Boolean)">
             <summary>
-            Writes a protocol-buffer representation of the given instance to the supplied stream.
+            Indicates that all unexpected fields have now been stored. The
+            implementing class is responsible for closing the stream. If
+            "commit" is not true the data may be discarded.
             </summary>
-            <param name="instance">The existing instance to be serialized (cannot be null).</param>
-            <param name="style">How to encode the length prefix.</param>
-            <param name="destination">The destination stream to write to.</param>
-            <param name="tag">The tag used as a prefix to each record (only used with base-128 style prefixes).</param>
+            <param name="stream">The stream originally obtained by BeginAppend.</param>
+            <param name="commit">True if the append operation completed successfully.</param>
         </member>
-        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.Serialize(System.IO.Stream,System.Object)">
+        <member name="M:Google.ProtoBuf.IExtension.BeginQuery">
             <summary>
-            Writes a protocol-buffer representation of the given instance to the supplied stream.
+            Requests a stream of the unexpected fields previously stored.
             </summary>
-            <param name="instance">The existing instance to be serialized (cannot be null).</param>
-            <param name="destination">The destination stream to write to.</param>
+            <returns>A prepared stream of the unexpected fields.</returns>
         </member>
-        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.TryDeserializeWithLengthPrefix(System.IO.Stream,Google.ProtoBuf.PrefixStyle,Google.ProtoBuf.Getter{System.Int32,System.Type},System.Object@)">
+        <member name="M:Google.ProtoBuf.IExtension.EndQuery(System.IO.Stream)">
             <summary>
-            Deserialize object of unknown types from in input stream.
+            Indicates that all unexpected fields have now been read. The
+            implementing class is responsible for closing the stream.
             </summary>
-            <param name="source">The input stream.</param>
-            <param name="style">The prefix style used to encode the lengths.</param>
-            <param name="typeReader">The caller must provide a mechanism to resolve a Type from
-            the tags encountered in the stream. If the delegate returns null, then the instance
-            is skipped - otherwise, the object is deserialized according to type.</param>
-            <param name="item">The deserialized instance, or null if the stream terminated.</param>
-            <returns>True if an object was idenfified; false if the stream terminated. Note
-            that unexpected types are skipped.</returns>
+            <param name="stream">The stream originally obtained by BeginQuery.</param>
         </member>
-        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.Deserialize(System.Type,System.IO.Stream)">
+        <member name="M:Google.ProtoBuf.IExtension.GetLength">
             <summary>
-            Creates a new instance from a protocol-buffer stream
+            Requests the length of the raw binary stream; this is used
+            when serializing sub-entities to indicate the expected size.
             </summary>
-            <param name="type">The type to be created.</param>
-            <param name="source">The binary stream to apply to the new instance (cannot be null).</param>
-            <returns>A new, initialized instance.</returns>
-        </member>
-        <member name="M:Google.ProtoBuf.Serializer.NonGeneric.DeepClone(System.Object)">
-            <summary>
-            Create a deep clone of the supplied instance; any sub-items are also cloned.
-            </summary>
-            <param name="instance">The existing instance to be cloned.</param>
-            <returns>A new copy, cloned from the supplied instance.</returns>
+            <returns>The length of the binary stream representing unexpected data.</returns>
         </member>
         <member name="T:Google.ProtoBuf.ImplicitFields">
             <summary>
@@ -3012,6 +3379,11 @@
             wrappers.
             </summary>
         </member>
+        <member name="T:Google.ProtoBuf.Property.PropertyFactory.PassThruCache`1">
+            <summary>
+            Stores, per T, a pass-thru Getter&lt;T,T&gt; delegate.
+            </summary>
+        </member>
         <member name="M:Google.ProtoBuf.Property.PropertyFactory.GetPassThru``1">
             <summary>
             Returns a Getter&lt;T,T&gt; delegate that simply returns
@@ -3037,11 +3409,6 @@
             <summary>
             Responsible for deciding how to encode/decode a given data-type; maybe
             not the most elegant solution, but it is simple and quick.
-            </summary>
-        </member>
-        <member name="T:Google.ProtoBuf.Property.PropertyFactory.PassThruCache`1">
-            <summary>
-            Stores, per T, a pass-thru Getter&lt;T,T&gt; delegate.
             </summary>
         </member>
         <member name="T:Google.ProtoBuf.Property.PropertyMessageGroup`4">
@@ -3234,361 +3601,6 @@
         <member name="F:Google.ProtoBuf.WireType.Fixed32">
             <summary>
             Fixed-length 4-byte encoding
-            </summary>
-        </member>
-        <member name="T:Imps.Services.CommonV4.RpcClientContext">
-            <summary>
-            	管理Rpc客户端调用的异步上下文
-            </summary>
-        </member>
-        <member name="T:Imps.Services.CommonV4.RpcErrorCode">
-            <summary>
-            	Rpc返回码
-            </summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.OK">
-            <summary>成功</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.SendFailed">
-            <summary>在客户端发送阶段产生错误</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.SendPending">
-            <summary>客户端通道过于拥挤，无法发送</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.TransactionTimeout">
-            <summary>Transaction超时, 在规定时间内未收到服务器应答</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.TransactionBusy">
-            <summary>客户端事务忒忙，无法创建</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ConnectionTimeout">
-            <summary>建立连接超时，在某些连接模式的Channel中会抛出</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ConnectionBroken">
-            <summary>连接断开失效，在连接模式的Channel中抛出</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ConnectionPending">
-            <summary>连接堵塞, 当对某一台服务器创建了太多无法使用的连接时抛出</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServiceNotFound">
-            <summary>服务未找到, 已到达Server端，由Rpc分发器返回</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.MethodNotFound">
-            <summary>方法未找到, 已到达Server端，由Rpc分发器返回</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServerError">
-            <summary>内部错误, Server端返回, 可能为应用抛出</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServerBusy">
-            <summary>服务器忙, 保护性错误</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.InvaildRequestArgs">
-            <summary>请求格式错误，可能为序列化错误，或内部报文格式错误</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.InvaildResponseArgs">
-            <summary>应答格式错误，可能为序列化错误，或内部报文格式错误</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ConnectionFailed">
-            <summary>连接状态维护失败，由服务器返回错误</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServerTimeout">
-            <summary>服务器转发，或处理超时</summary>
-            <remarks>TransacionTimeout为客户端未收到应答，ServerTimeout由服务器明确给出超时应答，在SGW或转发类服务中出现</remarks>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.ServerTransferFailed">
-            <summary>服务器转发错误</summary>
-        </member>
-        <member name="F:Imps.Services.CommonV4.RpcErrorCode.Unknown">
-            <summary>未知错误</summary>
-        </member>
-        <member name="T:Imps.Services.CommonV4.RpcServerContext">
-            <summary>
-            	在Server端管理Rpc方法
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcServerContext.GetContextUri``1">
-            <summary>
-            	获取一个特定类型的上下文Uri
-            </summary>
-            <typeparam name="T">Uri类型</typeparam>
-            <returns>T类型的Uri</returns>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcServerContext.GetArgs``1">
-            <summary>
-            	获取请求参数
-            </summary>
-            <typeparam name="T">请求参数类型</typeparam>
-            <returns>请求参数</returns>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcServerContext.Return">
-            <summary>
-            	无参数成功返回
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcServerContext.ReturnIf``1(``0,System.Func{System.Int32,System.Boolean})">
-            <summary>
-            有条件的返回
-            </summary>
-            <typeparam name="TResults"></typeparam>
-            <param name="results"></param>
-            <param name="ifProc"></param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcServerContext.Return``1(``0)">
-            <summary>
-            	带参数成功返回
-            </summary>
-            <typeparam name="T">参数类型</typeparam>
-            <param name="results">返回参数</param>
-            <remarks>返回null等同于无参数返回</remarks>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcServerContext.ThrowException(System.Exception)">
-            <summary>
-            	抛出异常到客户端
-            </summary>
-            <param name="ex">异常</param>
-            <remarks>等同于在方法中直接抛出异常，但可以在方法外异步抛出</remarks>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcServerContext.ReturnError(Imps.Services.CommonV4.RpcErrorCode,System.Exception)">
-            <summary>
-            	返回错误到客户端
-            </summary>
-            <param name="errCode">错误码</param>
-            <param name="ex">异常</param>
-        </member>
-        <member name="P:Imps.Services.CommonV4.RpcServerContext.From">
-            <summary>
-            	来源 "服务@机器名"
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.RpcServerContext.FromService">
-            <summary>
-            	来源服务
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.RpcServerContext.FromComputer">
-            <summary>
-            	来源机器名
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.RpcServerContext.ServiceName">
-            <summary>
-            	访问Rpc服务名
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.RpcServerContext.MethodName">
-            <summary>
-            	访问Rpc方法名
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.RpcServerContext.Connection">
-            <summary>
-            	关联的Rpc连接
-            </summary>
-            <remarks>无连接模式下为null</remarks>
-        </member>
-        <member name="P:Imps.Services.CommonV4.RpcServerContext.Channel">
-            <summary>
-            	关联的通道
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.RpcServerContext.HasReturned">
-            <summary>
-            	是否已经调用过Return方法
-            </summary>
-            <remarks>调用Return方法，或在方法中抛出异常，均视为返回到客户端，结果仅返回一次</remarks>
-        </member>
-        <member name="P:Imps.Services.CommonV4.RpcServerContext.ContextUri">
-            <summary>
-            	上下文相关的Uri
-            </summary>
-            <remarks>可能为IdUri，GroupUri等，由客户端送上来的用户关联Uri</remarks>
-        </member>
-        <member name="T:Imps.Services.CommonV4.RpcProxyFactory">
-            <summary>
-            	获取Rpc客户端代理的工厂类
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.RegisterClientChannel(Imps.Services.CommonV4.Rpc.RpcClientChannel)">
-            <summary>
-            	注册客户端Channel
-            </summary>
-            <param name="channel">具体的Channel实体</param>
-            <remarks>一般来说，客户端Channel针对每种协议注册一个便可以</remarks>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.GetConnection(Imps.Services.CommonV4.ServerUri,System.String)">
-            <summary>
-            	获取一个连接
-            </summary>
-            <param name="serverUri"></param>
-            <param name="serviceRole"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.GetProxy``1(System.String)">
-            <summary>
-            	获取一个Rpc客户端代理
-            </summary>
-            <typeparam name="T">Rpc的声明Interface</typeparam>
-            <param name="uri">服务器的具体网络地址，如: sipc://192.168.1.100:5700</param>
-            <returns>Rpc客户端代理了类</returns>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.GetProxy``1(Imps.Services.CommonV4.ServerUri)">
-            <summary>
-            	获取一个Rpc客户端代理
-            </summary>
-            <typeparam name="T">Rpc的声明Interface</typeparam>
-            <param name="uri">服务器的具体网络地址实体类，如: sipc://192.168.1.100:5700</param>
-            <returns>Rpc客户端代理类</returns>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcProxyFactory.GetProxy``1(Imps.Services.CommonV4.ResolvableUri)">
-            <summary>
-            	通过可路由Uri，获取一个Rpc客户端代理
-            </summary>
-            <typeparam name="T">Rpc的声明Interface</typeparam>
-            <param name="uri">一个可用于路由的Uri实体类，例如IdUri或GroupUri</param>
-            <returns>Rpc客户端代理类</returns>
-        </member>
-        <member name="P:Imps.Services.CommonV4.RpcServiceAttribute.ClientChecking">
-            <summary>
-            	是否在客户端进行强制命名检查
-            </summary>
-        </member>
-        <member name="P:Imps.Services.CommonV4.RpcServiceAttribute.EnableCounters">
-            <summary>
-            	
-            </summary>
-        </member>
-        <member name="T:Imps.Services.CommonV4.RpcServiceManager">
-            <summary>
-            	管理所有的RpcService
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcServiceManager.RegisterServerChannel(Imps.Services.CommonV4.Rpc.RpcServerChannel)">
-            <summary>
-            	注册服务信道
-            </summary>
-            <param name="channel">待注册的信道</param>
-            <remarks>同一种信道如果监听不同的端口，可以注册多个</remarks>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcServiceManager.HasService(System.String)">
-            <summary>
-            	检测RpcService是否有注册
-            </summary>
-            <param name="serviceName">服务名</param>
-            <returns>是否已注册</returns>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcServiceManager.RegisterRawService(Imps.Services.CommonV4.RpcServiceBase)">
-            <summary>
-            	注册派生自RpcSerivceBase的原生服务
-            </summary>
-            <param name="service">服务对象</param>
-            <remarks>每个名字的服务对象仅能注册一次</remarks>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcServiceManager.RegisterService``1(``0)">
-            <summary>
-            	注册继承自rpc interface的服务
-            </summary>
-            <typeparam name="T">interface的类型</typeparam>
-            <param name="service">服务对象</param>
-            <remarks>每个类型的服务对象仅能注册一次</remarks>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcServiceManager.RegisterService``1(System.String,``0)">
-            <summary>
-            	注册继承自rpc interface的服务，并用ServiceName覆盖服务名
-            </summary>
-            <typeparam name="T">interface的类型</typeparam>
-            <param name="serviceName">服务名></param>
-            <param name="service">服务对象</param>
-            <remarks>每个类型的服务对象仅能注册一次</remarks>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcServiceManager.Start">
-            <summary>
-            	启动所有的Channels，开始监听
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.RpcServiceManager.Stop">
-            <summary>
-            	停止所有的Channels
-            </summary>
-        </member>
-        <member name="T:Imps.Services.CommonV4.ITracing">
-            <summary>
-            	处理IICTracing的接口
-            <seealso cref="T:Imps.Services.CommonV4.TracingManager"/>
-            <remarks>请从TracingManager.GetTracing系列方法获得一个可用的接口</remarks>
-            </summary>
-        </member>
-        <member name="M:Imps.Services.CommonV4.ITracing.Info(System.String)">
-            <summary>
-            	记录Info级别的日志
-            </summary>
-            <param name="message"></param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.ITracing.Info(System.String,System.String,System.String)">
-            <summary>
-            	记录Info级别的日志
-            </summary>
-            <param name="from"></param>
-            <param name="to"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.ITracing.Info(System.Exception,System.String)">
-            <summary>
-            	记录Info级别的日志
-            </summary>
-            <param name="exception"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.ITracing.Info(System.Exception,System.String,System.String,System.String)">
-            <summary>
-            	记录Info级别的日志
-            </summary>
-            <param name="exception"></param>
-            <param name="from"></param>
-            <param name="to"></param>
-            <param name="message"></param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.ITracing.InfoFmt(System.String,System.Object[])">
-            <summary>
-            	记录Info级别的日志
-            </summary>
-            <param name="format"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.ITracing.InfoFmt(System.Exception,System.String,System.Object[])">
-            <summary>
-            	记录Info级别的日志
-            </summary>
-            <param name="exception"></param>
-            <param name="format"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.ITracing.InfoFmt2(System.String,System.String,System.String,System.Object[])">
-            <summary>
-            	记录Info级别的日志
-            </summary>
-            <param name="from"></param>
-            <param name="to"></param>
-            <param name="format"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.ITracing.InfoFmt2(System.Exception,System.String,System.String,System.String,System.Object[])">
-            <summary>
-            	记录Info级别的日志
-            </summary>
-            <param name="exception"></param>
-            <param name="from"></param>
-            <param name="to"></param>
-            <param name="format"></param>
-            <param name="args"></param>
-        </member>
-        <member name="M:Imps.Services.CommonV4.ITracing.Warn(System.String)">
-            <summary>
-            	记录Warn级别的日志
-            </summary>
-        </member>
-        <member name="T:Imps.Services.CommonV4.TracingManager">
-            <summary>
-            	TracingManager
             </summary>
         </member>
     </members>
