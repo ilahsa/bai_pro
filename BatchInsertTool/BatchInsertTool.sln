@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BatchInsertTool", "BatchInsertTool\BatchInsertTool.csproj", "{C107CEDA-FAFA-412B-8EB2-435226DDD201}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ref", "Ref", "{278ED8C4-2E48-4B32-85FF-EC6B4FD3EAFE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IICCommonLibrary", "..\CommonLibrary\IICCommonLibrary\IICCommonLibrary.csproj", "{775F0E58-0B3C-4547-B82C-5CB201E8C21C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StatDau", "StatDau\StatDau.csproj", "{991AD214-CF28-42CE-B2AB-277722ABD0E2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C107CEDA-FAFA-412B-8EB2-435226DDD201}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C107CEDA-FAFA-412B-8EB2-435226DDD201}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C107CEDA-FAFA-412B-8EB2-435226DDD201}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C107CEDA-FAFA-412B-8EB2-435226DDD201}.Release|Any CPU.Build.0 = Release|Any CPU
+		{775F0E58-0B3C-4547-B82C-5CB201E8C21C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{775F0E58-0B3C-4547-B82C-5CB201E8C21C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{775F0E58-0B3C-4547-B82C-5CB201E8C21C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{775F0E58-0B3C-4547-B82C-5CB201E8C21C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{991AD214-CF28-42CE-B2AB-277722ABD0E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{991AD214-CF28-42CE-B2AB-277722ABD0E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{991AD214-CF28-42CE-B2AB-277722ABD0E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{991AD214-CF28-42CE-B2AB-277722ABD0E2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{775F0E58-0B3C-4547-B82C-5CB201E8C21C} = {278ED8C4-2E48-4B32-85FF-EC6B4FD3EAFE}
+	EndGlobalSection
+EndGlobal

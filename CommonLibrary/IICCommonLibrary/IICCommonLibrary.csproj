@@ -103,6 +103,7 @@
     <Compile Include="0. Library\Remoting\RemotingProxyFactory.cs" />
     <Compile Include="0. Library\Remoting\RemotingService.cs" />
     <Compile Include="0. Library\Threading\TaskDelay.cs" />
+    <Compile Include="0. Library\Utils\RegexTool.cs" />
     <Compile Include="0. Library\Utils\MD5Hashing.cs" />
     <Compile Include="1. Foundation\Serialization\JsonSerializer.cs" />
     <Compile Include="2. Framework\Net\Server\AsyncSocketConnection.cs" />

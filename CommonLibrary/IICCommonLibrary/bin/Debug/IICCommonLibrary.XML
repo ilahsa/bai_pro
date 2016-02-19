@@ -212,6 +212,179 @@
             <exception cref="T:System.ArgumentOutOfRangeException">dueTime</exception>
             <exception cref="T:System.ArgumentNullException">callback is null</exception>
         </member>
+        <member name="T:Imps.Services.CommonV4.RegexTool">
+            <summary>
+            正则表达式工具,满足各种需要使用正则的需求
+            </summary>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.CheckContainsByReg(System.String,System.String)">
+            <summary>
+            检测字符串中是否包含符合正则的子集
+            </summary>
+            <param name="source">源字符串</param>
+            <param name="reg">正则, e.g. \d+</param>
+            <returns>true:包含，反之不包含</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.CheckStringByReg(System.String,System.String)">
+            <summary>
+            检测整个字符串是否能匹配正则,而不是包含
+            </summary>
+            <param name="source">源字符串</param>
+            <param name="reg">正则, e.g. ^\d+$</param>
+            <returns>true:匹配，反之不匹配</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.GetFirstStringByReg(System.String,System.String)">
+            <summary>
+            从指定字符串中过滤出第一个符合正则匹配的子集
+            </summary>
+            <param name="source">源字符串</param>
+            <param name="reg">正则, e.g. \d+</param>
+            <returns>源字符串的第一个匹配的子集</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.GetStringByReg(System.String,System.String)">
+            <summary>
+            从指定字符串中过滤出所有符合正则匹配的子集
+            </summary>
+            <param name="source">源字符串</param>
+            <param name="reg">正则, e.g. \d+</param>
+            <returns>true:匹配，反之不匹配</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.GetFirstNumberByString(System.String)">
+            <summary>
+            从指定字符串中过滤出第一个数字
+            </summary>
+            <param name="source">源字符串</param>
+            <returns>源字符串的第一个数字</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.GetLastNumberByString(System.String)">
+            <summary>
+            从指定字符串中过滤出最后一个数字
+            </summary>
+            <param name="source">源字符串</param>
+            <returns>源字符串的最后一个数字</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.GetAllNumberByString(System.String)">
+            <summary>
+            从指定字符串中过滤出所有数字
+            </summary>
+            <param name="source">源字符串</param>
+            <returns>源字符串的所有数字</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.CheckNumberByString(System.String)">
+            <summary>
+            检车源字符串中是否包含数字
+            </summary>
+            <param name="source">源字符串</param>
+            <returns>true:源字符串包含数字;false:源字符串不包含数字</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.CheckLengthByString(System.String,System.Int32)">
+            <summary>
+            判断字符串是否全部是数字且长度等于指定长度
+            </summary>
+            <param name="source">源字符串</param>
+            <param name="length">指定长度</param>
+            <returns>返回值</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.Substring(System.String,System.String,System.String)">
+            <summary>
+            截取字符串中开始和结束字符串中间的字符串
+            </summary>
+            <param name="source">源字符串</param>
+            <param name="startStr">开始字符串</param>
+            <param name="endStr">结束字符串</param>
+            <returns>中间字符串</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.CheckEmailByString(System.String)">
+            <summary>
+            匹配邮箱是否合法
+            </summary>
+            <param name="source">待匹配字符串</param>
+            <returns>匹配结果true是邮箱反之不是邮箱</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.CheckURLByString(System.String)">
+            <summary>
+            匹配URL是否合法
+            </summary>
+            <param name="source">待匹配字符串</param>
+            <returns>匹配结果true是URL反之不是URL</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.CheckDateByString(System.String)">
+            <summary>
+            匹配日期是否合法
+            </summary>
+            <param name="source">待匹配字符串</param>
+            <returns>匹配结果true是日期反之不是日期</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.GetFirstDateByString(System.String)">
+            <summary>
+            从字符串中获取第一个日期
+            </summary>
+            <param name="source">源字符串</param>
+            <returns>源字符串中的第一个日期</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.GetAllDateByString(System.String)">
+            <summary>
+            从字符串中获取所有的日期
+            </summary>
+            <param name="source">源字符串</param>
+            <returns>源字符串中的所有日期</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.CheckPasswordByString(System.String)">
+            <summary>
+            检测密码复杂度是否达标：密码中必须包含字母、数字、特称字符，至少8个字符，最多16个字符。
+            </summary>
+            <param name="source">待匹配字符串</param>
+            <returns>密码复杂度是否达标true是达标反之不达标</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.CheckPostcodeByString(System.String)">
+            <summary>
+            匹配邮编是否合法
+            </summary>
+            <param name="source">待匹配字符串</param>
+            <returns>邮编合法返回true,反之不合法</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.CheckTelephoneByString(System.String)">
+            <summary>
+            匹配电话号码是否合法
+            </summary>
+            <param name="source">待匹配字符串</param>
+            <returns>电话号码合法返回true,反之不合法</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.GetTelephoneByString(System.String)">
+            <summary>
+            从字符串中获取电话号码
+            </summary>
+            <param name="source">源字符串</param>
+            <returns>源字符串中电话号码</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.CheckMobilephoneByString(System.String)">
+            <summary>
+            匹配手机号码是否合法
+            </summary>
+            <param name="source">待匹配字符串</param>
+            <returns>手机号码合法返回true,反之不合法</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.GetMobilephoneByString(System.String)">
+            <summary>
+            从字符串中获取手机号码
+            </summary>
+            <param name="source">源字符串</param>
+            <returns>源字符串中手机号码</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.CheckIDCardByString(System.String)">
+            <summary>
+            匹配身份证号码是否合法
+            </summary>
+            <param name="source">待匹配字符串</param>
+            <returns>身份证号码合法返回true,反之不合法</returns>
+        </member>
+        <member name="M:Imps.Services.CommonV4.RegexTool.GetIDCardByString(System.String)">
+            <summary>
+            从字符串中获取身份证号码
+            </summary>
+            <param name="source">源字符串</param>
+            <returns>源字符串中身份证号码</returns>
+        </member>
         <member name="M:Imps.Services.CommonV4.MD5Hashing.HashString(System.String)">
             <summary>  
             使用utf8编码将字符串散列  
