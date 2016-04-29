@@ -17,6 +17,9 @@ namespace BatchInsertTool
     {
         static void Main(string[] args)
         {
+            //Tuple<string, int> t = new Tuple<string, int>(item1: "test", item2: 1);
+            //Console.WriteLine(t.Item1 + "_" +t.Item2);
+            //return;
             //var strt= @"{""appid"":2312335602,""channel"":""ntsvc"",""event"":""updateresult"",""eggid"":7,""version"":""1000.0.0.112"",""locale"":2058,""os"":""5.1"",""uid"":""{ 4fe985127e49412bb9480bf1f6ec1cc1}"",""amd64"":false,""data"":{""eggid"":7,""parameter"":""update result"",""result"":3758096384}}";
             //var aliveLog1 = JsonConvert.DeserializeObject<Alivelog>(strt);
 
@@ -71,8 +74,8 @@ namespace BatchInsertTool
     out type, out date, out ip, out jsonStr, out eventValue,out killer);
                         if (!b)
                         {
-                            if //(eventValue == "taskresult")
-                            (eventValue == "checkupdate")
+                            if (eventValue == "taskresult" && jsonStr.IndexOf(@"""eggid"":7")>-1)
+                            //(eventValue == "checkupdate")
                             //  (eventValue == "checkupdate2")
                             //(eventValue == "updateresult" || eventValue == "checkupdate")
                             {
@@ -92,14 +95,27 @@ namespace BatchInsertTool
 
                                     if (aliveLog.data != null) {
                                         aliveLog.result = aliveLog.data.result;
+                                        //aliveLog.str1 = aliveLog.data.dsq;
+                                        //aliveLog.str2 = aliveLog.data.kill;
+                                        aliveLog.str1 = aliveLog.data.taskid + "";
+                                        aliveLog.str2 = aliveLog.data.Return+"";
+                                        if (aliveLog.str2.Length > 100) {
+                                            aliveLog.str2 = aliveLog.str2.Substring(0, 100);
+                                        }
+                                        aliveLog.str3 = aliveLog.data.parameter;
+                                        if (aliveLog.str3.Length > 100)
+                                        {
+                                            aliveLog.str3 = aliveLog.str3.Substring(0, 100);
+                                        }
                                     }
                                     aliveLog.Event = eventValue;
+                  
 
                                     aliveLog.kill = killer;
                                     aliveLog.alivetime = DateTime.Parse(date);
                                     aliveLog.ip = ip;
                                         //afilter.Process(aliveLog, aliveLst);
-                                    if (!aliveLst.ContainsKey(aliveLog.uid))
+                                  //  if (!aliveLst.ContainsKey(aliveLog.uid))
                                     {
                                         aliveLst.TryAdd(Guid.NewGuid().ToString(), aliveLog);
                                     }

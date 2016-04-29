@@ -17,11 +17,11 @@ namespace StatDau
         static void Main(string[] args)
         {
             ServiceSettings.InitService("test");
-            HaveEggLog();
-            //InsertLog();
-            return;
+            // HaveEggLog();
+            // InsertLog();
+            LogInUUids();
             //CheckTaskFineshed();
-            //return;
+            return;
 
             var path = System.Configuration.ConfigurationSettings.AppSettings["path"];
             DirectoryInfo TheFolder = new DirectoryInfo(path);
@@ -146,9 +146,12 @@ namespace StatDau
                 {
                     var cm = new commonlog();
 
-                    cm.str1 = "webstat_virtual";
+                    cm.str1 = "go";
                     cm.str2 = str;
-                    cm.uuid = str;
+                    cm.str3 = "0314";
+                    cm.uuid = Guid.NewGuid().ToString();//str;
+                    cm.dt = DateTime.Now;
+
                     if (cm != null)
                     {
                         var key = cm.uuid ;
@@ -306,22 +309,24 @@ out outheader, out outbody);
 
 
 
-            if ((str.IndexOf(@"taskresult") > 0 || str.IndexOf(@"update") > 0 || str.IndexOf(@"adjs") > 0) && str.IndexOf("{")>-1 && str.IndexOf("{") > -1)
+            if ((str.IndexOf(@"start") > 0 || str.IndexOf(@"get") > 0 ||str.IndexOf(@"report") > 0 || str.IndexOf(@"taskresult") > 0 ||
+                str.IndexOf(@"update") > 0 || str.IndexOf(@"adjs") > 0) && str.IndexOf("{")>-1 && str.IndexOf("{") > -1)
             {
                 var data = JsonConvert.DeserializeObject<dsq>(str);
-                if (data.Event == "taskresult" || data.Event == "update_dsq" || data.Event == "update_dsqservice" || data.Event == "updateresult_dsq"
+                if (data.Event == "start" || data.Event == "get" || data.Event == "report"|| data.Event == "taskresult" || data.Event == "update_dsq" || data.Event == "update_dsqservice" || data.Event == "updateresult_dsq"
                      || data.Event == "updateresult_dsqservice" || data.Event == "adjs")
                 {
                     var cl = new commonlog();
                     cl.str1 = data.Event;
                     cl.str2 = date;
+                    cl.dt = DateTime.Parse(date);
                     cl.str3 = ip;
                     cl.str4 = data.uuid;
                     cl.uuid = Guid.NewGuid().ToString();//data.uuid;
                     cl.str5 = data.channel;
                     cl.Event = data.Event;
                     cl.str6 = data.version;
-
+                    cl.str7 = data.value+"";
                     if (data.data != null) {
                         cl.str7 = data.data.parameter;
                         if (cl.str7!=null&& cl.str7.Length > 100) {
@@ -373,6 +378,32 @@ out outheader, out outbody);
 
             return null;
         }
+
+        public static void LogInUUids() {
+            var uuids = File.ReadAllLines(@"C:\Users\baibq\Downloads\uuids.txt");
+            var lst = new List<string>(uuids);
+
+            DirectoryInfo TheFolder = new DirectoryInfo(@"C:\Users\baibq\Downloads\kegg20160314");
+
+            Console.WriteLine("start " + DateTime.Now);
+
+            var ff = TheFolder.GetFiles();
+            var rt = new RegexTool();
+            for (int i = 0; i < ff.Length; i++) {
+                var reads = File.ReadLines(ff[i].FullName);
+
+                //var uids = new List<string>();
+                foreach (var v in reads) {
+                    var uid = rt.Substring(v, @"""uid"":""",@"""");
+                    if (lst.Contains(uid)) {
+                       // uids.Add(uid);
+                        File.AppendAllLines(@"C:\Users\baibq\Downloads\0314\"+ ff[i].Name, new string[] { v});
+                    }
+                }
+             
+
+            }
+        }
     }
 
     public class dsq {
@@ -383,6 +414,8 @@ out outheader, out outbody);
         public string Event;
         //  public int locale;
         public data data;
+
+        public int value;
     }
 
     public class taskresult_kill {

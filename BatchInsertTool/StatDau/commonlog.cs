@@ -47,5 +47,7 @@ namespace StatDau
         [TableField("int6")]
         public Int64 int6;
 
+        [TableField("dt")]
+        public DateTime dt;
     }
 }

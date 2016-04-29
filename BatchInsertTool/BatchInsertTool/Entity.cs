@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace BatchInsertTool
 {
@@ -48,10 +49,28 @@ namespace BatchInsertTool
         [TableField("result")]
         public Int64 result;
 
+        [TableField("str1")]
+        public string str1;
+        [TableField("str2")]
+        public string str2;
+        [TableField("str3")]
+        public string str3;
+        [TableField("str4")]
+        public string str4;
+
     }
 
     public class data {
         public Int64 result;
+        public string dsq;
+        public string kill;
+
+        public int taskid;
+        [JsonProperty(PropertyName ="return")]
+        public Int64 Return;
+
+        public string parameter;
+
     }
     public class Tasklog : EntityBase {
         [TableField("taskid")]
