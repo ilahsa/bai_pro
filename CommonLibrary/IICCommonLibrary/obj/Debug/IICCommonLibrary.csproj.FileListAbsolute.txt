@@ -34,3 +34,4 @@ C:\work\bai_pro\CommonLibrary\IICCommonLibrary\bin\Debug\IICCommonLibrary.dll
 C:\work\bai_pro\CommonLibrary\IICCommonLibrary\bin\Debug\IICCommonLibrary.pdb
 C:\work\bai_pro\CommonLibrary\IICCommonLibrary\obj\Debug\IICCommonLibrary.dll
 C:\work\bai_pro\CommonLibrary\IICCommonLibrary\obj\Debug\IICCommonLibrary.pdb
+C:\work\bai_pro\CommonLibrary\IICCommonLibrary\obj\Debug\IICCommonLibrary.csprojResolveAssemblyReference.cache

@@ -11,6 +11,8 @@ namespace StatDau
     public class commonlog
     {
         public string uuid;
+        public string uid;
+
         public string Event;
 
         [TableField("str1")]

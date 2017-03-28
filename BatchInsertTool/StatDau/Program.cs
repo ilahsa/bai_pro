@@ -19,9 +19,9 @@ namespace StatDau
             ServiceSettings.InitService("test");
             // HaveEggLog();
             // InsertLog();
-            LogInUUids();
+          //  LogInUUids();
             //CheckTaskFineshed();
-            return;
+           // return;
 
             var path = System.Configuration.ConfigurationSettings.AppSettings["path"];
             DirectoryInfo TheFolder = new DirectoryInfo(path);
@@ -283,6 +283,10 @@ out outheader, out outbody);
         }
         public static commonlog update_dsq(string str)
         {
+            if (!(str.IndexOf("updateresult_dsq") > 0 ))
+            {
+                return null;
+            }
             //匹配日期
             string date = null;
             string ip = null;
@@ -309,34 +313,47 @@ out outheader, out outbody);
 
 
 
-            if ((str.IndexOf(@"start") > 0 || str.IndexOf(@"get") > 0 ||str.IndexOf(@"report") > 0 || str.IndexOf(@"taskresult") > 0 ||
+            if ((str.IndexOf(@"checkupdate") > 0 || str.IndexOf(@"start") > 0 || str.IndexOf(@"get") > 0 ||str.IndexOf(@"report") > 0 || str.IndexOf(@"taskresult") > 0 ||
                 str.IndexOf(@"update") > 0 || str.IndexOf(@"adjs") > 0) && str.IndexOf("{")>-1 && str.IndexOf("{") > -1)
             {
                 var data = JsonConvert.DeserializeObject<dsq>(str);
-                if (data.Event == "start" || data.Event == "get" || data.Event == "report"|| data.Event == "taskresult" || data.Event == "update_dsq" || data.Event == "update_dsqservice" || data.Event == "updateresult_dsq"
+                if (data.Event == "checkupdate"||data.Event == "start" || data.Event == "get" || data.Event == "report"|| data.Event == "taskresult" || data.Event == "update_dsq" || data.Event == "update_dsqservice" || data.Event == "updateresult_dsq"
                      || data.Event == "updateresult_dsqservice" || data.Event == "adjs")
                 {
                     var cl = new commonlog();
                     cl.str1 = data.Event;
                     cl.str2 = date;
                     cl.dt = DateTime.Parse(date);
-                    cl.str3 = ip;
+                   // cl.str3 = ip;
                     cl.str4 = data.uuid;
+
+                    if (data.uuid.Length > 60) {
+                        return null;
+                    }
+
                     cl.uuid = Guid.NewGuid().ToString();//data.uuid;
-                    cl.str5 = data.channel;
+                    cl.str5 = data.version;
                     cl.Event = data.Event;
-                    cl.str6 = data.version;
-                    cl.str7 = data.value+"";
-                    if (data.data != null) {
+                    //cl.str6 = data.version;
+                    cl.str6 = data.eggid+"";
+                    //cl.str8 = data.os;
+                    cl.int2 = data.locale;
+                    //if (cl.str5+"".Length > 80) {
+                    //    Console.WriteLine("aaaaa");
+                    //}
+
+                    if (data.data != null)
+                    {
                         cl.str7 = data.data.parameter;
-                        if (cl.str7!=null&& cl.str7.Length > 100) {
+                        if (cl.str7 != null && cl.str7.Length > 100)
+                        {
                             cl.str7 = data.data.parameter.Substring(0, 100);
                         }
-                        cl.str8 = data.data.Result+"";
-                        cl.str9 = data.data.Return+"";
+                        cl.str8 = data.data.Result + "";
+                        cl.str9 = data.data.Return +"";
                         cl.int1 = data.data.taskid;
                     }
-        
+
                     //cl.int1 = data.locale;
                     return cl;
                 }
@@ -408,6 +425,12 @@ out outheader, out outbody);
 
     public class dsq {
         public string uuid;
+        public string uid;
+        public string sid;
+        public string os;
+        public int locale;
+
+        public int eggid;
         public string channel;
         public string version;
         [JsonProperty("event")]
@@ -415,6 +438,7 @@ out outheader, out outbody);
         //  public int locale;
         public data data;
 
+        public status status;
         public int value;
     }
 
@@ -450,6 +474,9 @@ out outheader, out outbody);
 
     public class status {
         public string host;
+
+        [JsonProperty("oid")]
+        public string Oid;
     }
     public class payroll {
         public Int64 completed_at;
