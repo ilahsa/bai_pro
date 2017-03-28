@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HACommon", "..\HACommon\HACommon.csproj", "{8FF49DB0-C4DA-4ABC-B60B-6D5931EC633B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAWorker", "..\HAWorker\HAWorker.csproj", "{657468FA-1127-414C-A620-48D1C0923813}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HAMaster", "HAMaster.csproj", "{15D84E95-0E6D-4094-B000-8079668D7FDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HATest", "HATest\HATest.csproj", "{BBB1186A-E0F7-4AB4-824F-152CE54C9980}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://vstfser.amigo.bjmcc.net:8080/
+		SccProjectUniqueName0 = ..\\HACommon\\HACommon.csproj
+		SccProjectName0 = ../HACommon
+		SccLocalPath0 = ..\\HACommon
+		SccProjectUniqueName1 = ..\\HAWorker\\HAWorker.csproj
+		SccProjectName1 = ../HAWorker
+		SccLocalPath1 = ..\\HAWorker
+		SccProjectUniqueName2 = HAMaster.csproj
+		SccLocalPath2 = .
+		SccProjectUniqueName3 = HATest\\HATest.csproj
+		SccProjectName3 = HATest
+		SccLocalPath3 = HATest
+		SccLocalPath4 = .
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8FF49DB0-C4DA-4ABC-B60B-6D5931EC633B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF49DB0-C4DA-4ABC-B60B-6D5931EC633B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF49DB0-C4DA-4ABC-B60B-6D5931EC633B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF49DB0-C4DA-4ABC-B60B-6D5931EC633B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{657468FA-1127-414C-A620-48D1C0923813}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{657468FA-1127-414C-A620-48D1C0923813}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{657468FA-1127-414C-A620-48D1C0923813}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{657468FA-1127-414C-A620-48D1C0923813}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15D84E95-0E6D-4094-B000-8079668D7FDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15D84E95-0E6D-4094-B000-8079668D7FDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15D84E95-0E6D-4094-B000-8079668D7FDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15D84E95-0E6D-4094-B000-8079668D7FDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBB1186A-E0F7-4AB4-824F-152CE54C9980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBB1186A-E0F7-4AB4-824F-152CE54C9980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBB1186A-E0F7-4AB4-824F-152CE54C9980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBB1186A-E0F7-4AB4-824F-152CE54C9980}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
